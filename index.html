@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Only Bubatz — Bubatz Gear für Kenner</title>
+  <meta name="description" content="Grinder, Bong, Blättchen und Filter — handverlesen, diskret verpackt und in 24 Stunden bei dir. Only Bubatz, nur für Erwachsene ab 18 Jahren.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+</head>
+<body>
+
+  <div class="announce">Kostenfreier Versand ab 49 € — Express Lieferung idR. in 24h</div>
+
+  <header class="site-head">
+    <div class="head-inner">
+      <a class="logo" href="index.html"><img class="logo-mark" src="assets/logo.png" alt="Only Bubatz Logo" width="40" height="44">ONLY<span>BUBATZ</span></a>
+      <nav class="nav" id="nav">
+        <a href="shop.html">Shop</a>
+        <a href="ueber-uns.html">Über uns</a>
+        <a href="mystery-box.html">Mystery Box</a>
+        <a href="mix-match.html">Mix &amp; Match</a>
+        <a href="sessions.html">Sessions</a>
+        <a href="deals.html" class="nav-deals">Deals</a>
+        <a href="login.html">Login</a>
+      </nav>
+      <div class="head-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Hell/Dunkel wechseln"></button>
+        <button class="icon-btn" id="cartBtn" aria-label="Warenkorb öffnen"></button>
+        <button class="icon-btn nav-burger" id="navBurger" aria-label="Menü öffnen">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-glow"></div>
+      <div class="container hero-flex">
+        <div class="hero-copy">
+          <p class="hero-kicker">Handverlesenes Raucherzubehör · ab 49 € versandfrei</p>
+          <h1>Bubatz Gear für<br><em>Kenner.</em></h1>
+          <p class="sub">Grinder, Bong, Blättchen und Filter — handverlesen, diskret verpackt und in 24 Stunden bei dir.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="shop.html">Entdecke alle Produkte</a>
+            <a class="btn" href="mystery-box.html">Mystery Box</a>
+            <a class="btn" href="mix-match.html">Mix &amp; Match</a>
+          </div>
+        </div>
+        <div class="hero-media">
+          <div class="hero-card">
+            <img src="assets/hero-volcano.png" width="640" height="640" loading="eager" fetchpriority="high" alt="VOLCANO CLASSIC Vaporizer">
+            <a class="hero-card-cta" href="produkt.html?handle=volcano-classic-vaporizer">Bequem versandt. Express in 24h</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee">
+      <div class="marquee-track">
+        <span>Versand in 24h <b>★</b> Diskrete Verpackung <b>★</b> Ab 49 € versandkostenfrei <b>★</b> Handverlesene Ware <b>★</b></span>
+        <span>Versand in 24h <b>★</b> Diskrete Verpackung <b>★</b> Ab 49 € versandkostenfrei <b>★</b> Handverlesene Ware <b>★</b></span>
+      </div>
+    </div>
+
+    <!-- Deal der Woche -->
+    <section class="section" id="dealSection">
+      <div class="container">
+        <div class="sec-head">
+          <div>
+            <p class="kicker">Angebot</p>
+            <h2>Deal der Woche</h2>
+          </div>
+          <a class="sec-link" href="deals.html">Alle Deals ansehen →</a>
+        </div>
+        <div class="featured-deal" id="featuredDeal"></div>
+      </div>
+    </section>
+
+    <!-- Kategorien -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="sec-head">
+          <div>
+            <p class="kicker">Sortiment</p>
+            <h2>Shop nach Kategorie</h2>
+          </div>
+        </div>
+        <div class="cat-grid">
+          <a class="cat-tile" href="shop.html?cat=filter">
+            <span class="cat-ico" id="ico-filter"></span>
+            <h3>Filter &amp; Tips</h3>
+            <p id="count-filter">Aktivkohle- &amp; Cellulosefilter</p>
+          </a>
+          <a class="cat-tile" href="shop.html?cat=papes">
+            <span class="cat-ico" id="ico-papes"></span>
+            <h3>Papes &amp; Blättchen</h3>
+            <p id="count-papes">Papers, Longpapes, Hanf</p>
+          </a>
+          <a class="cat-tile" href="shop.html?cat=grinder">
+            <span class="cat-ico" id="ico-grinder"></span>
+            <h3>Grinder &amp; Mühlen</h3>
+            <p id="count-grinder">Metall, CNC, Pollinator</p>
+          </a>
+          <a class="cat-tile" href="shop.html?cat=storage">
+            <span class="cat-ico" id="ico-storage"></span>
+            <h3>Aufbewahrung &amp; Zubehör</h3>
+            <p id="count-storage">Stash, Dosen, Taschen</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bestseller & Deals -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="sec-head">
+          <div>
+            <p class="kicker">Auswahl</p>
+            <h2>Bestseller &amp; Deals</h2>
+          </div>
+          <a class="sec-link" href="shop.html">Alle 120 Produkte →</a>
+        </div>
+        <div class="grid" id="bestsellerGrid"></div>
+      </div>
+    </section>
+
+    <!-- Warum bei uns -->
+    <section class="section why reveal">
+      <div class="container">
+        <div class="sec-head">
+          <div>
+            <p class="kicker">Deine Vorteile</p>
+            <h2>Warum bei uns bestellen?</h2>
+          </div>
+        </div>
+        <p class="lead">Handverlesene Qualität, diskreter Versand und ein Service, der sich um dich kümmert — seit Tag eins.</p>
+        <div class="why-grid">
+          <div class="why-card">
+            <span class="why-ico" data-ico="zap"></span>
+            <h3>Express in 24h</h3>
+            <p>Bestellungen vor 14 Uhr verlassen unser Lager am selben Tag.</p>
+          </div>
+          <div class="why-card">
+            <span class="why-ico" data-ico="box"></span>
+            <h3>Diskrete Verpackung</h3>
+            <p>Neutraler Karton ohne Absender — niemand sieht, was drin ist.</p>
+          </div>
+          <div class="why-card">
+            <span class="why-ico" data-ico="truck"></span>
+            <h3>Ab 49 € versandkostenfrei</h3>
+            <p>Kein Versandkosten-Ärger: ab 49 € Bestellwert liefern wir gratis.</p>
+          </div>
+          <div class="why-card">
+            <span class="why-ico" data-ico="shield"></span>
+            <h3>Sicher bezahlen</h3>
+            <p>Visa, Mastercard, PayPal, Klarna, Apple Pay &amp; SEPA — verschlüsselt.</p>
+          </div>
+          <div class="why-card">
+            <span class="why-ico" data-ico="leaf"></span>
+            <h3>Handverlesene Qualität</h3>
+            <p>Jedes Produkt wird geprüft, bevor es ins Sortiment kommt.</p>
+          </div>
+          <div class="why-card">
+            <span class="why-ico" data-ico="grinder"></span>
+            <h3>Kuratiertes Sortiment</h3>
+            <p>Nur Marken, die wir selbst nutzen — kein beliebiger Massenware-Katalog.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section">
+      <div class="container">
+        <div class="newsletter">
+          <h2>Bleib auf dem Laufenden</h2>
+          <p>Neue Drops, Deals und Sessions-Tipps — direkt in dein Postfach. Kein Spam.</p>
+          <form id="newsletterForm" novalidate>
+            <input type="email" id="newsEmail" placeholder="deine@email.de" required aria-label="E-Mail-Adresse">
+            <button class="btn btn-primary" type="submit">Anmelden</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="foot-grid">
+      <div class="foot-col foot-brand">
+        <a class="logo" href="index.html">ONLY<span>BUBATZ</span></a>
+        <p>Handverlesenes Zubehör für Kenner. Diskret verpackt, in 24 Stunden bei dir. Nur für Erwachsene ab 18 Jahren.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Shop</h4>
+        <a href="shop.html">Alle Produkte</a>
+        <a href="deals.html">Deals</a>
+        <a href="mystery-box.html">Mystery Box</a>
+        <a href="mix-match.html">Mix &amp; Match</a>
+        <a href="sessions.html">Sessions</a>
+      </div>
+      <div class="foot-col">
+        <h4>Unternehmen</h4>
+        <a href="ueber-uns.html">Über uns</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="login.html">Login</a>
+      </div>
+      <div class="foot-col">
+        <h4>Rechtliches</h4>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="agb.html">AGB</a>
+        <a href="widerruf.html">Widerruf</a>
+        <a href="versand.html">Versand</a>
+        <a href="faq.html">FAQ</a>
+        <a href="zahlungsarten.html">Zahlungsarten</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      © 2026 Only Bubatz · <b>Nur für Erwachsene ab 18 Jahren.</b> Kein Verkauf an Minderjährige.
+    </div>
+  </footer>
+
+  <script src="assets/config.js"></script>
+  <script src="assets/products.js"></script>
+  <script src="assets/site.js"></script>
+  <script>
+    (function () {
+      // Age-Gate zuerst (einmal pro Besucher)
+      OB.showAgeGate();
+
+      // Icons in Kacheln / Trust einsetzen
+      document.getElementById("ico-filter").innerHTML = OB.ICONS.leaf;
+      document.getElementById("ico-papes").innerHTML = OB.ICONS.zap;
+      document.getElementById("ico-grinder").innerHTML = OB.ICONS.grinder;
+      document.getElementById("ico-storage").innerHTML = OB.ICONS.box;
+
+      // Warum-Icons
+      document.querySelectorAll(".why-ico[data-ico]").forEach(function (el) {
+        var k = el.getAttribute("data-ico");
+        if (OB.ICONS[k]) el.innerHTML = OB.ICONS[k];
+      });
+
+      // Minimales Scroll-Reveal
+      var reveals = document.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window) {
+        var ro = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) {
+              en.target.classList.add("in");
+              ro.unobserve(en.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        reveals.forEach(function (el) { ro.observe(el); });
+      } else {
+        reveals.forEach(function (el) { el.classList.add("in"); });
+      }
+
+      // Kategorie-Zähler
+      var counts = { filter: 0, papes: 0, grinder: 0, storage: 0 };
+      OB.PRODUCTS.forEach(function (p) {
+        var c = OB.categoryOf(p);
+        if (counts[c] != null) counts[c]++;
+      });
+      OB.CATEGORIES.forEach(function (c) {
+        var el = document.getElementById("count-" + c.id);
+        if (el) el.textContent = counts[c.id] + " Produkte";
+      });
+
+      // Deal der Woche — Produkt aus config.js (Fallback: höchster Rabatt)
+      var deals = OB.getDeals().slice().sort(function (a, b) {
+        return OB.discount(b) - OB.discount(a);
+      });
+      var DEAL_HANDLE = (typeof OB_CONFIG !== "undefined" && OB_CONFIG.dealOfWeek) || "";
+      var fd = OB.PRODUCTS.find(function (p) { return p.handle === DEAL_HANDLE; }) || deals[0];
+      var fel = document.getElementById("featuredDeal");
+      if (fd && fel) {
+        var link = "produkt.html?handle=" + encodeURIComponent(fd.handle);
+        fel.innerHTML =
+          '<div class="fd-media">' +
+            '<img src="' + OB.imgSrc(fd.img, 900) + '" srcset="' + OB.imgSrcset(fd.img) + '" ' +
+            'sizes="(max-width:820px) 100vw, 45vw" width="900" height="900" loading="eager" fetchpriority="high" ' +
+            'alt="' + OB.escapeHtml(fd.title) + '" onerror="OB.imgFallback(this)">' +
+          '</div>' +
+          '<div class="fd-body">' +
+            '<span class="fd-tag">Deal der Woche</span>' +
+            '<h2>' + OB.escapeHtml(fd.title) + '</h2>' +
+            '<p style="color:var(--text-muted);font-size:14px">' + OB.escapeHtml(fd.vendor || fd.type) + '</p>' +
+            '<div class="fd-price"><span>' + OB.money(fd.priceNum) + '</span><s>' + OB.money(fd.compareAtNum) + '</s>' +
+              '<span class="save">−' + OB.discount(fd) + '%</span></div>' +
+            '<a class="btn btn-primary" href="' + link + '">Jetzt sichern</a> ' +
+            '<a class="btn" href="deals.html">Alle Deals</a>' +
+          '</div>';
+      } else if (fel) {
+        fel.innerHTML = '<p class="empty">Keine Deals verfügbar.</p>';
+      }
+
+      // Bestseller & Deals (bis 12)
+      var nonDeal = OB.PRODUCTS.filter(function (p) { return !OB.isDeal(p); })
+        .slice().sort(function (a, b) { return a.priceNum - b.priceNum; });
+      var best = deals.slice(0, 6);
+      var i = 0;
+      while (best.length < 12 && i < nonDeal.length) best.push(nonDeal[i++]);
+      OB.renderGrid(document.getElementById("bestsellerGrid"), best);
+
+      // Newsletter (Demo)
+      document.getElementById("newsletterForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        var em = document.getElementById("newsEmail").value.trim();
+        if (em && /\S+@\S+\.\S+/.test(em)) {
+          OB.toast("Danke! Du bist angemeldet.");
+          document.getElementById("newsEmail").value = "";
+        } else {
+          OB.toast("Bitte eine gültige E-Mail eingeben.");
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produkt — Only Bubatz</title>
+  <meta name="description" content="Produktdetails bei Only Bubatz — handverlesenes Zubehör, diskret verpackt, in 24 Stunden bei dir.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+</head>
+<body>
+
+  <div class="announce">Kostenfreier Versand ab 49 € — Express Lieferung idR. in 24h</div>
+
+  <header class="site-head">
+    <div class="head-inner">
+      <a class="logo" href="index.html"><img class="logo-mark" src="assets/logo.png" alt="Only Bubatz Logo" width="40" height="44">ONLY<span>BUBATZ</span></a>
+      <nav class="nav" id="nav">
+        <a href="shop.html">Shop</a>
+        <a href="ueber-uns.html">Über uns</a>
+        <a href="mystery-box.html">Mystery Box</a>
+        <a href="mix-match.html">Mix &amp; Match</a>
+        <a href="sessions.html">Sessions</a>
+        <a href="deals.html" class="nav-deals">Deals</a>
+        <a href="login.html">Login</a>
+      </nav>
+      <div class="head-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Hell/Dunkel wechseln"></button>
+        <button class="icon-btn" id="cartBtn" aria-label="Warenkorb öffnen"></button>
+        <button class="icon-btn nav-burger" id="navBurger" aria-label="Menü öffnen">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="pdp" id="pdp"></div>
+    </div>
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="sec-head">
+          <div>
+            <p class="kicker">Passend dazu</p>
+            <h2>Mehr aus dieser Kategorie</h2>
+          </div>
+          <a class="sec-link" href="shop.html">Zum Shop →</a>
+        </div>
+        <div class="grid" id="relatedGrid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="foot-grid">
+      <div class="foot-col foot-brand">
+        <a class="logo" href="index.html">ONLY<span>BUBATZ</span></a>
+        <p>Handverlesenes Zubehör für Kenner. Diskret verpackt, in 24 Stunden bei dir. Nur für Erwachsene ab 18 Jahren.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Shop</h4>
+        <a href="shop.html">Alle Produkte</a>
+        <a href="deals.html">Deals</a>
+        <a href="mystery-box.html">Mystery Box</a>
+        <a href="mix-match.html">Mix &amp; Match</a>
+        <a href="sessions.html">Sessions</a>
+      </div>
+      <div class="foot-col">
+        <h4>Unternehmen</h4>
+        <a href="ueber-uns.html">Über uns</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="login.html">Login</a>
+      </div>
+      <div class="foot-col">
+        <h4>Rechtliches</h4>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="agb.html">AGB</a>
+        <a href="widerruf.html">Widerruf</a>
+        <a href="versand.html">Versand</a>
+        <a href="faq.html">FAQ</a>
+        <a href="zahlungsarten.html">Zahlungsarten</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      © 2026 Only Bubatz · <b>Nur für Erwachsene ab 18 Jahren.</b> Kein Verkauf an Minderjährige.
+    </div>
+  </footer>
+
+  <script src="assets/products.js"></script>
+  <script src="assets/site.js"></script>
+  <script>
+    (function () {
+      var m = location.search.match(/[?&]handle=([^&]+)/);
+      var handle = m ? decodeURIComponent(m[1]) : null;
+      var p = handle ? OB.getProduct(handle) : null;
+      var pdp = document.getElementById("pdp");
+
+      if (!p) {
+        pdp.innerHTML =
+          '<div class="empty" style="grid-column:1/-1;width:100%">' +
+          '<h2>Produkt nicht gefunden</h2>' +
+          '<p>Dieses Produkt existiert nicht oder ist nicht mehr verfügbar.</p>' +
+          '<a class="btn" href="shop.html" style="margin-top:16px">Zum Shop</a>' +
+          '</div>';
+        document.getElementById("relatedGrid").style.display = "none";
+        return;
+      }
+
+      document.title = p.title + " — Only Bubatz";
+      var deal = OB.isDeal(p);
+      var disc = OB.discount(p);
+      var rating = OB.starsHTML(p.rating, p.reviewCount);
+
+      // Galerie: images-Array (dedupliziert), Fallback auf Einzelbild
+      var imgs = (p.images && p.images.length) ? p.images.slice() : [p.img];
+      if (p.img && imgs.indexOf(p.img) === -1) imgs.unshift(p.img);
+      var seen = {};
+      imgs = imgs.filter(function (u) {
+        if (!u || seen[u]) return false;
+        seen[u] = 1;
+        return true;
+      });
+
+      pdp.innerHTML =
+        '<div class="pdp-gallery">' +
+          '<div class="pdp-main">' +
+            '<img id="pdpMainImg" src="' + OB.imgSrc(imgs[0], 900) + '" srcset="' + OB.imgSrcset(imgs[0]) + '" ' +
+            'sizes="(max-width:820px) 100vw, 50vw" width="900" height="900" loading="eager" fetchpriority="high" ' +
+            'alt="' + OB.escapeHtml(p.title) + '" onerror="OB.imgFallback(this)">' +
+            (deal ? '<span class="card-badge" style="font-size:13px;padding:6px 10px">' + (disc > 0 ? '- ' + disc + ' %' : 'Angebot') + '</span>' : "") +
+          '</div>' +
+          '<div class="pdp-thumbs" id="pdpThumbs"></div>' +
+        '</div>' +
+        '<div class="pdp-info">' +
+          '<p class="vendor">' + OB.escapeHtml(p.vendor || p.type) + '</p>' +
+          '<h1>' + OB.escapeHtml(p.title) + '</h1>' +
+          (rating ? '<div class="pdp-rating">' + rating + '</div>' : "") +
+          '<div class="pdp-price">' +
+            '<span>' + OB.money(p.priceNum) + '</span>' +
+            (deal ? '<s>' + OB.money(p.compareAtNum) + '</s>' + (disc > 0 ? '<span class="save">Du sparst ' + disc + '%</span>' : "") : "") +
+          '</div>' +
+          '<p class="pdp-tax">inkl. MwSt. · ' + (deal ? "Aktionspreis" : "Preis") + '</p>' +
+          '<div class="pdp-actions">' +
+            '<div class="qty">' +
+              '<button data-pdp-dec aria-label="Menge verringern">−</button>' +
+              '<span id="pdpQty">1</span>' +
+              '<button data-pdp-inc aria-label="Menge erhöhen">+</button>' +
+            '</div>' +
+            '<button class="btn btn-primary" id="pdpAdd" style="flex:1;min-width:180px">In den Warenkorb</button>' +
+          '</div>' +
+          '<div class="pdp-trust">' +
+            '<span class="pt-item">' + OB.ICONS.truck + ' Versand in 24h</span>' +
+            '<span class="pt-item">' + OB.ICONS.box + ' Diskrete Verpackung</span>' +
+            '<span class="pt-item">' + OB.ICONS.zap + ' Kostenloser Versand ab 49 €</span>' +
+          '</div>' +
+          '<div class="pdp-desc">' + OB.escapeHtml(p.desc || "Keine Beschreibung vorhanden.") + '</div>' +
+          '<div class="pdp-shipinfo">' +
+            '<div class="si">' + OB.ICONS.truck + '<span><b>Versand in 24h</b><br>Express-Lieferung, idR. am nächsten Werktag.</span></div>' +
+            '<div class="si">' + OB.ICONS.box + '<span><b>Diskrete Verpackung</b><br>Neutral versendet — niemand sieht, was drin ist.</span></div>' +
+            '<div class="si">' + OB.ICONS.shield + '<span><b>30 Tage Rückgabe</b><br>Unkompliziert, wenn dir etwas nicht gefällt.</span></div>' +
+            '<div class="si">' + OB.ICONS.zap + '<span><b>Kostenloser Versand ab 49 €</b><br>Darunter berechnen wir einen fairen Versand.</span></div>' +
+          '</div>' +
+          '<div class="pdp-meta">' +
+            '<span><b>Kategorie:</b> ' + OB.escapeHtml(p.type || "—") + '</span>' +
+            '<span><b>Marke:</b> ' + OB.escapeHtml(p.vendor || "—") + '</span>' +
+          '</div>' +
+        '</div>';
+
+      // Thumbnails aufbauen + Klick wechselt Hauptbild
+      var thumbs = document.getElementById("pdpThumbs");
+      imgs.forEach(function (u, i) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "pdp-thumb" + (i === 0 ? " active" : "");
+        b.setAttribute("aria-label", "Bild " + (i + 1));
+        b.innerHTML = '<img src="' + OB.imgSrc(u, 160) + '" width="72" height="72" alt="" loading="lazy" decoding="async" onerror="OB.imgFallback(this)">';
+        b.addEventListener("click", function () {
+          var main = document.getElementById("pdpMainImg");
+          main.src = OB.imgSrc(u, 900);
+          main.srcset = OB.imgSrcset(u);
+          Array.prototype.forEach.call(thumbs.children, function (t) { t.classList.remove("active"); });
+          b.classList.add("active");
+        });
+        thumbs.appendChild(b);
+      });
+
+      // Menge
+      var qty = 1;
+      var qtyEl = document.getElementById("pdpQty");
+      function setQtyEl() { qtyEl.textContent = qty; }
+      pdp.querySelector("[data-pdp-dec]").addEventListener("click", function () {
+        if (qty > 1) qty--; setQtyEl();
+      });
+      pdp.querySelector("[data-pdp-inc]").addEventListener("click", function () {
+        if (qty < 99) qty++; setQtyEl();
+      });
+      document.getElementById("pdpAdd").addEventListener("click", function () {
+        OB.addToCart(p.handle, qty);
+        OB.toast(qty + "× im Warenkorb");
+      });
+
+      // Sticky Add-to-Cart (erscheint, sobald der Haupt-CTA aus dem Sichtfeld scrollt)
+      var sticky = document.createElement("div");
+      sticky.className = "sticky-add";
+      sticky.id = "stickyAdd";
+      sticky.innerHTML =
+        '<div class="sticky-add-inner">' +
+          '<span class="sa-title">' + OB.escapeHtml(p.title) + '</span>' +
+          '<span class="sa-price">' + OB.money(p.priceNum) + (deal ? '<s>' + OB.money(p.compareAtNum) + '</s>' : "") + '</span>' +
+          '<button class="btn btn-primary" id="stickyAddBtn">In den Warenkorb</button>' +
+        '</div>';
+      document.body.appendChild(sticky);
+      var addBtn = document.getElementById("pdpAdd");
+      function onScroll() {
+        if (!addBtn) return;
+        var r = addBtn.getBoundingClientRect();
+        sticky.classList.toggle("show", !(r.top < window.innerHeight && r.bottom > 0));
+      }
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+      document.getElementById("stickyAddBtn").addEventListener("click", function () {
+        OB.addToCart(p.handle, qty);
+        OB.toast(qty + "× im Warenkorb");
+      });
+
+      // Cross-Sells: gleiche type zuerst (bis 4), sonst gleiche Kategorie
+      var related = OB.PRODUCTS.filter(function (x) {
+        return x.handle !== p.handle && x.type === p.type;
+      });
+      if (related.length < 2) {
+        var cat = OB.categoryOf(p);
+        var have = {};
+        related.forEach(function (x) { have[x.handle] = 1; });
+        OB.PRODUCTS.forEach(function (x) {
+          if (x.handle !== p.handle && x.type !== p.type && !have[x.handle] && OB.categoryOf(x) === cat) {
+            related.push(x);
+          }
+        });
+      }
+      // bevorzuge gleiche Marke innerhalb der Auswahl
+      related.sort(function (a, b) {
+        return (b.vendor === p.vendor ? 1 : 0) - (a.vendor === p.vendor ? 1 : 0);
+      });
+      related = related.slice(0, 4);
+      OB.renderGrid(document.getElementById("relatedGrid"), related);
+    })();
+  </script>
+</body>
+</html>
