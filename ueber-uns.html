@@ -1,123 +1,237 @@
-<!DOCTYPE html>
-<html lang="de" data-theme="dark">
+<!doctype html>
+<html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Über uns — Only Bubatz</title>
-  <meta name="description" content="Die Bubatz Story — wer hinter Only Bubatz steckt.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b2418">
+  <link rel="canonical" href="https://onlybubatz.de/"><title>Über uns — Only Bubatz</title><meta name="description" content="Wer hinter Only Bubatz steckt und wie wir versenden."><link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.css">
-  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/base.css">
+  
 </head>
-<body>
+<body class="template-page">
 
-  <div class="announce">Kostenfreier Versand ab 49 € — Express Lieferung idR. in 24h</div>
+  <a class="skip-link" href="#MainContent">Zum Inhalt springen</a>
 
-  <header class="site-head">
-    <div class="head-inner">
-      <a class="logo" href="index.html"><img class="logo-mark" src="assets/logo.png" alt="Only Bubatz Logo" width="40" height="44">ONLY<span>BUBATZ</span></a>
-      <nav class="nav" id="nav">
-        <a href="shop.html">Shop</a>
-        <a href="ueber-uns.html" class="active">Über uns</a>
-        <a href="mystery-box.html">Mystery Box</a>
-        <a href="mix-match.html">Mix &amp; Match</a>
-        <a href="sessions.html">Sessions</a>
-        <a href="deals.html" class="nav-deals">Deals</a>
-        <a href="login.html">Login</a>
-      </nav>
-      <div class="head-actions">
-        <button class="icon-btn" id="themeToggle" aria-label="Hell/Dunkel wechseln"></button>
-        <button class="icon-btn" id="cartBtn" aria-label="Warenkorb öffnen"></button>
-        <button class="icon-btn nav-burger" id="navBurger" aria-label="Menü öffnen">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-        </button>
-      </div>
+  <div class="age-gate" id="ageGate" hidden role="dialog" aria-modal="true" aria-labelledby="ageGateTitle">
+  <div class="age-gate__card">
+    <p class="eyebrow">18+ Zutritt</p>
+    <h2 id="ageGateTitle" class="display">Bist du volljährig?</h2>
+    <p>Unser Sortiment richtet sich ausschließlich an Erwachsene ab 18 Jahren. Bitte bestätige dein Alter, bevor du den Shop betrittst.</p>
+    <div class="age-gate__actions">
+      <button type="button" class="btn" id="ageGateYes">Ja, ich bin 18+</button>
+      <button type="button" class="btn btn--ghost" id="ageGateNo">Nein, ich bin unter 18</button>
     </div>
-  </header>
+    <p class="age-gate__note">Mit „Ja“ bestätigst du dein Alter. Wir speichern diese Bestätigung nur lokal auf deinem Gerät — keine Datenübertragung.</p>
+  </div>
+</div>
 
-  <main>
+
+
+
+
+  <div class="announce">
+  Kostenfreier Versand ab 49 € — Express-Lieferung idR. in 24 h
+</div>
+  <header class="site-header">
+  <div class="page">
+    <a class="brand" href="collection.html" aria-label="Only Bubatz — Startseite"><img src="assets/logo.png" width="44" height="48" alt="Only Bubatz"><span class="brand-name">Only<br>Bubatz<small>Premium Cannabis Gear</small></span>
+    </a>
+
+    <nav class="nav" id="siteNav" aria-label="Hauptnavigation"><a href="collection.html">Sortiment</a>
+        <a href="collection.html">Vaporizer</a>
+        <a href="collection.html">Grinder</a>
+        <a href="collection.html">Papes</a>
+        <a href="collection.html">Aufbewahrung</a>
+        <a href="collection.html">Deals</a>
+        <a href="sessions.html">Sessions</a>
+        <a href="ueber-uns.html">Über uns</a></nav>
+
+    <div class="header-actions">
+      <a class="icon-btn" href="search.html" aria-label="Suche öffnen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg>
+      </a>
+      <a class="icon-btn hide-mobile" href="page.html" aria-label="Konto">
+        <span>Login</span>
+      </a>
+      <button type="button" class="icon-btn" data-cart-open aria-label="Warenkorb öffnen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2.2l2.3 11.2h10.2L20 7H6"/><circle cx="9.5" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/></svg>
+        <span class="cart-count" data-cart-count >2</span>
+      </button>
+      <button type="button" class="icon-btn nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Menü">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <main id="MainContent" role="main" tabindex="-1">
+    <section class="page-hero on-dark">
+  <div class="page"><p class="eyebrow">Über uns</p><h1>Echte Geschichten. Echte Menschen. Echte Veränderung</h1><p class="lead">Only Bubatz ist kein Marketingprojekt. Es ist das Ergebnis eines echten Lebensweges – aus Erfahrungen, Rückschlägen, Mut und dem Wunsch, etwas Besseres zu schaffen. Unsere Geschichte beginnt dort, wo viele aufhören würden: zwischen Systemlücken, medizinischem Stillstand und der Suche nach Würde und Selbstbestimmung. Statt aufzugeben, haben wir neu angefangen – mit einer klaren Mission: Cannabis verantwortungsvoll, bewusst und ehrlich in den Alltag zu bringen.</p></div>
+</section>
+
 <section class="section">
-  <div class="container">
-    <div class="prose">
-      <p class="kicker">Über uns</p>
-      <h1>ÜBER UNS // DIE BUBATZ STORY</h1>
-      <p class="display-lines">ECHTE GESCHICHTEN.<br>ECHTE MENSCHEN.<br>ECHTE VERÄNDERUNG.<br><span class="accent">KEIN MARKETINGPROJEKT</span></p>
-      <p class="lead">ONLY BUBATZ IST KEIN MARKETINGPROJEKT.</p>
-      <p>Es ist das Ergebnis eines echten Lebensweges – aus Erfahrungen, Rückschlägen, Mut und dem Wunsch, etwas Besseres zu schaffen.</p>
-      <p>Unsere Geschichte beginnt dort, wo viele aufhören würden: zwischen Systemlücken, medizinischem Stillstand und der Suche nach Würde und Selbstbestimmung.</p>
-      <p>Statt aufzugeben, haben wir neu angefangen – mit einer klaren Mission: Cannabis verantwortungsvoll, bewusst und ehrlich in den Alltag zu bringen.</p>
-            <h2><span class="step">01</span> WIE ALLES BEGANN</h2>
-      <p>Ein Mensch, eine Diagnose – und die Erkenntnis, dass Hilfe manchmal anders aussieht, als man denkt.</p>
-      <p>Was als persönliche Therapie begann, wurde schnell zu einer Bewegung: dem Wunsch, Menschen aufzuklären, zu stärken und zu zeigen, dass Cannabis mehr sein kann als ein Stigma.</p>
-      <p>Wir haben gelernt, dass Veränderung nicht aus der Theorie kommt, sondern aus Erfahrung. Aus Gesprächen mit Ärzt:innen, Apotheken, Fachleuten und vor allem Betroffenen.</p>
-      <p>So entstand die Idee zu Only Bubatz: eine Marke, die auf Wissen, Empathie und echter Verantwortung basiert.</p>
-            <h2><span class="step">02</span> WAS WIR GLAUBEN</h2>
-      <p>Wir glauben an Selbstbestimmung statt Bevormundung. An Aufklärung statt Vorurteile. An Menschen, die sich nicht unterkriegen lassen.</p>
-      <p>Cannabis ist kein Lifestyle-Accessoire – es ist ein Werkzeug für Lebensqualität. Richtig eingesetzt, mit Respekt und Verstand, kann es lindern, erleichtern und verbinden.</p>
-      <p>Und genau das ist unsere Haltung: Only Bubatz steht für den verantwortungsvollen, modernen Umgang mit Cannabis – zwischen Medizin, Kultur und Alltag.</p>
-            <h2><span class="step">03</span> UNSERE MISSION</h2>
-      <p>Unsere Mission ist einfach, aber kraftvoll: Menschen zu unterstützen, die ihren Weg selbst gehen wollen.</p>
-      <p>Wir wollen Wissen teilen, Vertrauen schaffen und zeigen, dass Cannabis-Kultur mehr ist als Klischees. Darum setzen wir auf hochwertige Produkte, ehrliche Kommunikation und echte Geschichten.</p>
-      <p>Keine großen Versprechen – nur Qualität, Erfahrung und das Bewusstsein, dass Veränderung möglich ist.</p>
-            <h2><span class="step">04</span> UNSERE KOOPERATIONS­PARTNER</h2>
-      <p>Only Bubatz arbeitet mit ausgewählten Partnern zusammen, die unsere Werte teilen: Verantwortung, Transparenz und Fachkompetenz.</p>
-      <p>Dazu zählen medizinische Fachpersonen, Apotheken, Produzent:innen, Aufklärungsinitiativen und kreative Köpfe aus der Cannabis-Community.</p>
-      <p>Unsere Kooperationen entstehen nicht aus Marketinginteressen, sondern aus echtem Vertrauen und dem gemeinsamen Ziel, Menschen fundierte Informationen und hochwertige Produkte zugänglich zu machen. Wir wachsen gemeinsam – respektvoll, offen und auf Augenhöhe.</p>
-      <div class="partner"><b>GRAFEN-CANNABIS.DE</b><span>CANNABIS APOTHEKE, DÜSSELDORF</span></div>
-      <div class="partner"><b>SK SOLUTION GMBH</b><span>PARTNER FÜR QUALITÄT &amp; FACHKOMPETENZ</span></div>
-      <div class="partner"><b>MAXIMILIEN EISENMANN</b><span>RECHTSANWALT — RA-EISENMANN.DE</span></div>
-      <h2>WAS UNS ANTREIBT</h2>
-      <p>Was uns antreibt, sind die Menschen hinter der Bewegung: diejenigen, die kämpfen, lernen, weitermachen.</p>
-      <p>Die ihre Geschichte nicht verstecken, sondern teilen. Only Bubatz ist für sie – und für alle, die Verantwortung übernehmen, sich öffnen und gemeinsam etwas bewegen wollen.</p>
-      <h2>UNSER VERSPRECHEN</h2>
-      <p>Wir machen keine Produkte, um einfach nur zu verkaufen. Wir machen Produkte, die etwas bedeuten.</p>
-      <p>Jedes Stück im Shop wurde sorgfältig ausgewählt, getestet und mit derselben Haltung kuratiert, mit der diese Geschichte begann: Respekt, Ehrlichkeit und Leidenschaft für das, was wir tun.</p>
-      <p class="lead" style="margin-top:2rem">ONLY BUBATZ – FÜR ALLE, DIE SELBST DENKEN, FÜHLEN UND HANDELN.</p>
-      <p style="margin-top:1.5rem"><a class="btn btn-primary" href="shop.html">UNSERE PRODUKTE →</a></p>
+  <div class="page">
+    <div class="content-grid">
+      <div>
+        <h2>Wer hinter Only Bubatz steckt</h2>
+<p>Only Bubatz ist ein Headshop aus Deutschland. Wir führen Marken, die wir selbst benutzen:
+Purize, RAW, OCB, Gizeh, Storz &amp; Bickel und Tightvac. Kein Ramsch, keine Fantasiepreise.</p>
+<h2>Wie wir arbeiten</h2>
+<p>Jede Bestellung wird am selben Werktag verpackt, wenn sie vor 14 Uhr eingeht. Der Karton ist
+neutral, ohne Absender und ohne Aufdruck. Ab 49 € Warenwert übernehmen wir den Versand.</p>
+<ul>
+  <li>Versand aus Deutschland, idR. in 24 Stunden</li>
+  <li>Diskrete Verpackung, kein Absender</li>
+  <li>PayPal, Klarna, Karte oder Vorkasse</li>
+</ul>
+<h2>Altersprüfung</h2>
+<p>Der Verkauf erfolgt ausschließlich an Personen ab 18 Jahren. Mit dem Betreten des Shops
+bestätigst du dein Alter.</p><h2>01 — Wie alles begann</h2><div><p>Ein Mensch, eine Diagnose – und die Erkenntnis, dass Hilfe manchmal anders aussieht, als man denkt.</p><p>Was als persönliche Therapie begann, wurde schnell zu einer Bewegung: dem Wunsch, Menschen aufzuklären, zu stärken und zu zeigen, dass Cannabis mehr sein kann als ein Stigma.</p><p>Wir haben gelernt, dass Veränderung nicht aus der Theorie kommt, sondern aus Erfahrung. Aus Gesprächen mit Ärzt:innen, Apotheken, Fachleuten und vor allem Betroffenen.</p><p>So entstand die Idee zu Only Bubatz: eine Marke, die auf Wissen, Empathie und echter Verantwortung basiert.</p></div><h2>02 — Was wir glauben</h2><div><p>Wir glauben an Selbstbestimmung statt Bevormundung. An Aufklärung statt Vorurteile. An Menschen, die sich nicht unterkriegen lassen.</p><p>Cannabis ist kein Lifestyle-Accessoire – es ist ein Werkzeug für Lebensqualität. Richtig eingesetzt, mit Respekt und Verstand, kann es lindern, erleichtern und verbinden.</p><p>Und genau das ist unsere Haltung: Only Bubatz steht für den verantwortungsvollen, modernen Umgang mit Cannabis – zwischen Medizin, Kultur und Alltag.</p></div><h2>03 — Unsere Mission</h2><div><p>Unsere Mission ist einfach, aber kraftvoll: Menschen zu unterstützen, die ihren Weg selbst gehen wollen.</p><p>Wir wollen Wissen teilen, Vertrauen schaffen und zeigen, dass Cannabis-Kultur mehr ist als Klischees. Darum setzen wir auf hochwertige Produkte, ehrliche Kommunikation und echte Geschichten.</p><p>Keine großen Versprechen – nur Qualität, Erfahrung und das Bewusstsein, dass Veränderung möglich ist.</p></div><h2>Was uns antreibt</h2><div><p>Was uns antreibt, sind die Menschen hinter der Bewegung: diejenigen, die kämpfen, lernen, weitermachen.</p><p>Die ihre Geschichte nicht verstecken, sondern teilen. Only Bubatz ist für sie – und für alle, die Verantwortung übernehmen, sich öffnen und gemeinsam etwas bewegen wollen.</p></div><h2>Unser Versprechen</h2><div><p>Wir machen keine Produkte, um einfach nur zu verkaufen. Wir machen Produkte, die etwas bedeuten.</p><p>Jedes Stück im Shop wurde sorgfältig ausgewählt, getestet und mit derselben Haltung kuratiert, mit der diese Geschichte begann: Respekt, Ehrlichkeit und Leidenschaft für das, was wir tun.</p></div><h2>Unsere Kooperationspartner</h2>
+              <div class="partners"><a class="partner" href="https://grafen-cannabis.de" target="_blank" rel="noopener"><img src="assets/partner-grafen-cannabis.webp" alt="Grafen-Cannabis.de" width="140" height="48" loading="lazy" style="height:48px;width:auto;object-fit:contain;margin-bottom:10px"><strong>Grafen-Cannabis.de</strong>
+                      <span>Cannabis Apotheke, Düsseldorf</span><span class="partner-url">grafen-cannabis.de</span></a><div class="partner"><img src="assets/partner-sk-solution.webp" alt="SK Solution GmbH" width="140" height="48" loading="lazy" style="height:48px;width:auto;object-fit:contain;margin-bottom:10px"><strong>SK Solution GmbH</strong>
+                      <span>Partner für Qualität & Fachkompetenz</span></div><a class="partner" href="https://ra-eisenmann.de/" target="_blank" rel="noopener"><img src="assets/partner-ra-eisenmann.png" alt="Maximilien Eisenmann" width="140" height="48" loading="lazy" style="height:48px;width:auto;object-fit:contain;margin-bottom:10px"><strong>Maximilien Eisenmann</strong>
+                      <span>Rechtsanwalt — ra-eisenmann.de</span><span class="partner-url">ra-eisenmann.de/</span></a></div><div class="callout"><strong>Unser Versprechen</strong><p>Only Bubatz – für alle, die selbst denken, fühlen und handeln.</p></div></div>
+
+      <aside class="sticky-card">
+        <h3>Only Bubatz</h3>
+        <p>Headshop aus Deutschland. Handverlesene Marken, diskreter Versand, klare Preise.</p><ul style="margin-top:14px"><li>— Versand in 24 h</li><li>— Diskrete Verpackung</li><li>— Ab 49 € versandkostenfrei</li><li>— PayPal · Klarna · Karte</li></ul><a class="btn btn--block" href="collection.html">Sortiment ansehen</a></aside>
     </div>
   </div>
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </main>
 
-  <footer class="site-foot">
-    <div class="foot-grid">
-      <div class="foot-col foot-brand">
-        <a class="logo" href="index.html">ONLY<span>BUBATZ</span></a>
-        <p>Handverlesenes Zubehör für Kenner. Diskret verpackt, in 24 Stunden bei dir. Nur für Erwachsene ab 18 Jahren.</p>
+  <footer class="site-footer on-dark">
+  <div class="page">
+    <div class="foot-top">
+      <div class="foot-col foot-brand"><img src="assets/logo.png" width="58" height="64" alt="Only Bubatz"><p class="brand-name">Only Bubatz</p>
+        <p>Headshop aus Deutschland. Handverlesene Marken, diskreter Versand, klare Preise — seit 2026.</p>
+        <div class="foot-pay" aria-label="Zahlungsarten"><span>Visa</span><span>Mastercard</span><span>PayPal</span><span>Klarna</span><span>Vorkasse</span></div>
       </div>
-      <div class="foot-col">
-        <h4>Shop</h4>
-        <a href="shop.html">Alle Produkte</a>
-        <a href="deals.html">Deals</a>
-        <a href="mystery-box.html">Mystery Box</a>
-        <a href="mix-match.html">Mix &amp; Match</a>
-        <a href="sessions.html">Sessions</a>
-      </div>
-      <div class="foot-col">
-        <h4>Unternehmen</h4>
-        <a href="ueber-uns.html">Über uns</a>
-        <a href="kontakt.html">Kontakt</a>
-        <a href="login.html">Login</a>
-      </div>
-      <div class="foot-col">
-        <h4>Rechtliches</h4>
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
-        <a href="agb.html">AGB</a>
-        <a href="widerruf.html">Widerruf</a>
-        <a href="versand.html">Versand</a>
-        <a href="faq.html">FAQ</a>
-        <a href="zahlungsarten.html">Zahlungsarten</a>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      © 2026 Only Bubatz · <b>Nur für Erwachsene ab 18 Jahren.</b> Kein Verkauf an Minderjährige.
-    </div>
-  </footer>
 
-  <script src="assets/products.js"></script>
-  <script src="assets/site.js"></script>
+      <div class="foot-col">
+        <h3>Sortiment</h3>
+        <ul><li><a href="collection.html">Sortiment</a></li><li><a href="collection.html">Vaporizer</a></li><li><a href="collection.html">Grinder</a></li><li><a href="collection.html">Papes</a></li><li><a href="collection.html">Aufbewahrung</a></li><li><a href="collection.html">Deals</a></li></ul>
+      </div>
+
+      <div class="foot-col">
+        <h3>Service</h3>
+        <ul>
+          <li><a href="page.html">Versand &amp; Lieferung</a></li>
+          <li><a href="page.html">Zahlungsarten</a></li>
+          <li><a href="page.html">Widerruf</a></li>
+          <li><a href="page.html">FAQ</a></li>
+          <li><a href="page.html">Kontakt</a></li>
+          <li><a href="sessions.html">Bubatz Sessions</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h3>Rechtliches</h3>
+        <ul>
+          <li><a href="page.html">Impressum</a></li>
+          <li><a href="page.html">Datenschutz</a></li>
+          <li><a href="page.html">AGB</a></li>
+          <li><a href="page.html">Rückerstattung</a></li>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <span>© 2026 Only Bubatz · Alle Preise inkl. MwSt., zzgl. Versand</span>
+      <span><strong>Nur für Erwachsene ab 18 Jahren.</strong> Kein Verkauf an Minderjährige.</span>
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Warenkorb" aria-hidden="true">
+  <div class="cart-drawer__scrim" data-cart-close></div>
+  <div class="cart-drawer__panel">
+    <div class="cart-drawer__head">
+      <h2 class="display">Warenkorb</h2>
+      <button type="button" class="icon-btn" id="cartClose" data-cart-close aria-label="Warenkorb schließen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="cart-drawer__body" id="cartBody">
+      <p class="cart-empty">Warenkorb wird geladen …</p>
+    </div>
+    <div class="cart-drawer__foot" id="cartFoot"></div>
+  </div>
+</div>
+
+
+  <script>
+    window.Shopify = window.Shopify || {};
+    window.OB_MONEY_FORMAT = "{{amount_with_comma_separator}} €";
+    window.OB_CART_COUNT = 2;
+  </script>
+  <script src="assets/theme.js" defer></script>
 </body>
 </html>

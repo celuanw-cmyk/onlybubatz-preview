@@ -1,327 +1,697 @@
-<!DOCTYPE html>
-<html lang="de" data-theme="dark">
+<!doctype html>
+<html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Only Bubatz — Bubatz Gear für Kenner</title>
-  <meta name="description" content="Grinder, Bong, Blättchen und Filter — handverlesen, diskret verpackt und in 24 Stunden bei dir. Only Bubatz, nur für Erwachsene ab 18 Jahren.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b2418">
+  <link rel="canonical" href="https://onlybubatz.de/"><title>Only Bubatz — Premium Cannabis Gear</title><meta name="description" content="Papes, Filter, Grinder und Aufbewahrung. Geprüft, diskret verpackt, in der Regel in 24 Stunden bei dir."><link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.css">
-  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/base.css">
+  
 </head>
-<body>
+<body class="template-index">
 
-  <div class="announce">Kostenfreier Versand ab 49 € — Express Lieferung idR. in 24h</div>
+  <a class="skip-link" href="#MainContent">Zum Inhalt springen</a>
 
-  <header class="site-head">
-    <div class="head-inner">
-      <a class="logo" href="index.html"><img class="logo-mark" src="assets/logo.png" alt="Only Bubatz Logo" width="40" height="44">ONLY<span>BUBATZ</span></a>
-      <nav class="nav" id="nav">
-        <a href="shop.html">Shop</a>
-        <a href="ueber-uns.html">Über uns</a>
-        <a href="mystery-box.html">Mystery Box</a>
-        <a href="mix-match.html">Mix &amp; Match</a>
+  <div class="age-gate" id="ageGate" hidden role="dialog" aria-modal="true" aria-labelledby="ageGateTitle">
+  <div class="age-gate__card">
+    <p class="eyebrow">18+ Zutritt</p>
+    <h2 id="ageGateTitle" class="display">Bist du volljährig?</h2>
+    <p>Unser Sortiment richtet sich ausschließlich an Erwachsene ab 18 Jahren. Bitte bestätige dein Alter, bevor du den Shop betrittst.</p>
+    <div class="age-gate__actions">
+      <button type="button" class="btn" id="ageGateYes">Ja, ich bin 18+</button>
+      <button type="button" class="btn btn--ghost" id="ageGateNo">Nein, ich bin unter 18</button>
+    </div>
+    <p class="age-gate__note">Mit „Ja“ bestätigst du dein Alter. Wir speichern diese Bestätigung nur lokal auf deinem Gerät — keine Datenübertragung.</p>
+  </div>
+</div>
+
+
+
+
+
+  <div class="announce">
+  Kostenfreier Versand ab 49 € — Express-Lieferung idR. in 24 h
+</div>
+  <header class="site-header">
+  <div class="page">
+    <a class="brand" href="collection.html" aria-label="Only Bubatz — Startseite"><img src="assets/logo.png" width="44" height="48" alt="Only Bubatz"><span class="brand-name">Only<br>Bubatz<small>Premium Cannabis Gear</small></span>
+    </a>
+
+    <nav class="nav" id="siteNav" aria-label="Hauptnavigation"><a href="collection.html">Sortiment</a>
+        <a href="collection.html">Vaporizer</a>
+        <a href="collection.html">Grinder</a>
+        <a href="collection.html">Papes</a>
+        <a href="collection.html">Aufbewahrung</a>
+        <a href="collection.html">Deals</a>
         <a href="sessions.html">Sessions</a>
-        <a href="deals.html" class="nav-deals">Deals</a>
-        <a href="login.html">Login</a>
-      </nav>
-      <div class="head-actions">
-        <button class="icon-btn" id="themeToggle" aria-label="Hell/Dunkel wechseln"></button>
-        <button class="icon-btn" id="cartBtn" aria-label="Warenkorb öffnen"></button>
-        <button class="icon-btn nav-burger" id="navBurger" aria-label="Menü öffnen">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-        </button>
+        <a href="ueber-uns.html">Über uns</a></nav>
+
+    <div class="header-actions">
+      <a class="icon-btn" href="search.html" aria-label="Suche öffnen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg>
+      </a>
+      <a class="icon-btn hide-mobile" href="page.html" aria-label="Konto">
+        <span>Login</span>
+      </a>
+      <button type="button" class="icon-btn" data-cart-open aria-label="Warenkorb öffnen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2.2l2.3 11.2h10.2L20 7H6"/><circle cx="9.5" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/></svg>
+        <span class="cart-count" data-cart-count >2</span>
+      </button>
+      <button type="button" class="icon-btn nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Menü">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <main id="MainContent" role="main" tabindex="-1">
+    <link rel="stylesheet" href="assets/hero-scene.css"><section class="hero hero--scene" aria-labelledby="heroTitle">
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="hero-grid">
+
+    <div class="hero-copy">
+      <div class="copy-main">
+        <div class="topline">
+          <p class="eyebrow">Only Bubatz · <b>Session 2026</b></p><div class="stamp" aria-hidden="true">
+              <b>Seit 2026</b>
+              <small>Handverlesen</small>
+            </div></div>
+
+        <h1 class="plates" id="heroTitle">
+          <span class="plate plate--green">Deine Session</span><span class="plate plate--rust">beginnt hier.</span></h1>
+
+        <p class="lead">Alles für den Abend: Papes, Filter, Grinder und Aufbewahrung — geprüft, sauber verpackt und meist in 24 Stunden bei dir.</p>
+      </div>
+
+      <div class="copy-side">
+        <div class="ctas"><a class="btn btn--primary" href="collection.html">Sortiment ansehen
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M8.5 3.5 13 8l-4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg>
+            </a><a class="btn btn--ghost" href="collection.html">Bestseller</a></div>
+
+        <div class="hero-foot">
+          <p class="meta">Versandkostenfrei ab 49 € · PayPal & Klarna · Lieferung idR. in 24 h</p>
+        </div>
       </div>
     </div>
-  </header>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-glow"></div>
-      <div class="container hero-flex">
-        <div class="hero-copy">
-          <p class="hero-kicker">Handverlesenes Raucherzubehör · ab 49 € versandfrei</p>
-          <h1>Bubatz Gear für<br><em>Kenner.</em></h1>
-          <p class="sub">Grinder, Bong, Blättchen und Filter — handverlesen, diskret verpackt und in 24 Stunden bei dir.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="shop.html">Entdecke alle Produkte</a>
-            <a class="btn" href="mystery-box.html">Mystery Box</a>
-            <a class="btn" href="mix-match.html">Mix &amp; Match</a>
-          </div>
-        </div>
-        <div class="hero-media">
-          <div class="hero-card">
-            <img src="assets/hero-volcano.png" width="640" height="640" loading="eager" fetchpriority="high" alt="VOLCANO CLASSIC Vaporizer">
-            <a class="hero-card-cta" href="produkt.html?handle=volcano-classic-vaporizer">Bequem versandt. Express in 24h</a>
-          </div>
-        </div>
+    <figure class="stage">
+      <div class="window">
+        <div class="frame" id="stageFrame"><img class="poster" src="https://cdn.shopify.com/s/files/1/0953/4865/4410/files/hero-poster-v5.jpg?v=1793372090" alt="" width="1280" height="720" aria-hidden="true" decoding="async"><video class="hero-video" autoplay muted loop playsinline preload="metadata"
+                   poster="https://cdn.shopify.com/s/files/1/0953/4865/4410/files/hero-poster-v5.jpg?v=1793372090"
+                   aria-label="Produktaufnahme: Volcano Classic, Mighty+ und Grinder auf einer Holzuheke vor unscharfem Pflanzenhintergrund">
+              <source src="https://cdn.shopify.com/videos/c/vp/125c2be4eedf40379927c135cd78a848/125c2be4eedf40379927c135cd78a848.HD-720p-1.6Mbps-99468425.mp4" type="video/mp4">
+            </video></div>
       </div>
-    </section>
+      <figcaption class="cap">
+        Aus dem Sortiment
+        <span class="cap-note">16:9 · 0:08</span>
+      </figcaption>
+    </figure>
 
-    <!-- Marquee -->
-    <div class="marquee">
-      <div class="marquee-track">
-        <span>Versand in 24h <b>★</b> Diskrete Verpackung <b>★</b> Ab 49 € versandkostenfrei <b>★</b> Handverlesene Ware <b>★</b></span>
-        <span>Versand in 24h <b>★</b> Diskrete Verpackung <b>★</b> Ab 49 € versandkostenfrei <b>★</b> Handverlesene Ware <b>★</b></span>
-      </div>
+    <div class="shelf" aria-label="Ausgewählte Artikel">
+      <p class="shelf-head"><span>Im Regal</span><span>3 Artikel · inkl. MwSt.</span></p>
+      <ul class="shelf-list"><li>
+              <a class="shelf-item" href="product.html">
+                <span class="shelf-n">01</span>
+                <span class="shelf-arrow" aria-hidden="true">↗</span>
+                <span class="shelf-name">VOLCANO CLASSIC Vaporizer</span>
+                <span class="shelf-price">299,99 €</span>
+              </a>
+            </li><li>
+              <a class="shelf-item" href="product.html">
+                <span class="shelf-n">02</span>
+                <span class="shelf-arrow" aria-hidden="true">↗</span>
+                <span class="shelf-name">RAW Classic Black KS Slim Papier</span>
+                <span class="shelf-price">1,29 €</span>
+              </a>
+            </li><li>
+              <a class="shelf-item" href="product.html">
+                <span class="shelf-n">03</span>
+                <span class="shelf-arrow" aria-hidden="true">↗</span>
+                <span class="shelf-name">Granny´s Weed CNC Aluminium Grinder/Pollinator, ø 60mm</span>
+                <span class="shelf-price">14,99 €</span>
+              </a>
+            </li></ul>
     </div>
 
-    <!-- Deal der Woche -->
-    <section class="section" id="dealSection">
-      <div class="container">
-        <div class="sec-head">
-          <div>
-            <p class="kicker">Angebot</p>
-            <h2>Deal der Woche</h2>
-          </div>
-          <a class="sec-link" href="deals.html">Alle Deals ansehen →</a>
-        </div>
-        <div class="featured-deal" id="featuredDeal"></div>
-      </div>
-    </section>
+  </div>
+</section>
 
-    <!-- Kategorien -->
-    <section class="section" style="padding-top:0">
-      <div class="container">
-        <div class="sec-head">
-          <div>
-            <p class="kicker">Sortiment</p>
-            <h2>Shop nach Kategorie</h2>
-          </div>
-        </div>
-        <div class="cat-grid">
-          <a class="cat-tile" href="shop.html?cat=filter">
-            <span class="cat-ico" id="ico-filter"></span>
-            <h3>Filter &amp; Tips</h3>
-            <p id="count-filter">Aktivkohle- &amp; Cellulosefilter</p>
-          </a>
-          <a class="cat-tile" href="shop.html?cat=papes">
-            <span class="cat-ico" id="ico-papes"></span>
-            <h3>Papes &amp; Blättchen</h3>
-            <p id="count-papes">Papers, Longpapes, Hanf</p>
-          </a>
-          <a class="cat-tile" href="shop.html?cat=grinder">
-            <span class="cat-ico" id="ico-grinder"></span>
-            <h3>Grinder &amp; Mühlen</h3>
-            <p id="count-grinder">Metall, CNC, Pollinator</p>
-          </a>
-          <a class="cat-tile" href="shop.html?cat=storage">
-            <span class="cat-ico" id="ico-storage"></span>
-            <h3>Aufbewahrung &amp; Zubehör</h3>
-            <p id="count-storage">Stash, Dosen, Taschen</p>
-          </a>
-        </div>
-      </div>
-    </section>
+<script>
+(function(){
+  var v = document.querySelector('.hero--scene .hero-video');
+  var frame = document.querySelector('.hero--scene .frame');
+  if(!v) return;
+  var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function showVideo(){ v.classList.add('is-ready'); }
+  if(v.readyState >= 2){ showVideo(); } else { v.addEventListener('loadeddata', showVideo, {once:true}); }
+  v.addEventListener('error', function(){ v.classList.remove('is-ready'); });
+  function sync(){
+    if(mq.matches){ try{ v.pause(); }catch(e){} }
+    else { var p = v.play(); if(p && p.catch){ p.catch(function(){}); } }
+  }
+  sync();
+  if(mq.addEventListener){ mq.addEventListener('change', sync); }
+  if('IntersectionObserver' in window && frame){
+    new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(mq.matches) return;
+        if(entry.isIntersecting){ var p = v.play(); if(p && p.catch){ p.catch(function(){}); } }
+        else { try{ v.pause(); }catch(err){} }
+      });
+    }, {threshold:.05}).observe(frame);
+  }
+})();
+</script>
 
-    <!-- Bestseller & Deals -->
-    <section class="section" style="padding-top:0">
-      <div class="container">
-        <div class="sec-head">
-          <div>
-            <p class="kicker">Auswahl</p>
-            <h2>Bestseller &amp; Deals</h2>
-          </div>
-          <a class="sec-link" href="shop.html">Alle 120 Produkte →</a>
-        </div>
-        <div class="grid" id="bestsellerGrid"></div>
-      </div>
-    </section>
 
-    <!-- Warum bei uns -->
-    <section class="section why reveal">
-      <div class="container">
-        <div class="sec-head">
-          <div>
-            <p class="kicker">Deine Vorteile</p>
-            <h2>Warum bei uns bestellen?</h2>
-          </div>
-        </div>
-        <p class="lead">Handverlesene Qualität, diskreter Versand und ein Service, der sich um dich kümmert — seit Tag eins.</p>
-        <div class="why-grid">
-          <div class="why-card">
-            <span class="why-ico" data-ico="zap"></span>
-            <h3>Express in 24h</h3>
-            <p>Bestellungen vor 14 Uhr verlassen unser Lager am selben Tag.</p>
-          </div>
-          <div class="why-card">
-            <span class="why-ico" data-ico="box"></span>
-            <h3>Diskrete Verpackung</h3>
-            <p>Neutraler Karton ohne Absender — niemand sieht, was drin ist.</p>
-          </div>
-          <div class="why-card">
-            <span class="why-ico" data-ico="truck"></span>
-            <h3>Ab 49 € versandkostenfrei</h3>
-            <p>Kein Versandkosten-Ärger: ab 49 € Bestellwert liefern wir gratis.</p>
-          </div>
-          <div class="why-card">
-            <span class="why-ico" data-ico="shield"></span>
-            <h3>Sicher bezahlen</h3>
-            <p>Visa, Mastercard, PayPal, Klarna, Apple Pay &amp; SEPA — verschlüsselt.</p>
-          </div>
-          <div class="why-card">
-            <span class="why-ico" data-ico="leaf"></span>
-            <h3>Handverlesene Qualität</h3>
-            <p>Jedes Produkt wird geprüft, bevor es ins Sortiment kommt.</p>
-          </div>
-          <div class="why-card">
-            <span class="why-ico" data-ico="grinder"></span>
-            <h3>Kuratiertes Sortiment</h3>
-            <p>Nur Marken, die wir selbst nutzen — kein beliebiger Massenware-Katalog.</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Newsletter -->
-    <section class="section">
-      <div class="container">
-        <div class="newsletter">
-          <h2>Bleib auf dem Laufenden</h2>
-          <p>Neue Drops, Deals und Sessions-Tipps — direkt in dein Postfach. Kein Spam.</p>
-          <form id="newsletterForm" novalidate>
-            <input type="email" id="newsEmail" placeholder="deine@email.de" required aria-label="E-Mail-Adresse">
-            <button class="btn btn-primary" type="submit">Anmelden</button>
-          </form>
-        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="usp">
+  <div class="page"><span class="usp-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 16V6h11v10M13 9h5l3 3.5V16"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg>Versand in 24 h</span><span class="usp-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="4.5" y="10" width="15" height="10.5" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14v3"/></svg>Diskrete Verpackung</span><span class="usp-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5v-9Z"/><path d="M3 7.5 12 12l9-4.5M12 12v9"/></svg>Ab 49 € versandkostenfrei</span><span class="usp-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M2.5 10h19M6 15h4"/></svg>PayPal · Klarna · Karte</span></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="section">
+  <div class="page">
+    <div class="section-head">
+      <div><p class="eyebrow">Kategorien</p><h2>Drei Fächer, alles drin</h2><p class="lead">Sortiert, wie du drehst: Papier, Filter, Mühle. Stückzahlen direkt aus dem Bestand.</p></div>
+      <a class="text-link" href="collection.html">Alle 123 Artikel</a>
+    </div>
+
+    <div class="cat-grid"><a class="cat-tile" href="collection.html">
+          <span class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="8" y="2.5" width="8" height="19" rx="4"/><path d="M8 9h8M8 13h8M8 17h8"/></svg></span>
+          <div>
+            <h3>Filter & Tips</h3>
+            <p>Aktivkohle, Cellulose und Tips — für einen kühleren Zug.</p>
+          </div>
+          <span class="cat-count">34 Artikel</span>
+        </a><a class="cat-tile cat-tile--green" href="collection.html">
+          <span class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21c0-6 3-11 9-13-1 7-5 11-9 13Z"/><path d="M12 21C7 19 3 15 3 8c6 1 9 6 9 13Z"/><path d="M12 21v-6"/></svg></span>
+          <div>
+            <h3>Papes & Blättchen</h3>
+            <p>RAW, OCB, Gizeh und Smoking — dünn, gleichmäßig, sauber.</p>
+          </div>
+          <span class="cat-count">58 Artikel</span>
+        </a><a class="cat-tile" href="collection.html">
+          <span class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v6c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6"/><path d="M5 12v5.6C5 19 8.1 20.4 12 20.4s7-1.4 7-2.8V12"/></svg></span>
+          <div>
+            <h3>Grinder & Mühlen</h3>
+            <p>CNC-Aluminium, Holz und Pollinator — vier Teile, sauberes Ergebnis.</p>
+          </div>
+          <span class="cat-count">21 Artikel</span>
+        </a><a class="cat-tile" href="collection.html">
+          <span class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5v-9Z"/><path d="M3 7.5 12 12l9-4.5M12 12v9"/></svg></span>
+          <div>
+            <h3>Aufbewahrung</h3>
+            <p>Dosen, Gläser und Taschen — luftdicht und diskret.</p>
+          </div>
+          <span class="cat-count">19 Artikel</span>
+        </a></div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="section section--tight">
+  <div class="page">
+    <div class="section-head">
+      <div><p class="eyebrow">Aus dem Sortiment</p><h2>Sechs Griffe, die bleiben</h2><p class="lead">Vom Einstiegspapier bis zum Tisch-Vaporizer: Artikel, die wir selbst nachkaufen würden.</p></div>
+      <a class="text-link" href="collection.html">Alle Artikel</a>
+    </div>
+
+    <div class="product-grid"><article class="p-card" data-product-card>
+  <a class="p-card__media" href="product.html" aria-label="VOLCANO HYBRID Vaporizer"><span class="p-card__badge">Deal −8 %</span><img src="assets/img/5be996476ded.webp"
+           srcset="assets/img/5be996476ded.webp 320w, assets/img/5be996476ded.webp 480w, assets/img/5be996476ded.webp 720w"
+           sizes="(max-width: 820px) 45vw, 22vw"
+           width="480" height="480"
+           alt="VOLCANO HYBRID Vaporizer"
+           loading="lazy"
+           
+           decoding="async"></a>
+  <div class="p-card__body">
+    <p class="p-card__vendor">Storz & Bickel</p>
+    <h3 class="p-card__title"><a href="product.html">VOLCANO HYBRID Vaporizer</a></h3>
+    <p class="p-card__price">
+  <span class="price">549,00 €</span><span class="price--compare">598,00 €</span>
+    <span class="price--save">−8 %</span></p>
+<div class="p-card__cta"><button type="button" class="btn btn--sm btn--block" data-add="12306377450">In den Warenkorb</button></div>
+  </div>
+</article>
+<article class="p-card" data-product-card>
+  <a class="p-card__media" href="product.html" aria-label="Purize Aktivkohlefilter RAINBOW (100er Glas)"><img src="assets/img/d5167e3f8f92.webp"
+           srcset="assets/img/d5167e3f8f92.webp 320w, assets/img/d5167e3f8f92.webp 480w, assets/img/d5167e3f8f92.webp 720w"
+           sizes="(max-width: 820px) 45vw, 22vw"
+           width="480" height="480"
+           alt="Purize Aktivkohlefilter RAINBOW (100er Glas)"
+           loading="lazy"
+           
+           decoding="async"></a>
+  <div class="p-card__body">
+    <p class="p-card__vendor">Purize</p>
+    <h3 class="p-card__title"><a href="product.html">Purize Aktivkohlefilter RAINBOW (100er Glas)</a></h3>
+    <p class="p-card__price">
+  <span class="price">15,89 €</span></p>
+<div class="p-card__cta"><button type="button" class="btn btn--sm btn--block" data-add="10708101020">In den Warenkorb</button></div>
+  </div>
+</article>
+<article class="p-card" data-product-card>
+  <a class="p-card__media" href="product.html" aria-label="RAW Classic Black KS Slim Papier"><img src="assets/img/4c5fd71db10e.jpg"
+           srcset="assets/img/4c5fd71db10e.jpg 320w, assets/img/4c5fd71db10e.jpg 480w, assets/img/4c5fd71db10e.jpg 720w"
+           sizes="(max-width: 820px) 45vw, 22vw"
+           width="480" height="480"
+           alt="RAW Classic Black KS Slim Papier"
+           loading="lazy"
+           
+           decoding="async"></a>
+  <div class="p-card__body">
+    <p class="p-card__vendor">RAW</p>
+    <h3 class="p-card__title"><a href="product.html">RAW Classic Black KS Slim Papier</a></h3>
+    <p class="p-card__price">
+  <span class="price">1,29 €</span></p>
+<div class="p-card__cta"><button type="button" class="btn btn--sm btn--block" data-add="14813687510">In den Warenkorb</button></div>
+  </div>
+</article>
+<article class="p-card" data-product-card>
+  <a class="p-card__media" href="product.html" aria-label="Granny´s Weed CNC Aluminium Grinder/Pollinator, ø 60mm"><span class="p-card__badge">Deal −25 %</span><img src="assets/img/06a9fa193122.webp"
+           srcset="assets/img/06a9fa193122.webp 320w, assets/img/06a9fa193122.webp 480w, assets/img/06a9fa193122.webp 720w"
+           sizes="(max-width: 820px) 45vw, 22vw"
+           width="480" height="480"
+           alt="Granny´s Weed CNC Aluminium Grinder/Pollinator, ø 60mm"
+           loading="lazy"
+           
+           decoding="async"></a>
+  <div class="p-card__body">
+    <p class="p-card__vendor">Granny´s Weed</p>
+    <h3 class="p-card__title"><a href="product.html">Granny´s Weed CNC Aluminium Grinder/Pollinator, ø 60mm</a></h3>
+    <p class="p-card__price">
+  <span class="price">14,99 €</span><span class="price--compare">19,99 €</span>
+    <span class="price--save">−25 %</span></p>
+<div class="p-card__cta"><button type="button" class="btn btn--sm btn--block" data-add="14199774810">In den Warenkorb</button></div>
+  </div>
+</article>
+<article class="p-card" data-product-card>
+  <a class="p-card__media" href="product.html" aria-label="VOLCANO CLASSIC Vaporizer"><span class="p-card__badge">Deal −14 %</span><img src="assets/img/0dfea217edd1.jpg"
+           srcset="assets/img/0dfea217edd1.jpg 320w, assets/img/0dfea217edd1.jpg 480w, assets/img/0dfea217edd1.jpg 720w"
+           sizes="(max-width: 820px) 45vw, 22vw"
+           width="480" height="480"
+           alt="VOLCANO CLASSIC Vaporizer"
+           loading="lazy"
+           
+           decoding="async"></a>
+  <div class="p-card__body">
+    <p class="p-card__vendor">Storz & Bickel</p>
+    <h3 class="p-card__title"><a href="product.html">VOLCANO CLASSIC Vaporizer</a></h3>
+    <p class="p-card__price">
+  <span class="price">299,99 €</span><span class="price--compare">349,00 €</span>
+    <span class="price--save">−14 %</span></p>
+<div class="p-card__cta"><button type="button" class="btn btn--sm btn--block" data-add="15746032950">In den Warenkorb</button></div>
+  </div>
+</article>
+<article class="p-card" data-product-card>
+  <a class="p-card__media" href="product.html" aria-label="RAW Kristallglas Aschenbecher"><span class="p-card__badge">Deal −39 %</span><img src="assets/img/a81f32666c8a.webp"
+           srcset="assets/img/a81f32666c8a.webp 320w, assets/img/a81f32666c8a.webp 480w, assets/img/a81f32666c8a.webp 720w"
+           sizes="(max-width: 820px) 45vw, 22vw"
+           width="480" height="480"
+           alt="RAW Kristallglas Aschenbecher"
+           loading="lazy"
+           
+           decoding="async"></a>
+  <div class="p-card__body">
+    <p class="p-card__vendor">RAW</p>
+    <h3 class="p-card__title"><a href="product.html">RAW Kristallglas Aschenbecher</a></h3>
+    <p class="p-card__price">
+  <span class="price">21,29 €</span><span class="price--compare">34,95 €</span>
+    <span class="price--save">−39 %</span></p>
+<div class="p-card__cta"><button type="button" class="btn btn--sm btn--block" data-add="11283439140">In den Warenkorb</button></div>
+  </div>
+</article>
+<article class="p-card" data-product-card>
+  <a class="p-card__media" href="product.html" aria-label="Tightvac MiniVac Vakuum Kustoffbehälter 0,12 Liter ECO"><span class="p-card__badge">Deal −17 %</span><img src="assets/img/d12605460201.jpg"
+           srcset="assets/img/d12605460201.jpg 320w, assets/img/d12605460201.jpg 480w, assets/img/d12605460201.jpg 720w"
+           sizes="(max-width: 820px) 45vw, 22vw"
+           width="480" height="480"
+           alt="Tightvac MiniVac Vakuum Kustoffbehälter 0,12 Liter ECO"
+           loading="lazy"
+           
+           decoding="async"></a>
+  <div class="p-card__body">
+    <p class="p-card__vendor">Tightvac</p>
+    <h3 class="p-card__title"><a href="product.html">Tightvac MiniVac Vakuum Kustoffbehälter 0,12 Liter ECO</a></h3>
+    <p class="p-card__price">
+  <span class="price">6,66 €</span><span class="price--compare">7,99 €</span>
+    <span class="price--save">−17 %</span></p>
+<div class="p-card__cta"><button type="button" class="btn btn--sm btn--block" data-add="13287512140">In den Warenkorb</button></div>
+  </div>
+</article>
+<article class="p-card" data-product-card>
+  <a class="p-card__media" href="product.html" aria-label="Kailar Aktivkohle-Filter Slim (250er, braun)"><img src="assets/img/3788707683dc.jpg"
+           srcset="assets/img/3788707683dc.jpg 320w, assets/img/3788707683dc.jpg 480w, assets/img/3788707683dc.jpg 720w"
+           sizes="(max-width: 820px) 45vw, 22vw"
+           width="480" height="480"
+           alt="Kailar Aktivkohle-Filter Slim (250er, braun)"
+           loading="lazy"
+           
+           decoding="async"></a>
+  <div class="p-card__body">
+    <p class="p-card__vendor">Kailar</p>
+    <h3 class="p-card__title"><a href="product.html">Kailar Aktivkohle-Filter Slim (250er, braun)</a></h3>
+    <p class="p-card__price">
+  <span class="price">29,90 €</span></p>
+<div class="p-card__cta"><button type="button" class="btn btn--sm btn--block" data-add="11458442530">In den Warenkorb</button></div>
+  </div>
+</article>
+</div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="deal-band on-dark" aria-labelledby="dealTitle">
+  <div class="page section--tight">
+    <div class="deal-grid">
+      <div class="deal-media"><img src="assets/img/06a9fa193122.webp"
+               srcset="assets/img/06a9fa193122.webp 500w, assets/img/06a9fa193122.webp 900w"
+               sizes="(max-width: 900px) 90vw, 44vw" width="900" height="900"
+               alt="Granny´s Weed CNC Aluminium Grinder/Pollinator, ø 60mm" loading="lazy" decoding="async"></div>
+      <div>
+        <p class="eyebrow">Deal der Woche</p>
+        <h2 id="dealTitle">Granny´s Weed CNC Aluminium Grinder/Pollinator, ø 60mm</h2>
+        <p style="color:rgba(247,236,214,.85);margin-top:10px">Granny´s Weed · Granny´s Weed</p>
+        <div class="deal-price">
+          <span class="price">14,99 €</span><span class="price--compare">19,99 €</span></div><p class="deal-save">Du sparst 5,00 €</p><button type="button" class="btn" data-add="14199774810">In den Warenkorb</button><a class="btn btn--light" href="collection.html" style="margin-left:10px">Alle Deals</a>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="section">
+  <div class="page">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Vertrauen</p>
+        <h2>Vier Zusagen, keine Kleingedruckten</h2><p class="lead">Bestellt, verpackt, versendet — aus Deutschland, mit klaren Bedingungen.</p></div>
+    </div>
+    <div class="trust-grid"><div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.5l3.5 2"/></svg>
+          <h3>Express in 24 h</h3>
+          <p>idR. Lieferung innerhalb eines Werktags</p>
+        </div><div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="4.5" y="10" width="15" height="10.5" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14v3"/></svg>
+          <h3>Diskret</h3>
+          <p>Neutraler Karton ohne Absender</p>
+        </div><div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 16V6h11v10M13 9h5l3 3.5V16"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg>
+          <h3>Ab 49 € frei</h3>
+          <p>Versandkostenfrei ab Warenwert</p>
+        </div><div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M2.5 10h19M6 15h4"/></svg>
+          <h3>Sicher zahlen</h3>
+          <p>PayPal · Klarna · Karte · Vorkasse</p>
+        </div></div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="newsletter">
+  <div class="page">
+    <div>
+      <p class="eyebrow">Bleib im Kreis</p>
+      <h2>Neues zuerst, Ramsch nie</h2>
+      <p>Ein Brief im Monat: neue Marken, echte Deals, Termine der Sessions.</p>
+    </div>
+    <div>
+      
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <label class="visually-hidden" for="newsEmail">E-Mail-Adresse</label>
+        <input id="newsEmail" type="email" name="contact[email]" placeholder="deine@email.de" required autocomplete="email">
+        <button class="btn btn--light" type="submit">Anmelden</button>
+      <p class="form-note">Ein Brief im Monat: neue Marken, echte Deals, Termine der Sessions. Abmeldung mit einem Klick.</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
   </main>
 
-  <footer class="site-foot">
-    <div class="foot-grid">
-      <div class="foot-col foot-brand">
-        <a class="logo" href="index.html">ONLY<span>BUBATZ</span></a>
-        <p>Handverlesenes Zubehör für Kenner. Diskret verpackt, in 24 Stunden bei dir. Nur für Erwachsene ab 18 Jahren.</p>
+  <footer class="site-footer on-dark">
+  <div class="page">
+    <div class="foot-top">
+      <div class="foot-col foot-brand"><img src="assets/logo.png" width="58" height="64" alt="Only Bubatz"><p class="brand-name">Only Bubatz</p>
+        <p>Headshop aus Deutschland. Handverlesene Marken, diskreter Versand, klare Preise — seit 2026.</p>
+        <div class="foot-pay" aria-label="Zahlungsarten"><span>Visa</span><span>Mastercard</span><span>PayPal</span><span>Klarna</span><span>Vorkasse</span></div>
       </div>
+
       <div class="foot-col">
-        <h4>Shop</h4>
-        <a href="shop.html">Alle Produkte</a>
-        <a href="deals.html">Deals</a>
-        <a href="mystery-box.html">Mystery Box</a>
-        <a href="mix-match.html">Mix &amp; Match</a>
-        <a href="sessions.html">Sessions</a>
+        <h3>Sortiment</h3>
+        <ul><li><a href="collection.html">Sortiment</a></li><li><a href="collection.html">Vaporizer</a></li><li><a href="collection.html">Grinder</a></li><li><a href="collection.html">Papes</a></li><li><a href="collection.html">Aufbewahrung</a></li><li><a href="collection.html">Deals</a></li></ul>
       </div>
+
       <div class="foot-col">
-        <h4>Unternehmen</h4>
-        <a href="ueber-uns.html">Über uns</a>
-        <a href="kontakt.html">Kontakt</a>
-        <a href="login.html">Login</a>
+        <h3>Service</h3>
+        <ul>
+          <li><a href="page.html">Versand &amp; Lieferung</a></li>
+          <li><a href="page.html">Zahlungsarten</a></li>
+          <li><a href="page.html">Widerruf</a></li>
+          <li><a href="page.html">FAQ</a></li>
+          <li><a href="page.html">Kontakt</a></li>
+          <li><a href="sessions.html">Bubatz Sessions</a></li>
+        </ul>
       </div>
+
       <div class="foot-col">
-        <h4>Rechtliches</h4>
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
-        <a href="agb.html">AGB</a>
-        <a href="widerruf.html">Widerruf</a>
-        <a href="versand.html">Versand</a>
-        <a href="faq.html">FAQ</a>
-        <a href="zahlungsarten.html">Zahlungsarten</a>
+        <h3>Rechtliches</h3>
+        <ul>
+          <li><a href="page.html">Impressum</a></li>
+          <li><a href="page.html">Datenschutz</a></li>
+          <li><a href="page.html">AGB</a></li>
+          <li><a href="page.html">Rückerstattung</a></li>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+        </ul>
       </div>
     </div>
+
     <div class="foot-bottom">
-      © 2026 Only Bubatz · <b>Nur für Erwachsene ab 18 Jahren.</b> Kein Verkauf an Minderjährige.
+      <span>© 2026 Only Bubatz · Alle Preise inkl. MwSt., zzgl. Versand</span>
+      <span><strong>Nur für Erwachsene ab 18 Jahren.</strong> Kein Verkauf an Minderjährige.</span>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <script src="assets/config.js"></script>
-  <script src="assets/products.js"></script>
-  <script src="assets/site.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Warenkorb" aria-hidden="true">
+  <div class="cart-drawer__scrim" data-cart-close></div>
+  <div class="cart-drawer__panel">
+    <div class="cart-drawer__head">
+      <h2 class="display">Warenkorb</h2>
+      <button type="button" class="icon-btn" id="cartClose" data-cart-close aria-label="Warenkorb schließen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="cart-drawer__body" id="cartBody">
+      <p class="cart-empty">Warenkorb wird geladen …</p>
+    </div>
+    <div class="cart-drawer__foot" id="cartFoot"></div>
+  </div>
+</div>
+
+
   <script>
-    (function () {
-      // Age-Gate zuerst (einmal pro Besucher)
-      OB.showAgeGate();
-
-      // Icons in Kacheln / Trust einsetzen
-      document.getElementById("ico-filter").innerHTML = OB.ICONS.leaf;
-      document.getElementById("ico-papes").innerHTML = OB.ICONS.zap;
-      document.getElementById("ico-grinder").innerHTML = OB.ICONS.grinder;
-      document.getElementById("ico-storage").innerHTML = OB.ICONS.box;
-
-      // Warum-Icons
-      document.querySelectorAll(".why-ico[data-ico]").forEach(function (el) {
-        var k = el.getAttribute("data-ico");
-        if (OB.ICONS[k]) el.innerHTML = OB.ICONS[k];
-      });
-
-      // Minimales Scroll-Reveal
-      var reveals = document.querySelectorAll(".reveal");
-      if ("IntersectionObserver" in window) {
-        var ro = new IntersectionObserver(function (entries) {
-          entries.forEach(function (en) {
-            if (en.isIntersecting) {
-              en.target.classList.add("in");
-              ro.unobserve(en.target);
-            }
-          });
-        }, { threshold: 0.12 });
-        reveals.forEach(function (el) { ro.observe(el); });
-      } else {
-        reveals.forEach(function (el) { el.classList.add("in"); });
-      }
-
-      // Kategorie-Zähler
-      var counts = { filter: 0, papes: 0, grinder: 0, storage: 0 };
-      OB.PRODUCTS.forEach(function (p) {
-        var c = OB.categoryOf(p);
-        if (counts[c] != null) counts[c]++;
-      });
-      OB.CATEGORIES.forEach(function (c) {
-        var el = document.getElementById("count-" + c.id);
-        if (el) el.textContent = counts[c.id] + " Produkte";
-      });
-
-      // Deal der Woche — Produkt aus config.js (Fallback: höchster Rabatt)
-      var deals = OB.getDeals().slice().sort(function (a, b) {
-        return OB.discount(b) - OB.discount(a);
-      });
-      var DEAL_HANDLE = (typeof OB_CONFIG !== "undefined" && OB_CONFIG.dealOfWeek) || "";
-      var fd = OB.PRODUCTS.find(function (p) { return p.handle === DEAL_HANDLE; }) || deals[0];
-      var fel = document.getElementById("featuredDeal");
-      if (fd && fel) {
-        var link = "produkt.html?handle=" + encodeURIComponent(fd.handle);
-        fel.innerHTML =
-          '<div class="fd-media">' +
-            '<img src="' + OB.imgSrc(fd.img, 900) + '" srcset="' + OB.imgSrcset(fd.img) + '" ' +
-            'sizes="(max-width:820px) 100vw, 45vw" width="900" height="900" loading="eager" fetchpriority="high" ' +
-            'alt="' + OB.escapeHtml(fd.title) + '" onerror="OB.imgFallback(this)">' +
-          '</div>' +
-          '<div class="fd-body">' +
-            '<span class="fd-tag">Deal der Woche</span>' +
-            '<h2>' + OB.escapeHtml(fd.title) + '</h2>' +
-            '<p style="color:var(--text-muted);font-size:14px">' + OB.escapeHtml(fd.vendor || fd.type) + '</p>' +
-            '<div class="fd-price"><span>' + OB.money(fd.priceNum) + '</span><s>' + OB.money(fd.compareAtNum) + '</s>' +
-              '<span class="save">−' + OB.discount(fd) + '%</span></div>' +
-            '<a class="btn btn-primary" href="' + link + '">Jetzt sichern</a> ' +
-            '<a class="btn" href="deals.html">Alle Deals</a>' +
-          '</div>';
-      } else if (fel) {
-        fel.innerHTML = '<p class="empty">Keine Deals verfügbar.</p>';
-      }
-
-      // Bestseller & Deals (bis 12)
-      var nonDeal = OB.PRODUCTS.filter(function (p) { return !OB.isDeal(p); })
-        .slice().sort(function (a, b) { return a.priceNum - b.priceNum; });
-      var best = deals.slice(0, 6);
-      var i = 0;
-      while (best.length < 12 && i < nonDeal.length) best.push(nonDeal[i++]);
-      OB.renderGrid(document.getElementById("bestsellerGrid"), best);
-
-      // Newsletter (Demo)
-      document.getElementById("newsletterForm").addEventListener("submit", function (e) {
-        e.preventDefault();
-        var em = document.getElementById("newsEmail").value.trim();
-        if (em && /\S+@\S+\.\S+/.test(em)) {
-          OB.toast("Danke! Du bist angemeldet.");
-          document.getElementById("newsEmail").value = "";
-        } else {
-          OB.toast("Bitte eine gültige E-Mail eingeben.");
-        }
-      });
-    })();
+    window.Shopify = window.Shopify || {};
+    window.OB_MONEY_FORMAT = "{{amount_with_comma_separator}} €";
+    window.OB_CART_COUNT = 2;
   </script>
+  <script src="assets/theme.js" defer></script>
 </body>
 </html>
