@@ -20,11 +20,11 @@
 
 
 
-  <link rel="stylesheet" href="assets/base.css?v=1793481018">
+  <link rel="stylesheet" href="assets/base.css?v=1793482030">
 
-  <link rel="stylesheet" href="assets/ob-extras.css?v=1793481018">
+  <link rel="stylesheet" href="assets/ob-extras.css?v=1793482030">
 
-  <link rel="stylesheet" href="assets/ob-v29.css?v=1793481018"><style>
+  <link rel="stylesheet" href="assets/ob-v29.css?v=1793482030"><style>
 
     :root {--ob-sold-dim: 0.62;
 
@@ -48,26 +48,22 @@
 
     .ob-leaves {
 
-      position: fixed; inset: 0; z-index: -1; overflow: hidden;   /* hinter dem Inhalt, über dem Seitenhintergrund */
+      position: absolute; inset: 0; z-index: -1; overflow: hidden;   /* Teil der Seite, hinter dem Inhalt */
 
       pointer-events: none;
 
     }
 
     .ob-leaves img {
-
-      position: absolute; height: auto; opacity: .30; mix-blend-mode: multiply;
-
-      filter: saturate(.85) contrast(1.02);
-
+      position: absolute; height: auto; opacity: .20; mix-blend-mode: multiply;
+      filter: sepia(.3) saturate(.65) contrast(.95) brightness(1.03);
+      -webkit-mask-image: linear-gradient(to top, transparent 0%, rgba(0,0,0,.55) 14%, #000 42%);
+      mask-image: linear-gradient(to top, transparent 0%, rgba(0,0,0,.55) 14%, #000 42%);
     }
 
     .ob-leaves .l1 {
-      right: -6vw; top: 50%; width: 54vh;
-      transform: translateY(-50%) rotate(-75deg); transform-origin: center center;
-      /* lang gezogen, weich auslaufend, aber klar als Hanfpflanze erkennbar */
-      -webkit-mask-image: radial-gradient(ellipse 72% 68% at 52% 50%, rgba(0,0,0,.98) 0%, rgba(0,0,0,.72) 55%, transparent 88%);
-      mask-image: radial-gradient(ellipse 72% 68% at 52% 50%, rgba(0,0,0,.98) 0%, rgba(0,0,0,.72) 55%, transparent 88%);
+      left: 56%; top: 170vh; height: 96vh; width: auto;
+      transform: translate(-50%, -100%) rotate(22deg); transform-origin: bottom center;
     }  /* Stiel nach außen */
 
     /* Inhalt liegt über den Blättern */
@@ -86,7 +82,7 @@
 
     <div class="ob-leaves" aria-hidden="true">
 
-    <img class="l1" src="assets/ob-plant.png" alt="" width="921" height="555" decoding="async">
+    <img class="l1" src="assets/ob-plant.webp" alt="" width="921" height="555" decoding="async">
 
   </div>
 
@@ -434,11 +430,11 @@
 
   </script>
 
-  <script src="assets/theme.js?v=1793481018" defer></script>
+  <script src="assets/theme.js?v=1793482030" defer></script>
 
-  <script src="assets/ob-extras.js?v=1793481018" defer></script>
+  <script src="assets/ob-extras.js?v=1793482030" defer></script>
 
-  <script src="assets/ob-anim.js?v=1793481018" defer></script>
+  <script src="assets/ob-anim.js?v=1793482030" defer></script>
 
 </body>
 
