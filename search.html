@@ -1,52 +1,102 @@
 <!doctype html>
+
 <html lang="de">
+
 <head>
+
   <script>document.documentElement.classList.add('ob-js');</script>
+
   <meta charset="utf-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <meta name="theme-color" content="#0b2418">
+
   <link rel="canonical" href="https://onlybubatz.de/"><title>Suche — Only Bubatz</title><meta name="description" content="Suche im Only Bubatz Sortiment."><link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/base.css?v=1793479271">
-  <link rel="stylesheet" href="assets/ob-extras.css?v=1793479271">
-  <link rel="stylesheet" href="assets/ob-v29.css?v=1793479271"><style>
+
+
+  <link rel="stylesheet" href="assets/base.css?v=1793479379">
+
+  <link rel="stylesheet" href="assets/ob-extras.css?v=1793479379">
+
+  <link rel="stylesheet" href="assets/ob-v29.css?v=1793479379"><style>
+
     :root {--ob-sold-dim: 0.62;
+
       --ob-drawer-w: min(460px, 92vw);
+
       --ob-card-img-bg: #f3e8cf;
+
     }
+
   </style>
+
   
+
   <style>
+
     body { position: relative; }
-    /* Cannabisblätter im Hintergrund: feste Positionen, scrollen mit der Seite.
+
+    /* Cannabisblätter im Hintergrund: feste Positionen, bleiben beim Scrollen stehen.
+
        Motiv: gemeinfreier Stich 1887. Drei Blätter, nur auf großen Bildschirmen. */
+
     .ob-leaves {
-      position: absolute; inset: 0; z-index: 3; overflow: hidden;
+
+      position: fixed; inset: 0; z-index: 3; overflow: hidden;
+
       pointer-events: none;
+
     }
+
     .ob-leaves img {
-      position: absolute; height: auto; opacity: .20;
+
+      position: absolute; height: auto; opacity: .24;
+
       filter: saturate(.85) contrast(1.02);
+
     }
-    .ob-leaves .l1 { left: -215px; top: 12%; width: 360px; }
-    .ob-leaves .l2 { right: -240px; top: 42%; width: 400px; transform: scaleX(-1); }
-    .ob-leaves .l3 { left: -200px; top: 72%; width: 340px; }
+
+    .ob-leaves .l1 { left: -215px; top: 4vh; width: 450px; }
+
+    .ob-leaves .l2 { right: -250px; top: 38vh; width: 500px; transform: scaleX(-1); }
+
+    .ob-leaves .l3 { left: -205px; bottom: 5vh; width: 400px; }
+
     /* Inhalt liegt über den Blättern */
+
     #MainContent, #shopify-section-header, footer, .site-footer { position: relative; z-index: 2; }
+
     @media (max-width: 1099px) { .ob-leaves { display: none; } }
+
   </style>
+
 </head>
+
 <body class="template-search ob-img-paper ob-motion">
 
+
+
     <div class="ob-leaves" aria-hidden="true">
+
     <img class="l1" src="assets/ob-leaf.webp" alt="" width="921" height="555" decoding="async">
+
     <img class="l2" src="assets/ob-leaf.webp" alt="" width="921" height="555" decoding="async">
+
     <img class="l3" src="assets/ob-leaf.webp" alt="" width="921" height="555" decoding="async">
+
   </div>
 
+
+
 <a class="skip-link" href="#MainContent">Zum Inhalt springen</a>
+
+
 
   <div class="age-gate" id="ageGate" hidden role="dialog" aria-modal="true" aria-labelledby="ageGateTitle">
   <div class="age-gate__card">
@@ -65,9 +115,11 @@
 
 
 
+
   <div class="announce">
   Kostenfreier Versand ab 49 € — Express-Lieferung idR. in 24 h
 </div>
+
   <header class="site-header">
   <div class="page">
     <a class="brand" href="collection.html" aria-label="Only Bubatz — Startseite"><img src="assets/logo.png" width="44" height="48" alt="Only Bubatz"><span class="brand-name">Only<br>Bubatz<small>Premium Cannabis Gear</small></span>
@@ -110,7 +162,10 @@
 
 
 
+
+
   <main id="MainContent" role="main" tabindex="-1">
+
     <section class="section">
   <div class="page">
     <p class="eyebrow">Suche</p>
@@ -284,7 +339,10 @@
 
 
 
+
   </main>
+
+
 
   <footer class="site-footer on-dark">
   <div class="page">
@@ -348,6 +406,7 @@
 
 
 
+
   <div class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Warenkorb" aria-hidden="true">
   <div class="cart-drawer__scrim" data-cart-close></div>
   <div class="cart-drawer__panel">
@@ -365,13 +424,25 @@
 </div>
 
 
+
+
   <script>
+
     window.Shopify = window.Shopify || {};
+
     window.OB_MONEY_FORMAT = "{{amount_with_comma_separator}} €";
+
     window.OB_CART_COUNT = 2;
+
   </script>
-  <script src="assets/theme.js?v=1793479271" defer></script>
-  <script src="assets/ob-extras.js?v=1793479271" defer></script>
-  <script src="assets/ob-anim.js?v=1793479271" defer></script>
+
+  <script src="assets/theme.js?v=1793479379" defer></script>
+
+  <script src="assets/ob-extras.js?v=1793479379" defer></script>
+
+  <script src="assets/ob-anim.js?v=1793479379" defer></script>
+
 </body>
+
 </html>
+
