@@ -8,9 +8,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/base.css?v=1793475517">
-  <link rel="stylesheet" href="assets/ob-extras.css?v=1793475517">
-  <link rel="stylesheet" href="assets/ob-v29.css?v=1793475517"><style>
+  <link rel="stylesheet" href="assets/base.css?v=1793476513">
+  <link rel="stylesheet" href="assets/ob-extras.css?v=1793476513">
+  <link rel="stylesheet" href="assets/ob-v29.css?v=1793476513"><style>
     :root {--ob-sold-dim: 0.62;
       --ob-drawer-w: min(460px, 92vw);
       --ob-card-img-bg: #f3e8cf;
@@ -85,9 +85,7 @@
 
 
   <main id="MainContent" role="main" tabindex="-1">
-    <link rel="stylesheet" href="assets/hero-split.css?v=1793475517">
-
-<section class="ob-hero"
+    <link rel="stylesheet" href="assets/hero-split.css?v=1793476513"><section class="ob-hero"
   style="--ob-slant:13%;--ob-slant-far:30%;--ob-drift-d:30s;--ob-drift-s:1.1;"
   aria-labelledby="ob-hero-title">
 
@@ -99,11 +97,32 @@
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
           </a><a class="ob-hero__link" href="collection.html">Bestseller</a></div><p class="ob-hero__proof">Versandkostenfrei ab 49 € · PayPal & Klarna · Lieferung idR. in 24 h</p></div>
 
-    <div class="ob-hero__stage ob-hero__stage--drift"><img class="ob-hero__media" src="assets/hero-poster.jpg" alt="Produkte aus dem Only Bubatz Sortiment auf dem Ladentisch"
+    <div class="ob-hero__stage ob-hero__stage--drift"
+         data-fallback="assets/hero-poster.jpg" data-video-min="1.5"><img class="ob-hero__media" src="assets/hero-poster.jpg" alt="Produkte aus dem Only Bubatz Sortiment auf dem Ladentisch"
              loading="eager" fetchpriority="high" decoding="async" data-hero-fallback><p class="ob-hero__meta"><i aria-hidden="true"></i>Only Bubatz · seit 2019</p></div>
 
   </div>
-</section>
+</section><script>
+  (function () {
+    var stage = document.querySelector('.ob-hero__stage[data-video-min]');
+    if (!stage) return;
+    var video = stage.querySelector('video.ob-hero__media');
+    if (!video) return;
+    function check() {
+      var need = stage.getBoundingClientRect().width * parseFloat(stage.getAttribute('data-video-min') || '1.5');
+      if (!video.videoWidth || video.videoWidth >= need) return;
+      var img = document.createElement('img');
+      img.className = 'ob-hero__media';
+      img.src = stage.getAttribute('data-fallback');
+      img.alt = "Produkte aus dem Only Bubatz Sortiment auf dem Ladentisch";
+      img.loading = 'eager';
+      video.replaceWith(img);
+      stage.classList.add('is-video-too-small');
+    }
+    if (video.readyState >= 1) check();
+    else video.addEventListener('loadedmetadata', check, { once: true });
+  })();
+</script>
 
 
 
@@ -938,7 +957,7 @@
     window.OB_MONEY_FORMAT = "{{amount_with_comma_separator}} €";
     window.OB_CART_COUNT = 2;
   </script>
-  <script src="assets/theme.js?v=1793475517" defer></script>
-  <script src="assets/ob-extras.js?v=1793475517" defer></script>
+  <script src="assets/theme.js?v=1793476513" defer></script>
+  <script src="assets/ob-extras.js?v=1793476513" defer></script>
 </body>
 </html>

@@ -197,15 +197,19 @@
   to   { transform: scale(var(--ob-drift-s)) translate3d(-1.4%, -1.2%, 0); }
 }
 
+/* Eine Variable für Intro-Dauer UND Drift-Start (Video-Befund: mit dieser Kurve ist
+   das Intro bei ~597 ms optisch fertig, der Drift wartete aber 900 ms -> ~300 ms
+   Stillstand). Jetzt 600 ms Intro, Drift startet exakt danach. */
 .ob-hero__media {
-  animation: obHeroIn 900ms cubic-bezier(.22, .61, .36, 1) both;
+  --ob-intro: 600ms;
+  animation: obHeroIn var(--ob-intro) cubic-bezier(.22, .61, .36, 1) both;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .ob-hero__stage--drift .ob-hero__media {
     animation:
-      obHeroIn 900ms cubic-bezier(.22, .61, .36, 1) both,
-      obHeroDrift var(--ob-drift-d) ease-in-out 900ms infinite alternate;
+      obHeroIn var(--ob-intro) cubic-bezier(.22, .61, .36, 1) both,
+      obHeroDrift var(--ob-drift-d) ease-in-out var(--ob-intro) infinite alternate;
     will-change: transform;
   }
 }
