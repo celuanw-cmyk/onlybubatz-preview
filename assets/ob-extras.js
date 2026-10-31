@@ -29,28 +29,40 @@
     spacer.className = 'brandbar-spacer';
     spacer.setAttribute('aria-hidden', 'true');
     spacer.style.display = 'none';
+    spacer.style.height = '0px';
     bar.parentNode.insertBefore(spacer, bar);
 
     var anchor = 0;
+
+    /* Dokumentposition ohne Klebe-Verfälschung (rect.top lügt, wenn die Leiste schon klebt) */
+    function docTop(el) {
+      var y = 0;
+      while (el) { y += el.offsetTop; el = el.offsetParent; }
+      return y;
+    }
+    function barHeight() { return Math.round(bar.getBoundingClientRect().height); }
+    function barIsFixed() { return getComputedStyle(bar).position === 'fixed'; }
+
+    /* Platzhalter NUR reservieren, solange die Leiste wirklich aus dem Fluss ist.
+       Sonst steht ein leerer Block von Leistenhöhe (52px + 1px Rahmen = 53px)
+       über der Leiste — genau das Loch, das nicht passieren darf. */
+    function syncSpacer() {
+      var reserve = barIsFixed();
+      spacer.style.display = reserve ? 'block' : 'none';
+      spacer.style.height = reserve ? barHeight() + 'px' : '0px';
+    }
+
     function measure() {
-      var wasFixed = bar.classList.contains('is-fixed');
-      if (wasFixed) bar.classList.remove('is-fixed');
-      var rect = bar.getBoundingClientRect();
-      anchor = rect.top + window.scrollY;
-      spacer.style.height = Math.round(rect.height) + 'px';
-      if (wasFixed) bar.classList.add('is-fixed');
+      anchor = docTop(bar);
+      syncSpacer();
     }
 
     function update() {
       var hdr = parseInt(getComputedStyle(root).getPropertyValue('--sv-hdr'), 10) || 0;
       var shouldPin = window.scrollY > anchor - hdr - 1;
-      if (shouldPin && !bar.classList.contains('is-fixed')) {
-        spacer.style.display = 'block';
-        bar.classList.add('is-fixed');
-      } else if (!shouldPin && bar.classList.contains('is-fixed')) {
-        bar.classList.remove('is-fixed');
-        spacer.style.display = 'none';
-      }
+      if (shouldPin) bar.classList.add('is-fixed');
+      else bar.classList.remove('is-fixed');
+      syncSpacer();
     }
 
     measure();

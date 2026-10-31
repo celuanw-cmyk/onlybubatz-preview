@@ -66,7 +66,9 @@ body {
   width: 100%;
   z-index: 80;
 }
-.shop-v28 .brandbar-spacer { display: block; width: 100%; }
+/* Platzhalter ist standardmäßig ZU — er darf nie ohne echten fixed-Zustand stehen,
+   sonst entsteht ein 53px-Loch (Leistenhöhe 52px + 1px Rahmen) über der Leiste. */
+.shop-v28 .brandbar-spacer { display: none; width: 100%; height: 0; }
 body.ob-scrolled .shop-v28 .brandbar {
   box-shadow: 0 16px 30px -26px rgba(20, 16, 10, .7);
 }

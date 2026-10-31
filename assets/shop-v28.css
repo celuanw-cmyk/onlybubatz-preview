@@ -62,7 +62,7 @@
 .shop-v28 .bblabel {
   flex: 0 0 auto; display: flex; align-items: center; height: 16px;
   font-size: 10px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
-  color: var(--rust); padding-right: 14px; border-right: 1px dotted var(--sv-line);
+  color: var(--ink); padding-right: 14px; border-right: 1px dotted var(--sv-line);
 }
 
 .shop-v28 .bbstrip {
@@ -95,7 +95,7 @@
   min-height: 44px; padding: 0 0 0 16px; background: none; border: 0;
   border-left: 1px dotted var(--sv-line);
   font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
-  color: var(--rust); transition: color .18s ease;
+  color: #8a2a18; transition: color .18s ease;
 }
 .shop-v28 .bbmore .lbl-m { display: none; }
 .shop-v28 .bbmore svg {
@@ -233,6 +233,8 @@
   padding: 18px 18px 20px; background: var(--kraft-2);
   border: 1.5px solid var(--sv-line); border-radius: 3px;
   box-shadow: 3px 3px 0 rgba(20, 16, 10, .12);
+  position: sticky; top: calc(var(--sv-hdr, 89px) + 62px); align-self: start;
+  max-height: calc(100vh - var(--sv-hdr, 89px) - 90px); overflow-y: auto;
 }
 .shop-v28 .filters h4 {
   margin: 18px 0 10px; padding-bottom: 6px;
