@@ -26,9 +26,9 @@
     if (!bar) return;
 
     var spacer = document.createElement('div');
-    spacer.className = 'shop-v28 brandbar-spacer';
+    spacer.className = 'brandbar-spacer';
     spacer.setAttribute('aria-hidden', 'true');
-    spacer.hidden = true;
+    spacer.style.display = 'none';
     bar.parentNode.insertBefore(spacer, bar);
 
     var anchor = 0;
@@ -45,11 +45,11 @@
       var hdr = parseInt(getComputedStyle(root).getPropertyValue('--sv-hdr'), 10) || 0;
       var shouldPin = window.scrollY > anchor - hdr - 1;
       if (shouldPin && !bar.classList.contains('is-fixed')) {
-        spacer.hidden = false;
+        spacer.style.display = 'block';
         bar.classList.add('is-fixed');
       } else if (!shouldPin && bar.classList.contains('is-fixed')) {
         bar.classList.remove('is-fixed');
-        spacer.hidden = true;
+        spacer.style.display = 'none';
       }
     }
 
