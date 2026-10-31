@@ -20,11 +20,11 @@
 
 
 
-  <link rel="stylesheet" href="assets/base.css?v=1793484500">
+  <link rel="stylesheet" href="assets/base.css?v=1793484714">
 
-  <link rel="stylesheet" href="assets/ob-extras.css?v=1793484500">
+  <link rel="stylesheet" href="assets/ob-extras.css?v=1793484714">
 
-  <link rel="stylesheet" href="assets/ob-v29.css?v=1793484500"><style>
+  <link rel="stylesheet" href="assets/ob-v29.css?v=1793484714"><style>
 
     :root {--ob-sold-dim: 0.62;
 
@@ -169,7 +169,162 @@
 
   <main id="MainContent" role="main" tabindex="-1">
 
-    <section class="page-hero on-dark">
+    <section class="ob-loc ob-loc--gross" aria-labelledby="loc-locbar" data-ob-anim="rise" data-ob-speed="500" data-ob-delay="0">
+  <div class="page">
+    <div class="ob-loc__inner ob-loc__inner--left" style="--ob-loc-media: 54%;"><figure class="ob-loc__media" style="--ob-loc-tilt: -2deg;">
+          <span class="ob-loc__tape ob-loc__tape--l" aria-hidden="true"></span>
+          <span class="ob-loc__tape ob-loc__tape--r" aria-hidden="true"></span>
+          <img src="assets/ob-loc.jpg"
+               srcset="assets/ob-loc.jpg 600w, assets/ob-loc.jpg 1200w"
+               sizes="(max-width: 860px) 92vw, 560px"
+               width="1200" height="738"
+               alt="Grafenberger Apotheke"
+               loading="lazy" decoding="async"><span class="ob-loc__stamp" aria-hidden="true">
+              <b>Vor Ort</b><small>Düsseldorf</small></span></figure><div class="ob-loc__copy"><p class="ob-loc__eyebrow">Vor Ort in Düsseldorf</p><h2 class="ob-loc__title" id="loc-locbar">Grafenberger Apotheke</h2><p class="ob-loc__text">Du willst erst sehen, was du kaufst? Komm vorbei — wir beraten dich persönlich, ohne Verkaufsdruck.</p><p class="ob-loc__note">Persönliche Beratung · keine Online-Bestellung nötig</p><a class="ob-loc__link" href="https://www.google.com/maps/search/?api=1&query=Grafenberger+Apotheke+D%C3%BCsseldorf">
+            Route in Google Maps
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </a></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ob-loc {
+    position: relative;
+    background:
+      linear-gradient(180deg, rgba(20,16,10,.04), rgba(20,16,10,0) 40%),
+      var(--kraft-light);
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+    overflow: hidden;
+  }
+  .ob-loc--normal { padding: clamp(40px, 5.4vw, 86px) 0; }
+  .ob-loc--gross  { padding: clamp(56px, 7vw, 116px) 0; }
+
+  .ob-loc__inner {
+    display: grid;
+    grid-template-columns: minmax(0, var(--ob-loc-media, 52%)) minmax(0, 1fr);
+    gap: clamp(24px, 4vw, 64px);
+    align-items: center;
+  }
+  .ob-loc__inner--right { grid-template-columns: minmax(0, 1fr) minmax(0, var(--ob-loc-media, 52%)); }
+  .ob-loc__inner--right .ob-loc__media { order: 2; }
+
+  /* Foto wie ein aufgeklebtes Andenken: dicker Rahmen, harter Schatten, leichte Neigung */
+  .ob-loc__media {
+    position: relative; margin: 0;
+    transform: rotate(var(--ob-loc-tilt, -2deg));
+    background: var(--kraft-light);
+    border: 3px solid var(--ink);
+    border-radius: 2px;
+    box-shadow: 10px 10px 0 rgba(20,16,10,.16);
+    padding: 10px;
+  }
+  .ob-loc__media img {
+    display: block; width: 100%; height: auto;
+    filter: saturate(.96) contrast(1.03);
+  }
+  /* zwei Klebestreifen */
+  .ob-loc__tape {
+    position: absolute; width: 96px; height: 26px; top: -13px;
+    background: rgba(229, 201, 158, .85);
+    border-left: 1px dashed rgba(20,16,10,.18);
+    border-right: 1px dashed rgba(20,16,10,.18);
+    box-shadow: 0 1px 0 rgba(20,16,10,.12);
+  }
+  .ob-loc__tape--l { left: 22px; transform: rotate(-6deg); }
+  .ob-loc__tape--r { right: 22px; transform: rotate(5deg); }
+
+  /* Stempel */
+  .ob-loc__stamp {
+    position: absolute; right: -26px; bottom: -26px;
+    display: grid; place-content: center; text-align: center;
+    width: clamp(96px, 11vw, 132px); aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--rust); color: #fff6ec;
+    border: 3px double #fff6ec;
+    box-shadow: 0 0 0 3px var(--ink), 6px 6px 0 rgba(20,16,10,.22);
+    transform: rotate(-9deg);
+    line-height: 1.05; padding: 8px;
+  }
+  .ob-loc__stamp b {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(15px, 1.6vw, 21px); letter-spacing: .02em; text-transform: uppercase;
+  }
+  .ob-loc__stamp small {
+    display: block; margin-top: 3px;
+    font-size: clamp(8px, .8vw, 10px); letter-spacing: .16em; text-transform: uppercase;
+    opacity: .9;
+  }
+
+  .ob-loc__eyebrow {
+    margin: 0 0 8px; font-size: 11px; font-weight: 700; letter-spacing: .22em;
+    text-transform: uppercase; color: #8a2a18;
+  }
+  .ob-loc__title {
+    margin: 0 0 12px; font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(28px, 4.4vw, 62px); line-height: .96; letter-spacing: .005em;
+    text-transform: uppercase; color: var(--ink);
+  }
+  .ob-loc__text { margin: 0 0 12px; max-width: 46ch; font-size: clamp(15px, 1.3vw, 18px); line-height: 1.55; color: rgba(20,16,10,.82); }
+  .ob-loc__note {
+    margin: 0 0 16px; font-size: 12px; font-weight: 700; letter-spacing: .14em;
+    text-transform: uppercase; color: rgba(20,16,10,.55);
+  }
+  .ob-loc__link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none;
+    border-bottom: 2px solid #8a2a18; padding-bottom: 4px;
+    transition: gap .18s ease, color .18s ease;
+  }
+  .ob-loc__link:hover { color: #8a2a18; gap: 12px; }
+  .ob-loc__link svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; }
+
+  @media (max-width: 860px) {
+    .ob-loc__inner, .ob-loc__inner--right { grid-template-columns: 1fr; }
+    .ob-loc__inner--right .ob-loc__media { order: 0; }
+    .ob-loc__media { transform: rotate(-1deg); }
+    .ob-loc__stamp { right: -8px; bottom: -18px; }
+    .ob-loc__tape { width: 70px; }
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="page-hero on-dark">
   <div class="page"><p class="eyebrow">Über uns</p><h1>Echte Geschichten. Echte Menschen. Echte Veränderung</h1><p class="lead">Only Bubatz ist kein Marketingprojekt. Es ist das Ergebnis eines echten Lebensweges – aus Erfahrungen, Rückschlägen, Mut und dem Wunsch, etwas Besseres zu schaffen. Unsere Geschichte beginnt dort, wo viele aufhören würden: zwischen Systemlücken, medizinischem Stillstand und der Suche nach Würde und Selbstbestimmung. Statt aufzugeben, haben wir neu angefangen – mit einer klaren Mission: Cannabis verantwortungsvoll, bewusst und ehrlich in den Alltag zu bringen.</p></div>
 </section>
 
@@ -215,77 +370,6 @@ bestätigst du dein Alter.</p><h2>01 — Wie alles begann</h2><div><p>Ein Mensch
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<section class="ob-loc" data-ob-anim="rise" data-ob-speed="500" data-ob-delay="0" aria-labelledby="loc-locbar">
-  <div class="page">
-    <div class="ob-loc__inner ob-loc__inner--left"><figure class="ob-loc__media">
-          <img src="assets/ob-loc.jpg"
-               srcset="assets/ob-loc.jpg 380w, assets/ob-loc.jpg 760w"
-               sizes="(max-width: 860px) 60vw, 300px"
-               width="760" height="467"
-               alt="Grafenberger Apotheke"
-               loading="lazy" decoding="async">
-        </figure><div class="ob-loc__copy"><p class="ob-loc__eyebrow">Vor Ort in Düsseldorf</p><h2 class="ob-loc__title" id="loc-locbar">Grafenberger Apotheke</h2><p class="ob-loc__text">Du willst erst sehen, was du kaufst? Komm vorbei — wir beraten dich persönlich, ohne Verkaufsdruck.</p><a class="ob-loc__link" href="https://www.google.com/maps/search/?api=1&query=Grafenberger+Apotheke+D%C3%BCsseldorf">Route in Google Maps</a></div>
-    </div>
-  </div>
-</section>
-
-<style>
-  .ob-loc { padding: clamp(28px, 3.6vw, 54px) 0; background: var(--kraft-light); border-bottom: 2px solid var(--ink); }
-  .ob-loc__inner { display: flex; align-items: center; gap: clamp(18px, 3vw, 40px); }
-  .ob-loc__inner--right { flex-direction: row-reverse; }
-  .ob-loc__media { margin: 0; flex: 0 0 auto; width: clamp(180px, 26vw, 300px); }
-  .ob-loc__media img {
-    width: 100%; height: auto; display: block; border: 2px solid var(--ink);
-    border-radius: var(--radius); box-shadow: 6px 6px 0 rgba(20, 16, 10, .16);
-    filter: saturate(.92) contrast(1.02);
-  }
-  .ob-loc__copy { min-width: 0; }
-  .ob-loc__eyebrow {
-    margin: 0 0 6px; font-size: 11px; font-weight: 700; letter-spacing: .2em;
-    text-transform: uppercase; color: #8a2a18;
-  }
-  .ob-loc__title {
-    margin: 0 0 8px; font-family: var(--font-display); font-weight: 400;
-    font-size: clamp(20px, 2.6vw, 30px); line-height: 1.05; letter-spacing: .01em;
-    text-transform: uppercase; color: var(--ink);
-  }
-  .ob-loc__text { margin: 0 0 12px; max-width: 52ch; font-size: 15px; line-height: 1.55; color: rgba(20, 16, 10, .82); }
-  .ob-loc__link {
-    display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: .12em;
-    text-transform: uppercase; color: var(--ink);
-    border-bottom: 2px solid #8a2a18; padding-bottom: 3px; text-decoration: none;
-  }
-  .ob-loc__link:hover { color: #8a2a18; }
-  @media (max-width: 720px) {
-    .ob-loc__inner, .ob-loc__inner--right { flex-direction: column; align-items: flex-start; }
-    .ob-loc__media { width: 100%; max-width: 420px; }
-  }
-</style>
 
 
 
@@ -701,11 +785,11 @@ bestätigst du dein Alter.</p><h2>01 — Wie alles begann</h2><div><p>Ein Mensch
 
   </script>
 
-  <script src="assets/theme.js?v=1793484500" defer></script>
+  <script src="assets/theme.js?v=1793484714" defer></script>
 
-  <script src="assets/ob-extras.js?v=1793484500" defer></script>
+  <script src="assets/ob-extras.js?v=1793484714" defer></script>
 
-  <script src="assets/ob-anim.js?v=1793484500" defer></script>
+  <script src="assets/ob-anim.js?v=1793484714" defer></script>
   <div class="ob-leaf-fade" aria-hidden="true">
   <img src="assets/ob-leaf.webp" alt="" width="640" height="640" decoding="async">
 </div>
