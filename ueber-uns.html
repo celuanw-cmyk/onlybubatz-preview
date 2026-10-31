@@ -20,11 +20,11 @@
 
 
 
-  <link rel="stylesheet" href="assets/base.css?v=1793479379">
+  <link rel="stylesheet" href="assets/base.css?v=1793479672">
 
-  <link rel="stylesheet" href="assets/ob-extras.css?v=1793479379">
+  <link rel="stylesheet" href="assets/ob-extras.css?v=1793479672">
 
-  <link rel="stylesheet" href="assets/ob-v29.css?v=1793479379"><style>
+  <link rel="stylesheet" href="assets/ob-v29.css?v=1793479672"><style>
 
     :root {--ob-sold-dim: 0.62;
 
@@ -48,7 +48,7 @@
 
     .ob-leaves {
 
-      position: fixed; inset: 0; z-index: 3; overflow: hidden;
+      position: fixed; inset: 0; z-index: -1; overflow: hidden;   /* hinter dem Inhalt, über dem Seitenhintergrund */
 
       pointer-events: none;
 
@@ -56,7 +56,7 @@
 
     .ob-leaves img {
 
-      position: absolute; height: auto; opacity: .24;
+      position: absolute; height: auto; opacity: .22;
 
       filter: saturate(.85) contrast(1.02);
 
@@ -70,7 +70,7 @@
 
     /* Inhalt liegt über den Blättern */
 
-    #MainContent, #shopify-section-header, footer, .site-footer { position: relative; z-index: 2; }
+    #MainContent, #shopify-section-header, footer, .site-footer { position: relative; z-index: 1; }
 
     @media (max-width: 1099px) { .ob-leaves { display: none; } }
 
@@ -698,11 +698,11 @@ bestätigst du dein Alter.</p><h2>01 — Wie alles begann</h2><div><p>Ein Mensch
 
   </script>
 
-  <script src="assets/theme.js?v=1793479379" defer></script>
+  <script src="assets/theme.js?v=1793479672" defer></script>
 
-  <script src="assets/ob-extras.js?v=1793479379" defer></script>
+  <script src="assets/ob-extras.js?v=1793479672" defer></script>
 
-  <script src="assets/ob-anim.js?v=1793479379" defer></script>
+  <script src="assets/ob-anim.js?v=1793479672" defer></script>
 
 </body>
 
