@@ -36,13 +36,12 @@ body {
 .ob-leaf-fade.is-on { opacity: 1; transition: opacity .09s cubic-bezier(.22, .75, .25, 1); }
 /* Ausblenden: 200 ms, gleiche Kurve wie der Container, KEIN Zusatz-Effekt am Blatt */
 .ob-leaf-fade.is-out { opacity: 0; transition: opacity .2s cubic-bezier(.4, 0, .2, 1); }
-.ob-leaf-fade.is-out svg { opacity: 0; transition: opacity .18s cubic-bezier(.4, 0, .2, 1); animation: none; }
-.ob-leaf-fade svg {
-  width: clamp(230px, 30vw, 380px);
+.ob-leaf-fade.is-out img { opacity: 0; transition: opacity .18s cubic-bezier(.4, 0, .2, 1); animation: none; }
+.ob-leaf-fade img {
+  width: clamp(290px, 46vw, 560px);
   height: auto;
-  fill: var(--mint, #1fe9ab);
-  filter: drop-shadow(0 0 26px rgba(31, 233, 171, .38));
-  transform: scale(.86) rotate(-6deg);
+  filter: drop-shadow(0 18px 34px rgba(0, 0, 0, .55));
+  transform: scale(.86) rotate(-4deg);
   animation: ob-leaf-in .38s cubic-bezier(.22, .75, .25, 1) forwards;
 }
 @keyframes ob-leaf-in {
@@ -51,7 +50,7 @@ body {
   100% { transform: scale(1) rotate(0deg);     opacity: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .ob-leaf-fade svg { animation: none; }
+  .ob-leaf-fade img { animation: none; }
   .ob-leaf-fade { transition: none; }
 }
 
