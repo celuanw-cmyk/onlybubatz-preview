@@ -20,11 +20,11 @@
 
 
 
-  <link rel="stylesheet" href="assets/base.css?v=1793480699">
+  <link rel="stylesheet" href="assets/base.css?v=1793480778">
 
-  <link rel="stylesheet" href="assets/ob-extras.css?v=1793480699">
+  <link rel="stylesheet" href="assets/ob-extras.css?v=1793480778">
 
-  <link rel="stylesheet" href="assets/ob-v29.css?v=1793480699"><style>
+  <link rel="stylesheet" href="assets/ob-v29.css?v=1793480778"><style>
 
     :root {--ob-sold-dim: 0.62;
 
@@ -56,15 +56,19 @@
 
     .ob-leaves img {
 
-      position: absolute; height: auto; opacity: .18; mix-blend-mode: multiply;
+      position: absolute; height: auto; opacity: .15; mix-blend-mode: multiply;
 
       filter: saturate(.85) contrast(1.02);
 
     }
 
-    .ob-leaves .l1 { right: 1vw; top: 56%; width: 36vh; transform: translateY(-50%) rotate(-75deg); transform-origin: center center;
-      -webkit-mask-image: linear-gradient(to top left, rgba(0,0,0,.95) 0%, rgba(0,0,0,.55) 45%, transparent 92%);
-      mask-image: linear-gradient(to top left, rgba(0,0,0,.95) 0%, rgba(0,0,0,.55) 45%, transparent 92%); }  /* Stiel nach außen */
+    .ob-leaves .l1 {
+      right: 1vw; top: 56%; width: 38vh;
+      transform: translateY(-50%) rotate(-75deg); transform-origin: center center;
+      /* weich in alle Richtungen auslaufen: keine sichtbaren Kanten */
+      -webkit-mask-image: radial-gradient(ellipse 62% 60% at 55% 50%, rgba(0,0,0,.95) 0%, rgba(0,0,0,.55) 42%, transparent 82%);
+      mask-image: radial-gradient(ellipse 62% 60% at 55% 50%, rgba(0,0,0,.95) 0%, rgba(0,0,0,.55) 42%, transparent 82%);
+    }  /* Stiel nach außen */
 
     /* Inhalt liegt über den Blättern */
 
@@ -162,7 +166,7 @@
 
     <section class="section shop-v28" data-collection="aktivkohlefilter">
 
-  <link rel="stylesheet" href="assets/shop-v28.css?v=1793480699"><div class="brandbar" id="brandbar">
+  <link rel="stylesheet" href="assets/shop-v28.css?v=1793480778"><div class="brandbar" id="brandbar">
       <div class="page bbinner">
         <span class="bblabel">Marke</span>
         <div class="bbstrip" id="bbstrip" role="group" aria-label="Nach Marke filtern">
@@ -490,8 +494,8 @@
   </div>
 </section>
 
-<link rel="stylesheet" href="assets/shop-v28.css?v=1793480699">
-<script src="assets/shopfilter.js?v=1793480699" defer></script>
+<link rel="stylesheet" href="assets/shop-v28.css?v=1793480778">
+<script src="assets/shopfilter.js?v=1793480778" defer></script>
 
 
 
@@ -611,11 +615,11 @@
 
   </script>
 
-  <script src="assets/theme.js?v=1793480699" defer></script>
+  <script src="assets/theme.js?v=1793480778" defer></script>
 
-  <script src="assets/ob-extras.js?v=1793480699" defer></script>
+  <script src="assets/ob-extras.js?v=1793480778" defer></script>
 
-  <script src="assets/ob-anim.js?v=1793480699" defer></script>
+  <script src="assets/ob-anim.js?v=1793480778" defer></script>
 
 </body>
 
