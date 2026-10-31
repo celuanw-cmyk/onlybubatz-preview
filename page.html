@@ -8,9 +8,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/base.css?v=1793479004">
-  <link rel="stylesheet" href="assets/ob-extras.css?v=1793479004">
-  <link rel="stylesheet" href="assets/ob-v29.css?v=1793479004"><style>
+  <link rel="stylesheet" href="assets/base.css?v=1793479055">
+  <link rel="stylesheet" href="assets/ob-extras.css?v=1793479055">
+  <link rel="stylesheet" href="assets/ob-v29.css?v=1793479055"><style>
     :root {--ob-sold-dim: 0.62;
       --ob-drawer-w: min(460px, 92vw);
       --ob-card-img-bg: #f3e8cf;
@@ -18,15 +18,28 @@
   </style>
   
   <style>
-    /* Cannabisblätter nur an den Seitenrändern, dezent (Motiv: gemeinfreier Stich 1887) */
+    /* Cannabisblätter: feste Positionen an den Seitenrändern, kein Muster, keine Bewegung.
+       Motiv: gemeinfreier Stich 1887. Höchstens drei Blätter, nur auf großen Bildschirmen. */
     @media (min-width: 1100px) {
       body::before, body::after {
-        content: ""; position: fixed; top: 0; bottom: 0; width: 190px; z-index: 0;
-        pointer-events: none; opacity: .075;
-        background: url("assets/ob-leaf.webp") repeat-y center top / 175px auto;
+        content: ""; position: fixed; top: 0; bottom: 0; width: 240px; z-index: 0;
+        pointer-events: none; opacity: .085; background-repeat: no-repeat;
       }
-      body::before { left: 0; }
-      body::after { right: 0; transform: scaleX(-1); }
+      /* links: ein Blatt oben, ein kleineres unten */
+      body::before {
+        left: 0;
+        background-image: url("assets/ob-leaf.webp"), url("assets/ob-leaf.webp");
+        background-size: 230px auto, 155px auto;
+        background-position: left -70px top 11%, left -45px bottom 9%;
+      }
+      /* rechts: ein großes Blatt in der Mitte, gespiegelt */
+      body::after {
+        right: 0;
+        background-image: url("assets/ob-leaf.webp");
+        background-size: 250px auto;
+        background-position: right -75px top 46%;
+        transform: scaleX(-1);
+      }
     }
     @media (max-width: 1099px) { body::before, body::after { display: none; } }
   </style>
@@ -251,8 +264,8 @@ bestätigst du dein Alter.</p></div>
     window.OB_MONEY_FORMAT = "{{amount_with_comma_separator}} €";
     window.OB_CART_COUNT = 2;
   </script>
-  <script src="assets/theme.js?v=1793479004" defer></script>
-  <script src="assets/ob-extras.js?v=1793479004" defer></script>
-  <script src="assets/ob-anim.js?v=1793479004" defer></script>
+  <script src="assets/theme.js?v=1793479055" defer></script>
+  <script src="assets/ob-extras.js?v=1793479055" defer></script>
+  <script src="assets/ob-anim.js?v=1793479055" defer></script>
 </body>
 </html>
