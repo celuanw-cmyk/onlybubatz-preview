@@ -2,17 +2,6 @@
 /* ==========================================================================
    v29 (31.10.2026) — Ausverkauft-Regel, Partner, Warenkorb, Bewegung
    Andreess sieben Punkte. Alles über Theme-Einstellungen schaltbar:
-   body.ob-soldout / body.ob-motion setzt layout/theme.liquid.
-   Skala: 140 ms Hover · 220 ms Panel · 380 ms Reveal · 900 ms Hero-Schnitt
-   ========================================================================== */
-:root {
-  --m-fast: 140ms;
-  --m-mid: 220ms;
-  --m-slow: 380ms;
-  --m-hero: 900ms;
-  --ob-sold-dim: .62;
-  --ob-drawer-w: min(460px, 92vw);
-}
 
 /* ---------- Punkt 5: ein Bildmaß für alle Karten (1:1) ---------- */
 /* Das height="480"-Attribut am <img> wirkt als CSS-Höhe und schlägt aspect-ratio —
@@ -40,17 +29,6 @@
 .ob-img-alpha .shop-v28 .card .ph { background: transparent; }
 
 /* ---------- Punkt 3: ausverkauft — Ware bleibt erahnbar, Preis/Button weg ---------- */
-.ob-soldout .p-card.is-out .p-card__media { position: relative; }
-.ob-soldout .p-card.is-out .p-card__media img {
-  filter: grayscale(1) contrast(.95) brightness(1.03);
-  opacity: var(--ob-sold-dim);
-}
-.ob-soldout .p-card.is-out .p-card__media::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: rgba(247, 236, 214, .22);
-}
-.ob-soldout .p-card.is-out .p-card__price,
-.ob-soldout .p-card.is-out .p-card__cta { visibility: hidden; }  /* Platz bleibt: Raster springt nicht */
 
 .p-card__priceline { position: relative; margin-top: auto; padding-top: 8px; }
 .p-card__priceline .p-card__price { margin-top: 0; padding-top: 0; }
@@ -62,26 +40,6 @@
 }
 
 /* dieselbe Regel für das Sortiment (v28-Karte) */
-.ob-soldout .shop-v28 .card.is-out .ph { position: relative; }
-.ob-soldout .shop-v28 .card.is-out .ph img {
-  filter: grayscale(1) contrast(.95) brightness(1.03) !important;
-  opacity: var(--ob-sold-dim) !important;
-}
-.ob-soldout .shop-v28 .card.is-out .ph::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: rgba(247, 236, 214, .22);
-}
-.ob-soldout .shop-v28 .card.is-out .pricerow b,
-.ob-soldout .shop-v28 .card.is-out .was,
-.ob-soldout .shop-v28 .card.is-out .add { visibility: hidden; }
-.ob-soldout .shop-v28 .card.is-out .pricerow { position: relative; min-height: 22px; }
-.ob-soldout .shop-v28 .card.is-out .pricerow .sold {
-  visibility: visible; position: absolute; left: 0; bottom: 0;
-  font-family: ui-monospace, "Courier Prime", "Courier New", monospace;
-  font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
-  color: rgba(20, 16, 10, .72);
-}
-.ob-soldout .shop-v28 .card.is-out .stock .dot.low { background: rgba(20, 16, 10, .35); }
 
 /* ---------- Punkt 4: Partner direkt über dem Newsletter ---------- */
 .ob-partners { border-top: 1px solid rgba(20, 16, 10, .18); padding-block: clamp(38px, 4.6vw, 64px); }

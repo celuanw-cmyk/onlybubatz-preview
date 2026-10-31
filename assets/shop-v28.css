@@ -374,9 +374,9 @@
   background: none; border-color: var(--sv-line); color: rgba(20, 16, 10, .5);
   box-shadow: none; cursor: not-allowed;
 }
-.shop-v28 .card.is-out .ph img { opacity: .42; filter: grayscale(1) contrast(.92); }
+.shop-v28 .card.is-out .ph img { opacity: .55; filter: grayscale(1) contrast(.92); }
 /* Ausverkauft: kein Preis, diagonaler Schriftzug von unten links nach oben rechts, halb durchsichtig */
-.shop-v28 .card.is-out .pricerow { display: none; }
+.shop-v28 .card.is-out .pricerow { visibility: hidden; }  /* Platz bleibt: Raster springt nicht */
 .shop-v28 .card.is-out .ph { position: relative; }
 .shop-v28 .card.is-out .ph { overflow: hidden; }
 .shop-v28 .card.is-out .ph::after {
@@ -384,15 +384,15 @@
   position: absolute; left: -30%; top: 50%; width: 160%;
   transform: translateY(-50%) rotate(-30deg);
   padding: 9px 0; text-align: center; white-space: nowrap;
-  font: 800 17px/1 var(--font-body); letter-spacing: .22em;
+  font: 800 17px/1 var(--font-body); letter-spacing: .20em;
   color: rgba(247, 236, 214, .82);
-  background: rgba(20, 16, 10, .30);
+  background: rgba(20, 16, 10, .70);
   border-top: 1px solid rgba(247, 236, 214, .22);
   border-bottom: 1px solid rgba(247, 236, 214, .22);
   pointer-events: none;
 }
 @media (max-width: 720px) {
-  .shop-v28 .card.is-out .ph::after { font-size: 12px; letter-spacing: .12em; padding: 7px 0; }
+  .shop-v28 .card.is-out .ph::after { font-size: 14px; letter-spacing: .12em; padding: 8px 0; }
 }
 
 /* ---------- Leerzustand ---------- */

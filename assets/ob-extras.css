@@ -138,8 +138,8 @@ html.ob-hdr-hidden .shop-v28 .brandbar.is-fixed { top: 0; }
 #cartDrawer .cart-subtotal { font-size: 17px; }
 
 /* ---------- 8) Ausverkaufte Produkte: ausgegraut, diagonaler Schriftzug, kein Preis ---------- */
-.p-card.is-out .p-card__media img { opacity: .42; filter: grayscale(1) contrast(.92); }
-.p-card.is-out .p-card__priceline { display: none; }
+.p-card.is-out .p-card__media img { opacity: .55; filter: grayscale(1) contrast(.92); }
+.p-card.is-out .p-card__priceline { visibility: hidden; }  /* Platz bleibt */
 .p-card.is-out .p-card__media { position: relative; }
 .p-card.is-out .p-card__media { overflow: hidden; }
 .p-card.is-out .p-card__media::after {
@@ -147,13 +147,13 @@ html.ob-hdr-hidden .shop-v28 .brandbar.is-fixed { top: 0; }
   position: absolute; left: -30%; top: 50%; width: 160%;
   transform: translateY(-50%) rotate(-30deg);
   padding: 9px 0; text-align: center; white-space: nowrap;
-  font: 800 17px/1 var(--font-body); letter-spacing: .22em;
+  font: 800 17px/1 var(--font-body); letter-spacing: .20em;
   color: rgba(247, 236, 214, .82);
-  background: rgba(20, 16, 10, .30);
+  background: rgba(20, 16, 10, .70);
   border-top: 1px solid rgba(247, 236, 214, .22);
   border-bottom: 1px solid rgba(247, 236, 214, .22);
   pointer-events: none;
 }
 @media (max-width: 720px) {
-  .p-card.is-out .p-card__media::after { font-size: 12px; letter-spacing: .12em; padding: 7px 0; }
+  .p-card.is-out .p-card__media::after { font-size: 14px; letter-spacing: .12em; padding: 8px 0; }
 }
