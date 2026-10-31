@@ -1,0 +1,240 @@
+/* ==========================================================================
+   Hero „Split" — v29 (Punkt 2)
+   Bildfläche rechts randlos, linke Kante schräg, ruhiger Drift.
+   Werte kommen als CSS-Variablen aus sections/hero-split.liquid:
+     --ob-slant   8–16 %   (Default 13)
+     --ob-drift-d 20–60 s  (Default 30)
+     --ob-drift-s 1.03–1.14 (Default 1.10)
+   Gemessen 31.10.: 1920 = Bühne 1037 × 700 · 1440 = 778 × 666 · 390 = 390 × 304
+   ========================================================================== */
+
+.ob-hero {
+  --ob-slant: 13%;
+  --ob-slant-far: 30%;
+  position: relative;
+  background: var(--kraft);
+  border-bottom: 1px solid rgba(20, 16, 10, .16);
+}
+
+.ob-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 46fr) minmax(0, 54fr);
+  align-items: stretch;
+  min-height: clamp(540px, 74vh, 700px);
+}
+
+/* ---------- Text links ---------- */
+.ob-hero__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(34px, 5vw, 74px) clamp(18px, 3.4vw, 56px) clamp(34px, 5vw, 64px) var(--pad);
+  padding-left: max(var(--pad), calc((100vw - var(--page-max)) / 2 + var(--pad)));
+}
+
+.ob-hero__rule {
+  display: block;
+  width: 46px;
+  height: 2px;
+  background: var(--rust);
+  margin-bottom: 22px;
+}
+
+.ob-hero__eyebrow {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.ob-hero__title {
+  margin: 14px 0 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--fs-h1);
+  line-height: .92;
+  letter-spacing: -.005em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.ob-hero__title em {
+  display: block;
+  font-style: normal;
+  color: var(--rust);
+}
+
+.ob-hero__lead {
+  margin: 22px 0 0;
+  max-width: 34ch;
+  font-size: var(--fs-lead);
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.ob-hero__cta {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.ob-hero__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 0 26px;
+  background: var(--green-deep);
+  color: var(--cream-text);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 140ms linear, transform 140ms ease;
+}
+.ob-hero__btn:hover { background: var(--green); }
+.ob-hero__btn:active { transform: translateY(1px); }
+.ob-hero__btn svg {
+  width: 17px; height: 17px;
+  fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: square;
+}
+
+.ob-hero__link {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(20, 16, 10, .34);
+  transition: border-color 140ms linear, color 140ms linear;
+}
+.ob-hero__link:hover { border-color: var(--rust); color: var(--rust); }
+
+.ob-hero__proof {
+  margin: auto 0 0;
+  padding-top: 34px;
+  font-family: ui-monospace, "Courier Prime", "Courier New", monospace;
+  font-size: 12px;
+  line-height: 1.7;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* ---------- Bildfläche rechts ---------- */
+.ob-hero__stage {
+  position: relative;
+  overflow: hidden;
+  background: var(--green-deep);
+  clip-path: polygon(var(--ob-slant) 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.ob-hero__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 58% 50%;
+}
+
+.ob-hero__stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(96deg, rgba(11, 36, 24, .55) 0%, rgba(11, 36, 24, .10) 34%, rgba(11, 36, 24, 0) 60%),
+    linear-gradient(0deg, rgba(11, 36, 24, .42), rgba(11, 36, 24, 0) 42%);
+}
+
+.ob-hero__meta {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  margin: 0;
+  padding: 0 0 clamp(20px, 3vw, 34px) clamp(46px, 7vw, 90px);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: ui-monospace, "Courier Prime", "Courier New", monospace;
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #eddfc2;
+}
+.ob-hero__meta i {
+  display: block;
+  width: 26px;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* ---------- Bewegung ---------- */
+/* Der Schnitt ist eine feste Kante, keine Animation — Chrome hat
+   polygon() in Keyframes mit Variablen nicht interpoliert (gemessen 31.10.:
+   Wert blieb auf dem Startwert stehen). Stattdessen setzt sich das Bild
+   900 ms von scale(1.07) auf 1.0, danach übernimmt der Drift. */
+@keyframes obHeroIn {
+  from { transform: scale(1.07); }
+  to   { transform: scale(1); }
+}
+
+@keyframes obHeroDrift {
+  from { transform: scale(1) translate3d(0, 0, 0); }
+  to   { transform: scale(var(--ob-drift-s)) translate3d(-1.4%, -1.2%, 0); }
+}
+
+.ob-hero__media {
+  animation: obHeroIn 900ms cubic-bezier(.22, .61, .36, 1) both;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ob-hero__stage--drift .ob-hero__media {
+    animation:
+      obHeroIn 900ms cubic-bezier(.22, .61, .36, 1) both,
+      obHeroDrift var(--ob-drift-d) ease-in-out 900ms infinite alternate;
+    will-change: transform;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ob-hero__media { animation: none !important; }
+}
+
+/* Schalter „Bewegung aus“ aus den Theme-Einstellungen */
+.ob-motion-off .ob-hero__stage,
+.ob-motion-off .ob-hero__media { animation: none !important; }
+
+/* ---------- Mobil: Bild unter dem Text, Oberkante schräg ---------- */
+@media (max-width: 879px) {
+  .ob-hero__grid {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+  .ob-hero__copy {
+    padding: 30px var(--pad);
+  }
+  .ob-hero__lead { margin-top: 16px; }
+  .ob-hero__cta { margin-top: 24px; gap: 16px; }
+  .ob-hero__btn { flex: 1; justify-content: center; }
+  .ob-hero__proof { margin-top: 24px; padding-top: 0; font-size: 11px; }
+
+  .ob-hero__stage {
+    height: min(78vw, 420px);
+    clip-path: polygon(0 calc(var(--ob-slant) * .7) , 100% 0, 100% 100%, 0 100%);
+  }
+  .ob-hero__meta { padding: 0 0 16px 20px; }
+}

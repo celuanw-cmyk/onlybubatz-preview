@@ -16,13 +16,28 @@
 
 /* ---------- Punkt 5: ein Bildmaß für alle Karten (1:1) ---------- */
 /* Das height="480"-Attribut am <img> wirkt als CSS-Höhe und schlägt aspect-ratio —
-   deshalb Rahmen 1:1 + Bild height:100% (gemessen 31.10.: 259×482 -> 259×259). */
-.p-card__media { aspect-ratio: 1 / 1; overflow: hidden; }
-.p-card__media img { height: 100%; aspect-ratio: 1 / 1; object-fit: contain; }
+   deshalb Rahmen 1:1 + Bild height:100% (gemessen 31.10.: 259×482 -> 259×259).
+   Bildmodus kommt aus dem Theme-Editor (Produktbilder): normalisierte Fotos haben
+   Papier IM Bild, dann kein multiply — sonst #e7d3a8 statt #f3e8cf. */
+.p-card__media {
+  aspect-ratio: 1 / 1; overflow: hidden;
+  background: var(--ob-card-img-bg, #f3e8cf);
+}
+.p-card__media img { width: 100%; height: 100%; aspect-ratio: 1 / 1; object-fit: contain; }
+.ob-img-paper .p-card__media img { padding: 0; mix-blend-mode: normal; }
+.ob-img-white .p-card__media { background: #fff; }
+.ob-img-white .p-card__media img { mix-blend-mode: multiply; }
+.ob-img-alpha .p-card__media { background: transparent; }
+.ob-img-alpha .p-card__media img { padding: 0; mix-blend-mode: multiply; }
 .p-card__noimg {
   display: grid; place-items: center; height: 100%; aspect-ratio: 1 / 1;
   color: var(--ink-soft); font-size: 14px;
 }
+/* dieselben Modi für die Sortimentskarte (v28) */
+.ob-img-paper .shop-v28 .card .ph { background: var(--ob-card-img-bg, #f3e8cf); }
+.ob-img-paper .shop-v28 .card .ph img { mix-blend-mode: normal; }
+.ob-img-white .shop-v28 .card .ph { background: #fff; }
+.ob-img-alpha .shop-v28 .card .ph { background: transparent; }
 
 /* ---------- Punkt 3: ausverkauft — Ware bleibt erahnbar, Preis/Button weg ---------- */
 .ob-soldout .p-card.is-out .p-card__media { position: relative; }
