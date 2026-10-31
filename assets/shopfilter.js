@@ -79,7 +79,7 @@
     $$('input[name="fcat"]').forEach(r => { r.checked = (r.value || '') === c; });
 
     // Preis-Label
-    if (pricelbl) pricelbl.textContent = p >= PMAX ? 'alle' : Math.round(p) + ' €';
+    if (pricelbl) pricelbl.textContent = Math.round(p) + ' €';
 
     // Filter-Pills
     const list = [];
