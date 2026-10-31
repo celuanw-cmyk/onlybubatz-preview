@@ -20,11 +20,11 @@
 
 
 
-  <link rel="stylesheet" href="assets/base.css?v=1793480644">
+  <link rel="stylesheet" href="assets/base.css?v=1793480699">
 
-  <link rel="stylesheet" href="assets/ob-extras.css?v=1793480644">
+  <link rel="stylesheet" href="assets/ob-extras.css?v=1793480699">
 
-  <link rel="stylesheet" href="assets/ob-v29.css?v=1793480644"><style>
+  <link rel="stylesheet" href="assets/ob-v29.css?v=1793480699"><style>
 
     :root {--ob-sold-dim: 0.62;
 
@@ -56,13 +56,15 @@
 
     .ob-leaves img {
 
-      position: absolute; height: auto; opacity: .22;
+      position: absolute; height: auto; opacity: .18; mix-blend-mode: multiply;
 
       filter: saturate(.85) contrast(1.02);
 
     }
 
-    .ob-leaves .l1 { right: 1vw; top: 56%; width: 36vh; transform: translateY(-50%) rotate(-75deg); transform-origin: center center; }  /* Stiel nach außen */
+    .ob-leaves .l1 { right: 1vw; top: 56%; width: 36vh; transform: translateY(-50%) rotate(-75deg); transform-origin: center center;
+      -webkit-mask-image: linear-gradient(to top left, rgba(0,0,0,.95) 0%, rgba(0,0,0,.55) 45%, transparent 92%);
+      mask-image: linear-gradient(to top left, rgba(0,0,0,.95) 0%, rgba(0,0,0,.55) 45%, transparent 92%); }  /* Stiel nach außen */
 
     /* Inhalt liegt über den Blättern */
 
@@ -323,11 +325,11 @@
 
   </script>
 
-  <script src="assets/theme.js?v=1793480644" defer></script>
+  <script src="assets/theme.js?v=1793480699" defer></script>
 
-  <script src="assets/ob-extras.js?v=1793480644" defer></script>
+  <script src="assets/ob-extras.js?v=1793480699" defer></script>
 
-  <script src="assets/ob-anim.js?v=1793480644" defer></script>
+  <script src="assets/ob-anim.js?v=1793480699" defer></script>
 
 </body>
 
