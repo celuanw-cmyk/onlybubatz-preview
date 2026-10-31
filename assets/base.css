@@ -155,11 +155,12 @@ h3, .h3 { font-family: var(--font-display); text-transform: uppercase; font-size
 }
 .site-header { position: sticky; top: 0; z-index: 90; background: var(--green-deep); color: var(--cream-text); border-bottom: 2px solid var(--ink); }
 .site-header .page { display: flex; align-items: center; gap: clamp(14px, 2.5vw, 34px); min-height: 86px; flex-wrap: wrap; padding-block: 10px; row-gap: 0; }
-/* Zweizeiliger Header auf Desktop: Marke + Aktionen oben, Navigation darunter (mehr Platz, größere Klickziele) */
+/* Eine Zeile auf Desktop: Marke links · Navigation mittig · Login + Warenkorb rechts */
 @media (min-width: 1001px) {
-  .nav { order: 3; flex-basis: 100%; justify-content: flex-start; border-top: 2px solid rgba(247, 236, 214, .14); padding-top: 10px; margin-top: 8px; }
+  .nav { order: 2; flex: 1 1 auto; justify-content: center; border-top: 0; padding-top: 0; margin-top: 0; }
   .nav a { font-size: 17px; padding: 12px 2px; }
-  .brand { margin-right: auto; }
+  .brand { margin-right: 0; }
+  .header-actions { order: 3; margin-left: auto; }
 }
 .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; flex: 0 0 auto; }
 .brand img { width: 44px; height: 48px; object-fit: contain; }

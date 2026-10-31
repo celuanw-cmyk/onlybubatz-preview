@@ -77,165 +77,349 @@
 
 
   <main id="MainContent" role="main" tabindex="-1">
-    <section class="section section--tight">
-  <div class="page">
-    <div class="collection-head">
-      <p class="eyebrow">Sortiment</p>
-      <h1>Aktivkohlefilter</h1><p class="lead" style="margin-top:14px">Aktivkohle- und Cellulosefilter von Purize, Kailar, Gizeh und OCB — für einen kühleren, saubereren Zug.</p></div>
+    <section class="section shop-v28" data-collection="aktivkohlefilter">
 
-    <div class="toolbar">
-      <p style="font-size:15px;color:var(--ink-soft)">8 Artikel</p>
-      <form method="get" action="/collections/aktivkohlefilter" style="display:flex;gap:10px;align-items:center">
-        <label class="visually-hidden" for="sortBy">Sortieren</label>
-        <select id="sortBy" name="sort_by" onchange="this.form.submit()"><option value="manual" selected>Empfohlen</option><option value="price-ascending" >Preis aufsteigend</option><option value="price-descending" >Preis absteigend</option><option value="created-descending" >Neuheiten</option><option value="best-selling" >Bestseller</option></select>
-        <noscript><button class="btn btn--sm" type="submit">Sortieren</button></noscript>
-      </form>
+  <link rel="stylesheet" href="assets/shop-v28.css"><div class="brandbar" id="brandbar">
+      <div class="page bbinner">
+        <span class="bblabel">Marke</span>
+        <div class="bbstrip" id="bbstrip" role="group" aria-label="Nach Marke filtern">
+          <a class="brandtab on" href="collection.html" data-brand="" data-count="8">Alle</a><a class="brandtab" href="collection.html" data-brand="Granny´s Weed" data-count="1">Granny´s Weed</a><a class="brandtab" href="collection.html" data-brand="Kailar" data-count="1">Kailar</a><a class="brandtab" href="collection.html" data-brand="Purize" data-count="1">Purize</a><a class="brandtab" href="collection.html" data-brand="RAW" data-count="2">RAW</a><a class="brandtab" href="collection.html" data-brand="Storz &amp; Bickel" data-count="2">Storz & Bickel</a><a class="brandtab" href="collection.html" data-brand="Tightvac" data-count="1">Tightvac</a></div>
+        <button class="bbmore" id="bbmore" type="button" aria-expanded="false" aria-controls="brandpanel">
+          <span class="lbl">Alle 6 Marken</span><span class="lbl-m">Marken</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+      </div>
+
+      <div class="brandpanel" id="brandpanel" aria-label="Alle Marken">
+        <div class="page bpinner">
+          <div class="bphead">
+            <label class="bpsearch">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+              <input id="bbsearch" type="search" placeholder="Marke suchen …" aria-label="Marke suchen" autocomplete="off">
+            </label>
+            <button class="bpclose" type="button" data-bpclose>Schliessen</button>
+          </div>
+          <div class="bpgrid" id="bpgrid">
+            <button type="button" class="bpitem" data-brand="" data-count="8">Alle Marken<span>8</span></button><button type="button" class="bpitem" data-brand="Granny´s Weed" data-count="1">Granny´s Weed<span>1</span></button><button type="button" class="bpitem" data-brand="Kailar" data-count="1">Kailar<span>1</span></button><button type="button" class="bpitem" data-brand="Purize" data-count="1">Purize<span>1</span></button><button type="button" class="bpitem" data-brand="RAW" data-count="2">RAW<span>2</span></button><button type="button" class="bpitem" data-brand="Storz &amp; Bickel" data-count="2">Storz & Bickel<span>2</span></button><button type="button" class="bpitem" data-brand="Tightvac" data-count="1">Tightvac<span>1</span></button></div>
+        </div>
+      </div>
+    </div><div class="page shopbody">
+
+    <nav class="crumbs" aria-label="Brotkrumen">
+      <a href="collection.html">Start</a>
+      <span aria-hidden="true">·</span>
+      <span aria-current="page">Aktivkohlefilter</span>
+    </nav>
+
+    <div class="shophead">
+      <p class="eyebrow">Sortiment · 8 Artikel</p>
+      <h1>Aktivkohlefilter</h1><p class="lead">Aktivkohle- und Cellulosefilter von Purize, Kailar, Gizeh und OCB — für einen kühleren, saubereren Zug.</p></div>
+
+    <div class="fstatus" id="fstatus">
+      <span class="fcount"><b id="fcount">8</b> von 8 Produkten</span>
+      <span class="fpills" id="fpills"></span>
+      <button class="freset" id="freset" type="button" hidden>Filter zurücksetzen</button>
     </div>
 
-    <div class="product-grid"><article class="p-card" data-product-card>
-  <a class="p-card__media" href="product.html" aria-label="VOLCANO HYBRID Vaporizer"><span class="p-card__badge">Deal −8 %</span><img src="assets/img/5be996476ded.webp"
-           srcset="assets/img/5be996476ded.webp 320w, assets/img/5be996476ded.webp 480w, assets/img/5be996476ded.webp 720w"
-           sizes="(max-width: 820px) 45vw, 22vw"
-           width="480" height="480"
+    <div class="shopbar" id="shopbar"><div class="chipstrip">
+          <a class="chip on" href="collection.html" data-cat="" aria-pressed="true">Alle</a><a class="chip" href="collection.html" data-cat="Granny´s Weed" aria-pressed="false">Granny´s Weed</a><a class="chip" href="collection.html" data-cat="Kailar" aria-pressed="false">Kailar</a><a class="chip" href="collection.html" data-cat="Purize" aria-pressed="false">Purize</a><a class="chip" href="collection.html" data-cat="RAW" aria-pressed="false">RAW</a><a class="chip" href="collection.html" data-cat="Storz &amp; Bickel" aria-pressed="false">Storz & Bickel</a><a class="chip" href="collection.html" data-cat="Tightvac" aria-pressed="false">Tightvac</a></div><div class="sort">
+        <label for="fsort">Sortieren:</label><select id="fsort"><option value="pop" data-sort-by="manual" selected>Empfohlen</option><option value="asc" data-sort-by="price-ascending">Preis aufsteigend</option><option value="desc" data-sort-by="price-descending">Preis absteigend</option><option value="new" data-sort-by="created-descending">Neuheiten</option><option value="best-selling" data-sort-by="best-selling">Bestseller</option></select>
+        <noscript>
+          <ul class="sortlinks"><li><a href="collection.html" aria-current="true">Empfohlen</a></li><li><a href="collection.html">Preis aufsteigend</a></li><li><a href="collection.html">Preis absteigend</a></li><li><a href="collection.html">Neuheiten</a></li><li><a href="collection.html">Bestseller</a></li></ul>
+        </noscript>
+      </div>
+    </div>
+
+    
+      <div class="shoplayout"><aside class="filters" aria-label="Filter">
+            <h4>Kategorie</h4>
+            <label><input type="radio" name="fcat" value="" checked> Alle <span class="cnt">8</span></label><label><input type="radio" name="fcat" value="Granny´s Weed"> Granny´s Weed <span class="cnt">1</span></label><label><input type="radio" name="fcat" value="Kailar"> Kailar <span class="cnt">1</span></label><label><input type="radio" name="fcat" value="Purize"> Purize <span class="cnt">1</span></label><label><input type="radio" name="fcat" value="RAW"> RAW <span class="cnt">2</span></label><label><input type="radio" name="fcat" value="Storz &amp; Bickel"> Storz & Bickel <span class="cnt">2</span></label><label><input type="radio" name="fcat" value="Tightvac"> Tightvac <span class="cnt">1</span></label><h4>Preis</h4>
+            <div class="pricebox">
+              <div class="row"><span>1 €</span><span>bis <b id="fpricelbl">549 €</b></span></div>
+              <input type="range" id="fprice" min="1" max="549" step="1" value="549" aria-label="Höchstpreis">
+            </div><h4>Marke</h4>
+              <button class="marklink" id="marklink" type="button">Alle 6 Marken wählen
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"/></svg>
+              </button></aside><div class="shopmain"><div class="pgrid"><article class="card"
+  data-brand="Storz &amp; Bickel"
+  data-cat="Storz &amp; Bickel"
+  data-price="549"
+  data-i="1"
+  data-stock="1">
+
+  <a class="ph" href="product.html" tabindex="-1" aria-hidden="true"><span class="badge">Deal</span><img src="assets/img/5be996476ded.webp"
+           srcset="assets/img/5be996476ded.webp 300w, assets/img/5be996476ded.webp 600w, assets/img/5be996476ded.webp 900w"
+           sizes="(max-width: 720px) 44vw, (max-width: 1080px) 30vw, 240px"
+           width="600" height="600"
            alt="VOLCANO HYBRID Vaporizer"
-           loading="lazy"
-           
-           decoding="async"></a>
-  <div class="p-card__body">
-    <p class="p-card__vendor">Storz & Bickel</p>
-    <h3 class="p-card__title"><a href="product.html">VOLCANO HYBRID Vaporizer</a></h3>
-    <p class="p-card__price">
-  <span class="price">549,00 €</span><span class="price--compare">598,00 €</span>
-    <span class="price--save">−8 %</span></p>
-<div class="p-card__cta"><button type="button" class="btn btn--sm btn--block" data-add="12306377450">In den Warenkorb</button></div>
-  </div>
+           loading="lazy" decoding="async"></a>
+
+  <div class="body">
+    <p class="brandline">Storz & Bickel</p>
+
+    <h3><a href="product.html">VOLCANO HYBRID Vaporizer</a></h3>
+
+    <div class="pricerow">
+      <b>549,00 €</b><span class="was">
+          <s>598,00 €</s>
+          <span class="off">−8 %</span>
+        </span></div>
+
+    <p class="stock">
+      <i class="dot" aria-hidden="true"></i>Auf Lager</p><form class="addform" action="/cart/add" method="post" accept-charset="utf-8">
+        <input type="hidden" name="id" value="12306377450">
+        <input type="hidden" name="quantity" value="1">
+        <button type="submit" class="add" data-add="12306377450">In den Warenkorb</button>
+      </form></div>
 </article>
-<article class="p-card" data-product-card>
-  <a class="p-card__media" href="product.html" aria-label="Purize Aktivkohlefilter RAINBOW (100er Glas)"><img src="assets/img/d5167e3f8f92.webp"
-           srcset="assets/img/d5167e3f8f92.webp 320w, assets/img/d5167e3f8f92.webp 480w, assets/img/d5167e3f8f92.webp 720w"
-           sizes="(max-width: 820px) 45vw, 22vw"
-           width="480" height="480"
+<article class="card"
+  data-brand="Purize"
+  data-cat="Purize"
+  data-price="15.89"
+  data-i="2"
+  data-stock="1">
+
+  <a class="ph" href="product.html" tabindex="-1" aria-hidden="true"><img src="assets/img/d5167e3f8f92.webp"
+           srcset="assets/img/d5167e3f8f92.webp 300w, assets/img/d5167e3f8f92.webp 600w, assets/img/d5167e3f8f92.webp 900w"
+           sizes="(max-width: 720px) 44vw, (max-width: 1080px) 30vw, 240px"
+           width="600" height="600"
            alt="Purize Aktivkohlefilter RAINBOW (100er Glas)"
-           loading="lazy"
-           
-           decoding="async"></a>
-  <div class="p-card__body">
-    <p class="p-card__vendor">Purize</p>
-    <h3 class="p-card__title"><a href="product.html">Purize Aktivkohlefilter RAINBOW (100er Glas)</a></h3>
-    <p class="p-card__price">
-  <span class="price">15,89 €</span></p>
-<div class="p-card__cta"><button type="button" class="btn btn--sm btn--block" data-add="10708101020">In den Warenkorb</button></div>
-  </div>
+           loading="lazy" decoding="async"></a>
+
+  <div class="body">
+    <p class="brandline">Purize</p>
+
+    <h3><a href="product.html">Purize Aktivkohlefilter RAINBOW (100er Glas)</a></h3>
+
+    <div class="pricerow">
+      <b>15,89 €</b></div>
+
+    <p class="stock">
+      <i class="dot" aria-hidden="true"></i>Auf Lager</p><form class="addform" action="/cart/add" method="post" accept-charset="utf-8">
+        <input type="hidden" name="id" value="10708101020">
+        <input type="hidden" name="quantity" value="1">
+        <button type="submit" class="add" data-add="10708101020">In den Warenkorb</button>
+      </form></div>
 </article>
-<article class="p-card" data-product-card>
-  <a class="p-card__media" href="product.html" aria-label="RAW Classic Black KS Slim Papier"><img src="assets/img/4c5fd71db10e.jpg"
-           srcset="assets/img/4c5fd71db10e.jpg 320w, assets/img/4c5fd71db10e.jpg 480w, assets/img/4c5fd71db10e.jpg 720w"
-           sizes="(max-width: 820px) 45vw, 22vw"
-           width="480" height="480"
+<article class="card"
+  data-brand="RAW"
+  data-cat="RAW"
+  data-price="1.29"
+  data-i="3"
+  data-stock="1">
+
+  <a class="ph" href="product.html" tabindex="-1" aria-hidden="true"><img src="assets/img/4c5fd71db10e.jpg"
+           srcset="assets/img/4c5fd71db10e.jpg 300w, assets/img/4c5fd71db10e.jpg 600w, assets/img/4c5fd71db10e.jpg 900w"
+           sizes="(max-width: 720px) 44vw, (max-width: 1080px) 30vw, 240px"
+           width="600" height="600"
            alt="RAW Classic Black KS Slim Papier"
-           loading="lazy"
-           
-           decoding="async"></a>
-  <div class="p-card__body">
-    <p class="p-card__vendor">RAW</p>
-    <h3 class="p-card__title"><a href="product.html">RAW Classic Black KS Slim Papier</a></h3>
-    <p class="p-card__price">
-  <span class="price">1,29 €</span></p>
-<div class="p-card__cta"><button type="button" class="btn btn--sm btn--block" data-add="14813687510">In den Warenkorb</button></div>
-  </div>
+           loading="lazy" decoding="async"></a>
+
+  <div class="body">
+    <p class="brandline">RAW</p>
+
+    <h3><a href="product.html">RAW Classic Black KS Slim Papier</a></h3>
+
+    <div class="pricerow">
+      <b>1,29 €</b></div>
+
+    <p class="stock">
+      <i class="dot" aria-hidden="true"></i>Auf Lager</p><form class="addform" action="/cart/add" method="post" accept-charset="utf-8">
+        <input type="hidden" name="id" value="14813687510">
+        <input type="hidden" name="quantity" value="1">
+        <button type="submit" class="add" data-add="14813687510">In den Warenkorb</button>
+      </form></div>
 </article>
-<article class="p-card" data-product-card>
-  <a class="p-card__media" href="product.html" aria-label="Granny´s Weed CNC Aluminium Grinder/Pollinator, ø 60mm"><span class="p-card__badge">Deal −25 %</span><img src="assets/img/06a9fa193122.webp"
-           srcset="assets/img/06a9fa193122.webp 320w, assets/img/06a9fa193122.webp 480w, assets/img/06a9fa193122.webp 720w"
-           sizes="(max-width: 820px) 45vw, 22vw"
-           width="480" height="480"
+<article class="card"
+  data-brand="Granny´s Weed"
+  data-cat="Granny´s Weed"
+  data-price="14.99"
+  data-i="4"
+  data-stock="1">
+
+  <a class="ph" href="product.html" tabindex="-1" aria-hidden="true"><span class="badge">Deal</span><img src="assets/img/06a9fa193122.webp"
+           srcset="assets/img/06a9fa193122.webp 300w, assets/img/06a9fa193122.webp 600w, assets/img/06a9fa193122.webp 900w"
+           sizes="(max-width: 720px) 44vw, (max-width: 1080px) 30vw, 240px"
+           width="600" height="600"
            alt="Granny´s Weed CNC Aluminium Grinder/Pollinator, ø 60mm"
-           loading="lazy"
-           
-           decoding="async"></a>
-  <div class="p-card__body">
-    <p class="p-card__vendor">Granny´s Weed</p>
-    <h3 class="p-card__title"><a href="product.html">Granny´s Weed CNC Aluminium Grinder/Pollinator, ø 60mm</a></h3>
-    <p class="p-card__price">
-  <span class="price">14,99 €</span><span class="price--compare">19,99 €</span>
-    <span class="price--save">−25 %</span></p>
-<div class="p-card__cta"><button type="button" class="btn btn--sm btn--block" data-add="14199774810">In den Warenkorb</button></div>
-  </div>
+           loading="lazy" decoding="async"></a>
+
+  <div class="body">
+    <p class="brandline">Granny´s Weed</p>
+
+    <h3><a href="product.html">Granny´s Weed CNC Aluminium Grinder/Pollinator, ø 60mm</a></h3>
+
+    <div class="pricerow">
+      <b>14,99 €</b><span class="was">
+          <s>19,99 €</s>
+          <span class="off">−25 %</span>
+        </span></div>
+
+    <p class="stock">
+      <i class="dot" aria-hidden="true"></i>Auf Lager</p><form class="addform" action="/cart/add" method="post" accept-charset="utf-8">
+        <input type="hidden" name="id" value="14199774810">
+        <input type="hidden" name="quantity" value="1">
+        <button type="submit" class="add" data-add="14199774810">In den Warenkorb</button>
+      </form></div>
 </article>
-<article class="p-card" data-product-card>
-  <a class="p-card__media" href="product.html" aria-label="VOLCANO CLASSIC Vaporizer"><span class="p-card__badge">Deal −14 %</span><img src="assets/img/0dfea217edd1.jpg"
-           srcset="assets/img/0dfea217edd1.jpg 320w, assets/img/0dfea217edd1.jpg 480w, assets/img/0dfea217edd1.jpg 720w"
-           sizes="(max-width: 820px) 45vw, 22vw"
-           width="480" height="480"
+<article class="card"
+  data-brand="Storz &amp; Bickel"
+  data-cat="Storz &amp; Bickel"
+  data-price="299.99"
+  data-i="5"
+  data-stock="1">
+
+  <a class="ph" href="product.html" tabindex="-1" aria-hidden="true"><span class="badge">Deal</span><img src="assets/img/0dfea217edd1.jpg"
+           srcset="assets/img/0dfea217edd1.jpg 300w, assets/img/0dfea217edd1.jpg 600w, assets/img/0dfea217edd1.jpg 900w"
+           sizes="(max-width: 720px) 44vw, (max-width: 1080px) 30vw, 240px"
+           width="600" height="600"
            alt="VOLCANO CLASSIC Vaporizer"
-           loading="lazy"
-           
-           decoding="async"></a>
-  <div class="p-card__body">
-    <p class="p-card__vendor">Storz & Bickel</p>
-    <h3 class="p-card__title"><a href="product.html">VOLCANO CLASSIC Vaporizer</a></h3>
-    <p class="p-card__price">
-  <span class="price">299,99 €</span><span class="price--compare">349,00 €</span>
-    <span class="price--save">−14 %</span></p>
-<div class="p-card__cta"><button type="button" class="btn btn--sm btn--block" data-add="15746032950">In den Warenkorb</button></div>
-  </div>
+           loading="lazy" decoding="async"></a>
+
+  <div class="body">
+    <p class="brandline">Storz & Bickel</p>
+
+    <h3><a href="product.html">VOLCANO CLASSIC Vaporizer</a></h3>
+
+    <div class="pricerow">
+      <b>299,99 €</b><span class="was">
+          <s>349,00 €</s>
+          <span class="off">−14 %</span>
+        </span></div>
+
+    <p class="stock">
+      <i class="dot" aria-hidden="true"></i>Auf Lager</p><form class="addform" action="/cart/add" method="post" accept-charset="utf-8">
+        <input type="hidden" name="id" value="15746032950">
+        <input type="hidden" name="quantity" value="1">
+        <button type="submit" class="add" data-add="15746032950">In den Warenkorb</button>
+      </form></div>
 </article>
-<article class="p-card" data-product-card>
-  <a class="p-card__media" href="product.html" aria-label="RAW Kristallglas Aschenbecher"><span class="p-card__badge">Deal −39 %</span><img src="assets/img/a81f32666c8a.webp"
-           srcset="assets/img/a81f32666c8a.webp 320w, assets/img/a81f32666c8a.webp 480w, assets/img/a81f32666c8a.webp 720w"
-           sizes="(max-width: 820px) 45vw, 22vw"
-           width="480" height="480"
+<article class="card"
+  data-brand="RAW"
+  data-cat="RAW"
+  data-price="21.29"
+  data-i="6"
+  data-stock="1">
+
+  <a class="ph" href="product.html" tabindex="-1" aria-hidden="true"><span class="badge">Deal</span><img src="assets/img/a81f32666c8a.webp"
+           srcset="assets/img/a81f32666c8a.webp 300w, assets/img/a81f32666c8a.webp 600w, assets/img/a81f32666c8a.webp 900w"
+           sizes="(max-width: 720px) 44vw, (max-width: 1080px) 30vw, 240px"
+           width="600" height="600"
            alt="RAW Kristallglas Aschenbecher"
-           loading="lazy"
-           
-           decoding="async"></a>
-  <div class="p-card__body">
-    <p class="p-card__vendor">RAW</p>
-    <h3 class="p-card__title"><a href="product.html">RAW Kristallglas Aschenbecher</a></h3>
-    <p class="p-card__price">
-  <span class="price">21,29 €</span><span class="price--compare">34,95 €</span>
-    <span class="price--save">−39 %</span></p>
-<div class="p-card__cta"><button type="button" class="btn btn--sm btn--block" data-add="11283439140">In den Warenkorb</button></div>
-  </div>
+           loading="lazy" decoding="async"></a>
+
+  <div class="body">
+    <p class="brandline">RAW</p>
+
+    <h3><a href="product.html">RAW Kristallglas Aschenbecher</a></h3>
+
+    <div class="pricerow">
+      <b>21,29 €</b><span class="was">
+          <s>34,95 €</s>
+          <span class="off">−39 %</span>
+        </span></div>
+
+    <p class="stock">
+      <i class="dot" aria-hidden="true"></i>Auf Lager</p><form class="addform" action="/cart/add" method="post" accept-charset="utf-8">
+        <input type="hidden" name="id" value="11283439140">
+        <input type="hidden" name="quantity" value="1">
+        <button type="submit" class="add" data-add="11283439140">In den Warenkorb</button>
+      </form></div>
 </article>
-<article class="p-card" data-product-card>
-  <a class="p-card__media" href="product.html" aria-label="Tightvac MiniVac Vakuum Kustoffbehälter 0,12 Liter ECO"><span class="p-card__badge">Deal −17 %</span><img src="assets/img/d12605460201.jpg"
-           srcset="assets/img/d12605460201.jpg 320w, assets/img/d12605460201.jpg 480w, assets/img/d12605460201.jpg 720w"
-           sizes="(max-width: 820px) 45vw, 22vw"
-           width="480" height="480"
+<article class="card"
+  data-brand="Tightvac"
+  data-cat="Tightvac"
+  data-price="6.66"
+  data-i="7"
+  data-stock="1">
+
+  <a class="ph" href="product.html" tabindex="-1" aria-hidden="true"><span class="badge">Deal</span><img src="assets/img/d12605460201.jpg"
+           srcset="assets/img/d12605460201.jpg 300w, assets/img/d12605460201.jpg 600w, assets/img/d12605460201.jpg 900w"
+           sizes="(max-width: 720px) 44vw, (max-width: 1080px) 30vw, 240px"
+           width="600" height="600"
            alt="Tightvac MiniVac Vakuum Kustoffbehälter 0,12 Liter ECO"
-           loading="lazy"
-           
-           decoding="async"></a>
-  <div class="p-card__body">
-    <p class="p-card__vendor">Tightvac</p>
-    <h3 class="p-card__title"><a href="product.html">Tightvac MiniVac Vakuum Kustoffbehälter 0,12 Liter ECO</a></h3>
-    <p class="p-card__price">
-  <span class="price">6,66 €</span><span class="price--compare">7,99 €</span>
-    <span class="price--save">−17 %</span></p>
-<div class="p-card__cta"><button type="button" class="btn btn--sm btn--block" data-add="13287512140">In den Warenkorb</button></div>
-  </div>
+           loading="lazy" decoding="async"></a>
+
+  <div class="body">
+    <p class="brandline">Tightvac</p>
+
+    <h3><a href="product.html">Tightvac MiniVac Vakuum Kustoffbehälter 0,12 Liter ECO</a></h3>
+
+    <div class="pricerow">
+      <b>6,66 €</b><span class="was">
+          <s>7,99 €</s>
+          <span class="off">−17 %</span>
+        </span></div>
+
+    <p class="stock">
+      <i class="dot" aria-hidden="true"></i>Auf Lager</p><form class="addform" action="/cart/add" method="post" accept-charset="utf-8">
+        <input type="hidden" name="id" value="13287512140">
+        <input type="hidden" name="quantity" value="1">
+        <button type="submit" class="add" data-add="13287512140">In den Warenkorb</button>
+      </form></div>
 </article>
-<article class="p-card" data-product-card>
-  <a class="p-card__media" href="product.html" aria-label="Kailar Aktivkohle-Filter Slim (250er, braun)"><img src="assets/img/3788707683dc.jpg"
-           srcset="assets/img/3788707683dc.jpg 320w, assets/img/3788707683dc.jpg 480w, assets/img/3788707683dc.jpg 720w"
-           sizes="(max-width: 820px) 45vw, 22vw"
-           width="480" height="480"
+<article class="card"
+  data-brand="Kailar"
+  data-cat="Kailar"
+  data-price="29.9"
+  data-i="8"
+  data-stock="1">
+
+  <a class="ph" href="product.html" tabindex="-1" aria-hidden="true"><img src="assets/img/3788707683dc.jpg"
+           srcset="assets/img/3788707683dc.jpg 300w, assets/img/3788707683dc.jpg 600w, assets/img/3788707683dc.jpg 900w"
+           sizes="(max-width: 720px) 44vw, (max-width: 1080px) 30vw, 240px"
+           width="600" height="600"
            alt="Kailar Aktivkohle-Filter Slim (250er, braun)"
-           loading="lazy"
-           
-           decoding="async"></a>
-  <div class="p-card__body">
-    <p class="p-card__vendor">Kailar</p>
-    <h3 class="p-card__title"><a href="product.html">Kailar Aktivkohle-Filter Slim (250er, braun)</a></h3>
-    <p class="p-card__price">
-  <span class="price">29,90 €</span></p>
-<div class="p-card__cta"><button type="button" class="btn btn--sm btn--block" data-add="11458442530">In den Warenkorb</button></div>
-  </div>
+           loading="lazy" decoding="async"></a>
+
+  <div class="body">
+    <p class="brandline">Kailar</p>
+
+    <h3><a href="product.html">Kailar Aktivkohle-Filter Slim (250er, braun)</a></h3>
+
+    <div class="pricerow">
+      <b>29,90 €</b></div>
+
+    <p class="stock">
+      <i class="dot" aria-hidden="true"></i>Auf Lager</p><form class="addform" action="/cart/add" method="post" accept-charset="utf-8">
+        <input type="hidden" name="id" value="11458442530">
+        <input type="hidden" name="quantity" value="1">
+        <button type="submit" class="add" data-add="11458442530">In den Warenkorb</button>
+      </form></div>
 </article>
 </div>
+
+            <div class="bbempty" id="bbempty" hidden>
+              <b>Keine Treffer</b>
+              <p>Diese Kombination gibt es in dieser Collection nicht.</p>
+              <button type="button" data-reset>Filter zurücksetzen</button>
+            </div></div>
+
+      </div>
+    
+
   </div>
 </section>
+
+<link rel="stylesheet" href="assets/shop-v28.css">
+<script src="assets/shopfilter.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
