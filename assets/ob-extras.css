@@ -160,19 +160,23 @@ html.ob-hdr-hidden .shop-v28 .brandbar.is-fixed { top: 0; }
 
 /* ---------- 9) Bewegung: Sektionen blenden beim Scrollen ein ---------- */
 [data-ob-anim] { opacity: 1; }
-[data-ob-anim].ob-anim-ready {
+.ob-js [data-ob-anim].ob-anim-ready {
   opacity: 0;
   transition:
     opacity var(--ob-dur, .5s) cubic-bezier(.22, .75, .25, 1) var(--ob-delay, 0s),
     transform var(--ob-dur, .5s) cubic-bezier(.22, .75, .25, 1) var(--ob-delay, 0s);
   will-change: opacity, transform;
 }
+/* nach dem Einblenden keine GPU-Ebene mehr festhalten (spart Speicher) */
+.ob-js [data-ob-anim].ob-anim-ready.is-in { will-change: auto; }
+/* Tastaturfokus darf nie in einem unsichtbaren Bereich landen */
+.ob-js [data-ob-anim]:focus-within { opacity: 1 !important; transform: none !important; transition: none !important; }
 [data-ob-anim="fade"].ob-anim-ready { transform: none; }
 [data-ob-anim="rise"].ob-anim-ready { transform: translateY(22px); }
 [data-ob-anim="zoom"].ob-anim-ready { transform: scale(.975); }
 [data-ob-anim="left"].ob-anim-ready { transform: translateX(-24px); }
-[data-ob-anim].ob-anim-ready.is-in { opacity: 1; transform: none; }
+.ob-js [data-ob-anim].ob-anim-ready.is-in { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-ob-anim], [data-ob-anim].ob-anim-ready { opacity: 1 !important; transform: none !important; transition: none !important; }
+  [data-ob-anim], .ob-js [data-ob-anim].ob-anim-ready { opacity: 1 !important; transform: none !important; transition: none !important; }
 }

@@ -6,6 +6,7 @@
 
 /* ---------- Tokens ---------- */
 :root {
+  --m-fast: 140ms; --m-mid: 220ms; --m-slow: 380ms;
   --kraft: #ecd9b6;
   --kraft-2: #e5c99e;
   --kraft-light: #f7ecd6;

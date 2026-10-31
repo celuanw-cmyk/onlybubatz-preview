@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="de">
 <head>
+  <script>document.documentElement.classList.add('ob-js');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b2418">
@@ -8,9 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/base.css?v=1793479055">
-  <link rel="stylesheet" href="assets/ob-extras.css?v=1793479055">
-  <link rel="stylesheet" href="assets/ob-v29.css?v=1793479055"><style>
+  <link rel="stylesheet" href="assets/base.css?v=1793479271">
+  <link rel="stylesheet" href="assets/ob-extras.css?v=1793479271">
+  <link rel="stylesheet" href="assets/ob-v29.css?v=1793479271"><style>
     :root {--ob-sold-dim: 0.62;
       --ob-drawer-w: min(460px, 92vw);
       --ob-card-img-bg: #f3e8cf;
@@ -18,35 +19,34 @@
   </style>
   
   <style>
-    /* Cannabisblätter: feste Positionen an den Seitenrändern, kein Muster, keine Bewegung.
-       Motiv: gemeinfreier Stich 1887. Höchstens drei Blätter, nur auf großen Bildschirmen. */
-    @media (min-width: 1100px) {
-      body::before, body::after {
-        content: ""; position: fixed; top: 0; bottom: 0; width: 240px; z-index: 0;
-        pointer-events: none; opacity: .085; background-repeat: no-repeat;
-      }
-      /* links: ein Blatt oben, ein kleineres unten */
-      body::before {
-        left: 0;
-        background-image: url("assets/ob-leaf.webp"), url("assets/ob-leaf.webp");
-        background-size: 230px auto, 155px auto;
-        background-position: left -70px top 11%, left -45px bottom 9%;
-      }
-      /* rechts: ein großes Blatt in der Mitte, gespiegelt */
-      body::after {
-        right: 0;
-        background-image: url("assets/ob-leaf.webp");
-        background-size: 250px auto;
-        background-position: right -75px top 46%;
-        transform: scaleX(-1);
-      }
+    body { position: relative; }
+    /* Cannabisblätter im Hintergrund: feste Positionen, scrollen mit der Seite.
+       Motiv: gemeinfreier Stich 1887. Drei Blätter, nur auf großen Bildschirmen. */
+    .ob-leaves {
+      position: absolute; inset: 0; z-index: 3; overflow: hidden;
+      pointer-events: none;
     }
-    @media (max-width: 1099px) { body::before, body::after { display: none; } }
+    .ob-leaves img {
+      position: absolute; height: auto; opacity: .20;
+      filter: saturate(.85) contrast(1.02);
+    }
+    .ob-leaves .l1 { left: -215px; top: 12%; width: 360px; }
+    .ob-leaves .l2 { right: -240px; top: 42%; width: 400px; transform: scaleX(-1); }
+    .ob-leaves .l3 { left: -200px; top: 72%; width: 340px; }
+    /* Inhalt liegt über den Blättern */
+    #MainContent, #shopify-section-header, footer, .site-footer { position: relative; z-index: 2; }
+    @media (max-width: 1099px) { .ob-leaves { display: none; } }
   </style>
 </head>
 <body class="template-ueber-uns ob-img-paper ob-motion">
 
-  <a class="skip-link" href="#MainContent">Zum Inhalt springen</a>
+    <div class="ob-leaves" aria-hidden="true">
+    <img class="l1" src="assets/ob-leaf.webp" alt="" width="921" height="555" decoding="async">
+    <img class="l2" src="assets/ob-leaf.webp" alt="" width="921" height="555" decoding="async">
+    <img class="l3" src="assets/ob-leaf.webp" alt="" width="921" height="555" decoding="async">
+  </div>
+
+<a class="skip-link" href="#MainContent">Zum Inhalt springen</a>
 
   <div class="age-gate" id="ageGate" hidden role="dialog" aria-modal="true" aria-labelledby="ageGateTitle">
   <div class="age-gate__card">
@@ -182,7 +182,7 @@ bestätigst du dein Alter.</p><h2>01 — Wie alles begann</h2><div><p>Ein Mensch
 
 
 
-<section class="ob-loc"data-ob-anim="rise" data-ob-speed="500" data-ob-delay="0" aria-labelledby="loc-locbar">
+<section class="ob-loc" data-ob-anim="rise" data-ob-speed="500" data-ob-delay="0" aria-labelledby="loc-locbar">
   <div class="page">
     <div class="ob-loc__inner ob-loc__inner--left"><figure class="ob-loc__media">
           <img src="assets/ob-loc.jpg"
@@ -632,8 +632,8 @@ bestätigst du dein Alter.</p><h2>01 — Wie alles begann</h2><div><p>Ein Mensch
     window.OB_MONEY_FORMAT = "{{amount_with_comma_separator}} €";
     window.OB_CART_COUNT = 2;
   </script>
-  <script src="assets/theme.js?v=1793479055" defer></script>
-  <script src="assets/ob-extras.js?v=1793479055" defer></script>
-  <script src="assets/ob-anim.js?v=1793479055" defer></script>
+  <script src="assets/theme.js?v=1793479271" defer></script>
+  <script src="assets/ob-extras.js?v=1793479271" defer></script>
+  <script src="assets/ob-anim.js?v=1793479271" defer></script>
 </body>
 </html>
