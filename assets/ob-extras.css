@@ -57,6 +57,16 @@ body {
   top: var(--sv-hdr, 88px);
   z-index: 60;
 }
+/* Fallback, wenn sticky im Shop-Kontext nicht greift: fest gepinnt */
+.shop-v28 .brandbar.is-fixed {
+  position: fixed;
+  top: var(--sv-hdr, 88px);
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 80;
+}
+.shop-v28 .brandbar-spacer { display: block; width: 100%; }
 body.ob-scrolled .shop-v28 .brandbar {
   box-shadow: 0 16px 30px -26px rgba(20, 16, 10, .7);
 }

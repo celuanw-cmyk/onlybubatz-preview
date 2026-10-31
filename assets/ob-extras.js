@@ -20,6 +20,47 @@
     document.body.classList.toggle('ob-scrolled', window.scrollY > 40);
   }, { passive: true });
 
+  /* ---------- 1b) Marken-Leiste wirklich oben festnageln ---------- */
+  function pinBrandbar() {
+    var bar = document.querySelector('.shop-v28 .brandbar');
+    if (!bar) return;
+
+    var spacer = document.createElement('div');
+    spacer.className = 'shop-v28 brandbar-spacer';
+    spacer.setAttribute('aria-hidden', 'true');
+    spacer.hidden = true;
+    bar.parentNode.insertBefore(spacer, bar);
+
+    var anchor = 0;
+    function measure() {
+      var wasFixed = bar.classList.contains('is-fixed');
+      if (wasFixed) bar.classList.remove('is-fixed');
+      var rect = bar.getBoundingClientRect();
+      anchor = rect.top + window.scrollY;
+      spacer.style.height = Math.round(rect.height) + 'px';
+      if (wasFixed) bar.classList.add('is-fixed');
+    }
+
+    function update() {
+      var hdr = parseInt(getComputedStyle(root).getPropertyValue('--sv-hdr'), 10) || 0;
+      var shouldPin = window.scrollY > anchor - hdr - 1;
+      if (shouldPin && !bar.classList.contains('is-fixed')) {
+        spacer.hidden = false;
+        bar.classList.add('is-fixed');
+      } else if (!shouldPin && bar.classList.contains('is-fixed')) {
+        bar.classList.remove('is-fixed');
+        spacer.hidden = true;
+      }
+    }
+
+    measure();
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', function () { measure(); update(); }, { passive: true });
+    window.addEventListener('load', function () { measure(); update(); });
+  }
+  pinBrandbar();
+
   /* ---------- 2) Cannabis-Blatt beim Warenkorb ---------- */
   var LEAF = '<svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">' +
     '<g>' +
