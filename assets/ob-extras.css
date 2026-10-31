@@ -1,0 +1,62 @@
+/* Only Bubatz — Zusatz-Ebene: Papier-Hintergrund, Cannabis-Blatt beim Warenkorb,
+   Marken-Leiste klebt korrekt unter dem Header. Wird NACH base.css geladen. */
+
+/* ---------- 1) Papier-Hintergrund (wie Flyer) ---------- */
+:root {
+  --ob-paper-grain: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='180' height='180' filter='url(%23n)' opacity='0.5'/></svg>");
+}
+
+body {
+  background-color: var(--kraft, #e5c99e);
+  background-image:
+    var(--ob-paper-grain),
+    radial-gradient(ellipse at 50% -10%, rgba(255, 250, 235, .55), transparent 62%),
+    linear-gradient(180deg, #e8d3ab 0%, #e2c99c 55%, #dcc094 100%);
+  background-blend-mode: multiply, normal, normal;
+  background-size: 180px 180px, cover, cover;
+  background-attachment: fixed, fixed, fixed;
+}
+
+/* Der Hero behält seine Flächen, damit er sich abhebt */
+.hero--scene, .hero--bleed, .hero { background-color: transparent; }
+
+/* ---------- 2) Cannabis-Blatt beim Öffnen des Warenkorbs ---------- */
+.ob-leaf-fade {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 50% 45%, rgba(11, 36, 24, .92), rgba(11, 36, 24, .97));
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .22s ease;
+}
+.ob-leaf-fade.is-on { opacity: 1; }
+.ob-leaf-fade svg {
+  width: clamp(150px, 22vw, 260px);
+  height: auto;
+  fill: var(--mint, #1fe9ab);
+  filter: drop-shadow(0 0 26px rgba(31, 233, 171, .38));
+  transform: scale(.86) rotate(-6deg);
+  animation: ob-leaf-in .62s cubic-bezier(.2, .9, .25, 1) forwards;
+}
+@keyframes ob-leaf-in {
+  0%   { transform: scale(.72) rotate(-14deg); opacity: 0; }
+  55%  { transform: scale(1.04) rotate(2deg);  opacity: 1; }
+  100% { transform: scale(1) rotate(0deg);     opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ob-leaf-fade svg { animation: none; }
+  .ob-leaf-fade { transition: none; }
+}
+
+/* ---------- 3) Marken-Leiste klebt unter dem Header ---------- */
+.shop-v28 .brandbar {
+  position: sticky;
+  top: var(--sv-hdr, 88px);
+  z-index: 60;
+}
+body.ob-scrolled .shop-v28 .brandbar {
+  box-shadow: 0 16px 30px -26px rgba(20, 16, 10, .7);
+}

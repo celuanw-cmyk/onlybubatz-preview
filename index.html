@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/base.css">
+  <link rel="stylesheet" href="assets/ob-extras.css">
   
 </head>
 <body class="template-index">
@@ -41,6 +42,7 @@
     </a>
 
     <nav class="nav" id="siteNav" aria-label="Hauptnavigation"><a href="collection.html">Shop</a>
+        <a href="mix.html">Mix &amp; Match</a>
         <a href="sessions.html">Sessions</a>
         <a href="ueber-uns.html">Über uns</a></nav>
 
@@ -579,6 +581,146 @@
 
 
 
+<section class="session-flyer" aria-labelledby="sf-title-session-flyer">
+  <div class="page">
+    <div class="sf__inner">
+      <a class="sf__media" href="sessions.html"><img src="assets/session-flyer.jpg" width="1100" height="1558"
+               alt="Bubatz Sessions — Informationsabende rund um medizinisches Cannabis" loading="lazy" decoding="async"></a>
+
+      <div class="sf__copy">
+        <h2 class="sf__title" id="sf-title-session-flyer">Bubatz Sessions</h2><p class="sf__text">Informationsabende rund um medizinisches Cannabis</p><a class="btn sf__cta" href="sessions.html">Termine ansehen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .session-flyer {
+    padding: clamp(48px, 6vw, 92px) 0;
+    background: var(--kraft);
+  }
+  .session-flyer .sf__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 420px) minmax(0, 560px);
+    justify-content: center;
+    align-items: center;
+    gap: clamp(28px, 5vw, 72px);
+  }
+  .session-flyer .sf__media {
+    display: block;
+    position: relative;
+    padding: clamp(8px, 1vw, 14px);
+    background: var(--kraft-light);
+    border: 2px solid var(--ink);
+    border-radius: var(--radius);
+    box-shadow: 8px 8px 0 rgba(166, 58, 34, .26);
+    overflow: hidden;
+    transition: box-shadow .35s ease, transform .35s ease;
+  }
+  .session-flyer .sf__media img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1100 / 1558;
+    object-fit: cover;
+    border-radius: 2px;
+    transition: transform .55s cubic-bezier(.2, .7, .2, 1);
+  }
+  .session-flyer .sf__media:hover,
+  .session-flyer .sf__media:focus-visible {
+    box-shadow: 10px 12px 0 var(--rust);
+    transform: translateY(-2px);
+  }
+  .session-flyer .sf__media:hover img,
+  .session-flyer .sf__media:focus-visible img {
+    transform: scale(1.02);
+  }
+  .session-flyer .sf__copy { max-width: 520px; }
+  .session-flyer .sf__title {
+    font-size: clamp(36px, 4.6vw, 64px);
+    line-height: 1.04;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .session-flyer .sf__text {
+    max-width: 40ch;
+    margin-top: 14px;
+    font-size: clamp(19px, 1.6vw, 22px);
+    line-height: 1.55;
+    color: var(--ink-soft);
+    text-wrap: pretty;
+  }
+  .session-flyer .sf__cta {
+    margin-top: clamp(22px, 3vw, 30px);
+    min-height: 54px;
+    padding: 15px 28px;
+  }
+  @media (max-width: 860px) {
+    .session-flyer .sf__inner {
+      grid-template-columns: 1fr;
+      gap: 26px;
+    }
+    .session-flyer .sf__media {
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+    .session-flyer .sf__copy { max-width: none; }
+    .session-flyer .sf__cta {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <section class="newsletter">
   <div class="page">
     <div>
@@ -695,5 +837,6 @@
     window.OB_CART_COUNT = 2;
   </script>
   <script src="assets/theme.js" defer></script>
+  <script src="assets/ob-extras.js" defer></script>
 </body>
 </html>
