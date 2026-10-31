@@ -1,0 +1,130 @@
+
+/* ==========================================================================
+   v29 (31.10.2026) — Ausverkauft-Regel, Partner, Warenkorb, Bewegung
+   Andreess sieben Punkte. Alles über Theme-Einstellungen schaltbar:
+   body.ob-soldout / body.ob-motion setzt layout/theme.liquid.
+   Skala: 140 ms Hover · 220 ms Panel · 380 ms Reveal · 900 ms Hero-Schnitt
+   ========================================================================== */
+:root {
+  --m-fast: 140ms;
+  --m-mid: 220ms;
+  --m-slow: 380ms;
+  --m-hero: 900ms;
+  --ob-sold-dim: .62;
+  --ob-drawer-w: min(460px, 92vw);
+}
+
+/* ---------- Punkt 5: ein Bildmaß für alle Karten (1:1) ---------- */
+/* Das height="480"-Attribut am <img> wirkt als CSS-Höhe und schlägt aspect-ratio —
+   deshalb Rahmen 1:1 + Bild height:100% (gemessen 31.10.: 259×482 -> 259×259). */
+.p-card__media { aspect-ratio: 1 / 1; overflow: hidden; }
+.p-card__media img { height: 100%; aspect-ratio: 1 / 1; object-fit: contain; }
+.p-card__noimg {
+  display: grid; place-items: center; height: 100%; aspect-ratio: 1 / 1;
+  color: var(--ink-soft); font-size: 14px;
+}
+
+/* ---------- Punkt 3: ausverkauft — Ware bleibt erahnbar, Preis/Button weg ---------- */
+.ob-soldout .p-card.is-out .p-card__media { position: relative; }
+.ob-soldout .p-card.is-out .p-card__media img {
+  filter: grayscale(1) contrast(.95) brightness(1.03);
+  opacity: var(--ob-sold-dim);
+}
+.ob-soldout .p-card.is-out .p-card__media::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: rgba(247, 236, 214, .22);
+}
+.ob-soldout .p-card.is-out .p-card__price,
+.ob-soldout .p-card.is-out .p-card__cta { visibility: hidden; }  /* Platz bleibt: Raster springt nicht */
+
+.p-card__priceline { position: relative; margin-top: auto; padding-top: 8px; }
+.p-card__priceline .p-card__price { margin-top: 0; padding-top: 0; }
+.p-card__sold {
+  position: absolute; left: 0; bottom: 0;
+  font-family: ui-monospace, "Courier Prime", "Courier New", monospace;
+  font-size: 12px; line-height: 1; letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(20, 16, 10, .72);
+}
+
+/* dieselbe Regel für das Sortiment (v28-Karte) */
+.ob-soldout .shop-v28 .card.is-out .ph { position: relative; }
+.ob-soldout .shop-v28 .card.is-out .ph img {
+  filter: grayscale(1) contrast(.95) brightness(1.03) !important;
+  opacity: var(--ob-sold-dim) !important;
+}
+.ob-soldout .shop-v28 .card.is-out .ph::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: rgba(247, 236, 214, .22);
+}
+.ob-soldout .shop-v28 .card.is-out .pricerow b,
+.ob-soldout .shop-v28 .card.is-out .was,
+.ob-soldout .shop-v28 .card.is-out .add { visibility: hidden; }
+.ob-soldout .shop-v28 .card.is-out .pricerow { position: relative; min-height: 22px; }
+.ob-soldout .shop-v28 .card.is-out .pricerow .sold {
+  visibility: visible; position: absolute; left: 0; bottom: 0;
+  font-family: ui-monospace, "Courier Prime", "Courier New", monospace;
+  font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(20, 16, 10, .72);
+}
+.ob-soldout .shop-v28 .card.is-out .stock .dot.low { background: rgba(20, 16, 10, .35); }
+
+/* ---------- Punkt 4: Partner direkt über dem Newsletter ---------- */
+.ob-partners { border-top: 1px solid rgba(20, 16, 10, .18); padding-block: clamp(38px, 4.6vw, 64px); }
+.ob-partners__grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 1.6vw, 22px); margin-top: clamp(18px, 2.4vw, 30px);
+}
+.ob-partners__tile {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  min-height: clamp(104px, 11vw, 138px); padding: 16px 26px; text-align: center; text-decoration: none;
+  background: var(--kraft-light); border: 1px solid rgba(20, 16, 10, .16); border-radius: var(--radius-sm);
+  transition: border-color var(--m-mid) linear, background var(--m-mid) linear;
+}
+.ob-partners__tile img {
+  max-height: 38px; width: auto; max-width: 100%; object-fit: contain;
+  mix-blend-mode: multiply; opacity: .66; filter: grayscale(.35);
+  transition: opacity var(--m-mid) linear, filter var(--m-mid) linear;
+}
+.ob-partners__tile strong {
+  font-family: var(--font-display); font-weight: 400; font-size: clamp(17px, 1.9vw, 23px);
+  line-height: 1; letter-spacing: .02em; text-transform: uppercase;
+  color: rgba(20, 16, 10, .55); transition: color var(--m-mid) linear;
+}
+.ob-partners__tile span {
+  font-family: ui-monospace, "Courier Prime", "Courier New", monospace;
+  font-size: 11px; line-height: 1.35; letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(20, 16, 10, .55); transition: color var(--m-mid) linear;
+}
+.ob-partners__tile:hover { border-color: var(--rust); background: #fbf3e2; }
+.ob-partners__tile:hover img { opacity: 1; filter: none; }
+.ob-partners__tile:hover strong { color: var(--ink); }
+.ob-partners__tile:hover span { color: rgba(20, 16, 10, .72); }
+@media (max-width: 760px) {
+  .ob-partners__grid { grid-template-columns: 1fr; }
+  .ob-partners__tile { min-height: 92px; }
+}
+
+/* ---------- Punkt 1: Warenkorb neutral 220/180 ms (kein Blatt, kein Fade-Loop) ---------- */
+.cart-drawer { visibility: hidden; pointer-events: none; transition: visibility 0s linear var(--m-mid); }
+.cart-drawer.is-open { visibility: visible; pointer-events: auto; transition-delay: 0s; }
+.cart-drawer__scrim { opacity: 0; transition: opacity 180ms linear; }
+.cart-drawer.is-open .cart-drawer__scrim { opacity: 1; }
+.cart-drawer__panel {
+  width: var(--ob-drawer-w);
+  transform: translateX(100%);
+  transition: transform var(--m-mid) cubic-bezier(.22, .75, .25, 1);
+}
+.cart-drawer.is-open .cart-drawer__panel { transform: none; }
+
+/* ---------- Punkt 7: dezente Bewegung, nur opacity + transform ---------- */
+.ob-motion.ob-reveal-ready [data-reveal] { opacity: 0; transform: translateY(12px); }
+.ob-motion [data-reveal].is-in {
+  opacity: 1; transform: none;
+  transition: opacity var(--m-slow) ease-out, transform var(--m-slow) cubic-bezier(.22, .75, .25, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ob-motion .cart-drawer, .ob-motion .cart-drawer__scrim,
+  .ob-motion .cart-drawer__panel { transition: none !important; }
+  .ob-motion.ob-reveal-ready [data-reveal],
+  .ob-motion [data-reveal].is-in { opacity: 1; transform: none; transition: none !important; }
+}

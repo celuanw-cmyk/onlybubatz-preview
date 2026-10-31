@@ -504,8 +504,7 @@ h3, .h3 { font-family: var(--font-display); text-transform: uppercase; font-size
 @media (max-width: 980px) { .content-grid { grid-template-columns: 1fr; } .sticky-card { position: static; } }
 
 /* ---------- Cart drawer ---------- */
-.cart-drawer { position: fixed; inset: 0; z-index: 120; display: none; }
-.cart-drawer.is-open { display: block; }
+.cart-drawer { position: fixed; inset: 0; z-index: 120; }
 .cart-drawer__scrim { position: absolute; inset: 0; background: rgba(11, 36, 24, .34); }
 .cart-drawer__panel {
   position: absolute; right: 0; top: 0; height: 100%; width: min(460px, 92vw);

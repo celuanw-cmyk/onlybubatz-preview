@@ -151,49 +151,32 @@
     }, { passive: true });
   })();
 
-  /* ---------- 2) Cannabis-Blatt beim Warenkorb ---------- */
+  /* ---------- 2) Dezente Reveals (v29, Punkt 7) ---------- */
+  /* Kein Cannabis-Blatt, kein Fade-Loop mehr vor dem Warenkorb (Andree, 31.10.):
+     der Drawer öffnet direkt, Animationsdauer steht in ob-v29.css (220/180 ms). */
 
-  var overlay = null;
-  function getOverlay() {
-    if (overlay) return overlay;
-    overlay = document.querySelector('.ob-leaf-fade');
-    if (!overlay) {                       /* Fallback, falls das Snippet fehlt */
-      overlay = document.createElement('div');
-      overlay.className = 'ob-leaf-fade';
-      overlay.setAttribute('aria-hidden', 'true');
-      document.body.appendChild(overlay);
-    }
-    return overlay;
+  var reduceMQ = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+  function motionOn() { return !(reduceMQ && reduceMQ.matches); }
+
+  function initReveals() {
+    if (!document.body.classList.contains('ob-motion') || !motionOn()) return;
+    var targets = document.querySelectorAll('.p-card, .ob-partners__tile, .section-head, .newsletter > .page > *');
+    if (!targets.length) return;
+    if (!('IntersectionObserver' in window)) return;
+    document.documentElement.classList.add('ob-reveal-ready');
+    Array.prototype.forEach.call(targets, function (el, i) {
+      el.setAttribute('data-reveal', '');
+      el.style.transitionDelay = Math.min(i % 4, 3) * 60 + 'ms';
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('is-in'); io.unobserve(entry.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
+    Array.prototype.forEach.call(targets, function (el) { io.observe(el); });
   }
 
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var busy = false;
-
-  /* Element MUSS vor dem ersten Klick im DOM stehen — sonst startet keine Transition */
-  if (window.requestAnimationFrame) requestAnimationFrame(function () { getOverlay(); });
-
-  function leafThenOpen() {
-    if (reduce) return;            /* Bewegungsfrei: kein Vollflächen-Blitz, Drawer direkt */
-    if (busy) return;
-    busy = true;
-    var el = getOverlay();
-    el.classList.remove('is-out');
-    void el.offsetWidth;           /* Reflow erzwingen: Startwert steht, Transition läuft */
-    el.classList.add('is-on');
-    /* Ablauf: 150 ms einblenden · 380 ms Blatt · 100 ms halten · 280 ms ausblenden */
-    window.setTimeout(function () {
-      el.classList.add('is-out');
-      window.setTimeout(function () {
-        el.classList.remove('is-on');
-        el.classList.remove('is-out');
-        busy = false;
-      }, 220);
-    }, 490);
-  }
-
-  document.addEventListener('click', function (ev) {
-    var trigger = ev.target.closest ? ev.target.closest('[data-cart-open], a[href$="/cart"]') : null;
-    if (!trigger) return;
-    leafThenOpen();
-  }, true);
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initReveals);
+  else initReveals();
 })();
+
