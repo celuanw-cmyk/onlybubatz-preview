@@ -94,9 +94,21 @@
       var h = Math.round(hdr.getBoundingClientRect().height);
       if (h > 0) root.style.setProperty('--sv-hdr', h + 'px');
     }
+    var lastY = window.scrollY;
+
     function update() {
-      if (window.scrollY > Math.max(0, anchor - 1)) hdr.classList.add('is-pinned');
+      var y = window.scrollY;
+      if (y > Math.max(0, anchor - 1)) hdr.classList.add('is-pinned');
       else hdr.classList.remove('is-pinned');
+
+      /* runter = weg, hoch = wieder da */
+      var delta = y - lastY;
+      if (y < 90) hdr.classList.remove('is-hidden');
+      else if (delta > 4) hdr.classList.add('is-hidden');
+      else if (delta < -4) hdr.classList.remove('is-hidden');
+      lastY = y;
+
+      document.documentElement.classList.toggle('ob-hdr-hidden', hdr.classList.contains('is-hidden'));
       sync();
     }
     function measure() { anchor = docTop(hdr); sync(); }
@@ -140,7 +152,7 @@
   })();
 
   /* ---------- 2) Cannabis-Blatt beim Warenkorb ---------- */
-  var LEAF = '<svg viewBox="-110 -130 220 180" aria-hidden="true" focusable="false" fill="currentColor"><g transform="rotate(-78)"><path d="M0 0 L0.0 -0.0 L1.9 -6.7 L3.5 -13.5 L3.0 -20.2 L3.9 -27.0 L2.7 -33.7 L2.5 -40.5 L0.8 -47.2 L0 -55.2 L-0.8 -47.2 L-2.5 -40.5 L-2.7 -33.7 L-3.9 -27.0 L-3.0 -20.2 L-3.5 -13.5 L-1.9 -6.7 L-0.0 -0.0 Z"/></g><g transform="rotate(-54)"><path d="M0 0 L0.0 -0.0 L3.0 -10.5 L5.4 -20.9 L4.6 -31.4 L6.0 -41.8 L4.1 -52.3 L3.9 -62.7 L1.3 -73.2 L0 -81.2 L-1.3 -73.2 L-3.9 -62.7 L-4.1 -52.3 L-6.0 -41.8 L-4.6 -31.4 L-5.4 -20.9 L-3.0 -10.5 L-0.0 -0.0 Z"/></g><g transform="rotate(-28)"><path d="M0 0 L0.0 -0.0 L4.0 -14.2 L7.3 -28.3 L6.3 -42.5 L8.2 -56.6 L5.6 -70.8 L5.2 -85.0 L1.7 -99.1 L0 -107.1 L-1.7 -99.1 L-5.2 -85.0 L-5.6 -70.8 L-8.2 -56.6 L-6.3 -42.5 L-7.3 -28.3 L-4.0 -14.2 L-0.0 -0.0 Z"/></g><g transform="rotate(0)"><path d="M0 0 L0.0 -0.0 L4.8 -16.9 L8.6 -33.7 L7.5 -50.6 L9.8 -67.4 L6.6 -84.3 L6.2 -101.1 L2.1 -118.0 L0 -126.0 L-2.1 -118.0 L-6.2 -101.1 L-6.6 -84.3 L-9.8 -67.4 L-7.5 -50.6 L-8.6 -33.7 L-4.8 -16.9 L-0.0 -0.0 Z"/></g><g transform="rotate(28)"><path d="M0 0 L0.0 -0.0 L4.0 -14.2 L7.3 -28.3 L6.3 -42.5 L8.2 -56.6 L5.6 -70.8 L5.2 -85.0 L1.7 -99.1 L0 -107.1 L-1.7 -99.1 L-5.2 -85.0 L-5.6 -70.8 L-8.2 -56.6 L-6.3 -42.5 L-7.3 -28.3 L-4.0 -14.2 L-0.0 -0.0 Z"/></g><g transform="rotate(54)"><path d="M0 0 L0.0 -0.0 L3.0 -10.5 L5.4 -20.9 L4.6 -31.4 L6.0 -41.8 L4.1 -52.3 L3.9 -62.7 L1.3 -73.2 L0 -81.2 L-1.3 -73.2 L-3.9 -62.7 L-4.1 -52.3 L-6.0 -41.8 L-4.6 -31.4 L-5.4 -20.9 L-3.0 -10.5 L-0.0 -0.0 Z"/></g><g transform="rotate(78)"><path d="M0 0 L0.0 -0.0 L1.9 -6.7 L3.5 -13.5 L3.0 -20.2 L3.9 -27.0 L2.7 -33.7 L2.5 -40.5 L0.8 -47.2 L0 -55.2 L-0.8 -47.2 L-2.5 -40.5 L-2.7 -33.7 L-3.9 -27.0 L-3.0 -20.2 L-3.5 -13.5 L-1.9 -6.7 L-0.0 -0.0 Z"/></g><rect x="-4" y="-6" width="8" height="40" rx="4"/></svg>';
+  var LEAF = '<svg viewBox="-150 -180 300 245" aria-hidden="true" focusable="false" fill="currentColor"><g transform="translate(0 -7.1) rotate(-80)"><path d="M0 0 L4.2 -0.0 L6.0 -4.8 L8.1 -9.7 L7.5 -14.5 L8.8 -19.4 L7.5 -24.2 L8.2 -29.1 L6.6 -33.9 L6.8 -38.8 L5.0 -43.6 L4.6 -48.5 L2.8 -53.3 L1.7 -58.2 L0.0 -63.0 L-0.0 -63.0 L-1.7 -58.2 L-2.8 -53.3 L-4.6 -48.5 L-5.0 -43.6 L-6.8 -38.8 L-6.6 -33.9 L-8.2 -29.1 L-7.5 -24.2 L-8.8 -19.4 L-7.5 -14.5 L-8.1 -9.7 L-6.0 -4.8 L-4.2 -0.0 Z"/></g><g transform="translate(0 -5.1) rotate(-57)"><path d="M0 0 L5.8 -0.0 L8.3 -6.7 L11.2 -13.4 L10.4 -20.1 L12.2 -26.8 L10.4 -33.5 L11.4 -40.2 L9.1 -46.8 L9.3 -53.5 L6.9 -60.2 L6.3 -66.9 L3.9 -73.6 L2.4 -80.3 L0.0 -87.0 L-0.0 -87.0 L-2.4 -80.3 L-3.9 -73.6 L-6.3 -66.9 L-6.9 -60.2 L-9.3 -53.5 L-9.1 -46.8 L-11.4 -40.2 L-10.4 -33.5 L-12.2 -26.8 L-10.4 -20.1 L-11.2 -13.4 L-8.3 -6.7 L-5.8 -0.0 Z"/></g><g transform="translate(0 -3.0) rotate(-34)"><path d="M0 0 L7.6 -0.0 L10.9 -8.8 L14.7 -17.5 L13.7 -26.3 L16.0 -35.1 L13.6 -43.8 L14.9 -52.6 L11.9 -61.4 L12.2 -70.2 L9.0 -78.9 L8.3 -87.7 L5.1 -96.5 L3.2 -105.2 L0.0 -114.0 L-0.0 -114.0 L-3.2 -105.2 L-5.1 -96.5 L-8.3 -87.7 L-9.0 -78.9 L-12.2 -70.2 L-11.9 -61.4 L-14.9 -52.6 L-13.6 -43.8 L-16.0 -35.1 L-13.7 -26.3 L-14.7 -17.5 L-10.9 -8.8 L-7.6 -0.0 Z"/></g><g transform="translate(0 -1.0) rotate(-11)"><path d="M0 0 L9.5 -0.0 L13.6 -11.0 L18.4 -21.9 L17.1 -32.9 L19.9 -43.8 L17.0 -54.8 L18.6 -65.8 L14.9 -76.7 L15.3 -87.7 L11.3 -98.7 L10.4 -109.6 L6.4 -120.6 L3.9 -131.5 L0.0 -142.5 L-0.0 -142.5 L-3.9 -131.5 L-6.4 -120.6 L-10.4 -109.6 L-11.3 -98.7 L-15.3 -87.7 L-14.9 -76.7 L-18.6 -65.8 L-17.0 -54.8 L-19.9 -43.8 L-17.1 -32.9 L-18.4 -21.9 L-13.6 -11.0 L-9.5 -0.0 Z"/></g><g transform="translate(0 -1.0) rotate(11)"><path d="M0 0 L9.5 -0.0 L13.6 -11.0 L18.4 -21.9 L17.1 -32.9 L19.9 -43.8 L17.0 -54.8 L18.6 -65.8 L14.9 -76.7 L15.3 -87.7 L11.3 -98.7 L10.4 -109.6 L6.4 -120.6 L3.9 -131.5 L0.0 -142.5 L-0.0 -142.5 L-3.9 -131.5 L-6.4 -120.6 L-10.4 -109.6 L-11.3 -98.7 L-15.3 -87.7 L-14.9 -76.7 L-18.6 -65.8 L-17.0 -54.8 L-19.9 -43.8 L-17.1 -32.9 L-18.4 -21.9 L-13.6 -11.0 L-9.5 -0.0 Z"/></g><g transform="translate(0 -3.0) rotate(34)"><path d="M0 0 L7.6 -0.0 L10.9 -8.8 L14.7 -17.5 L13.7 -26.3 L16.0 -35.1 L13.6 -43.8 L14.9 -52.6 L11.9 -61.4 L12.2 -70.2 L9.0 -78.9 L8.3 -87.7 L5.1 -96.5 L3.2 -105.2 L0.0 -114.0 L-0.0 -114.0 L-3.2 -105.2 L-5.1 -96.5 L-8.3 -87.7 L-9.0 -78.9 L-12.2 -70.2 L-11.9 -61.4 L-14.9 -52.6 L-13.6 -43.8 L-16.0 -35.1 L-13.7 -26.3 L-14.7 -17.5 L-10.9 -8.8 L-7.6 -0.0 Z"/></g><g transform="translate(0 -5.1) rotate(57)"><path d="M0 0 L5.8 -0.0 L8.3 -6.7 L11.2 -13.4 L10.4 -20.1 L12.2 -26.8 L10.4 -33.5 L11.4 -40.2 L9.1 -46.8 L9.3 -53.5 L6.9 -60.2 L6.3 -66.9 L3.9 -73.6 L2.4 -80.3 L0.0 -87.0 L-0.0 -87.0 L-2.4 -80.3 L-3.9 -73.6 L-6.3 -66.9 L-6.9 -60.2 L-9.3 -53.5 L-9.1 -46.8 L-11.4 -40.2 L-10.4 -33.5 L-12.2 -26.8 L-10.4 -20.1 L-11.2 -13.4 L-8.3 -6.7 L-5.8 -0.0 Z"/></g><g transform="translate(0 -7.1) rotate(80)"><path d="M0 0 L4.2 -0.0 L6.0 -4.8 L8.1 -9.7 L7.5 -14.5 L8.8 -19.4 L7.5 -24.2 L8.2 -29.1 L6.6 -33.9 L6.8 -38.8 L5.0 -43.6 L4.6 -48.5 L2.8 -53.3 L1.7 -58.2 L0.0 -63.0 L-0.0 -63.0 L-1.7 -58.2 L-2.8 -53.3 L-4.6 -48.5 L-5.0 -43.6 L-6.8 -38.8 L-6.6 -33.9 L-8.2 -29.1 L-7.5 -24.2 L-8.8 -19.4 L-7.5 -14.5 L-8.1 -9.7 L-6.0 -4.8 L-4.2 -0.0 Z"/></g><rect x="-5" y="-8" width="10" height="54" rx="5"/></svg>';
 
   var overlay = null;
   function getOverlay() {
@@ -161,10 +173,15 @@
     busy = true;
     var el = getOverlay();
     el.classList.add('is-on');
+    /* Ablauf: 150 ms einblenden · 380 ms Blatt · 100 ms halten · 280 ms ausblenden */
     window.setTimeout(function () {
-      el.classList.remove('is-on');
-      window.setTimeout(function () { busy = false; }, 240);
-    }, reduce ? 120 : 620);
+      el.classList.add('is-out');
+      window.setTimeout(function () {
+        el.classList.remove('is-on');
+        el.classList.remove('is-out');
+        busy = false;
+      }, 300);
+    }, reduce ? 150 : 640);
   }
 
   document.addEventListener('click', function (ev) {

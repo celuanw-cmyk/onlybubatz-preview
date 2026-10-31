@@ -24,26 +24,28 @@ body {
 .ob-leaf-fade {
   position: fixed;
   inset: 0;
-  z-index: 400;
+  z-index: 900;
   display: grid;
   place-items: center;
   background: radial-gradient(circle at 50% 45%, rgba(11, 36, 24, .92), rgba(11, 36, 24, .97));
   opacity: 0;
   pointer-events: none;
-  transition: opacity .22s ease;
+  transition: opacity .3s cubic-bezier(.4, 0, .2, 1);
 }
 .ob-leaf-fade.is-on { opacity: 1; }
+.ob-leaf-fade.is-out { opacity: 0; }
+.ob-leaf-fade.is-out svg { transform: scale(1.06) rotate(2deg); transition: transform .3s ease-out, opacity .3s ease-out; opacity: 0; }
 .ob-leaf-fade svg {
   width: clamp(190px, 26vw, 320px);
   height: auto;
   fill: var(--mint, #1fe9ab);
   filter: drop-shadow(0 0 26px rgba(31, 233, 171, .38));
   transform: scale(.86) rotate(-6deg);
-  animation: ob-leaf-in .62s cubic-bezier(.2, .9, .25, 1) forwards;
+  animation: ob-leaf-in .38s cubic-bezier(.22, .75, .25, 1) forwards;
 }
 @keyframes ob-leaf-in {
-  0%   { transform: scale(.72) rotate(-14deg); opacity: 0; }
-  55%  { transform: scale(1.04) rotate(2deg);  opacity: 1; }
+  0%   { transform: scale(.80) rotate(-10deg); opacity: 0; }
+  60%  { transform: scale(1.03) rotate(2deg);  opacity: 1; }
   100% { transform: scale(1) rotate(0deg);     opacity: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -77,7 +79,13 @@ body.ob-scrolled .shop-v28 .brandbar {
 .site-header.is-pinned {
   position: fixed; top: 0; left: 0; right: 0; width: 100%;
   z-index: 95; box-shadow: 0 18px 34px -30px rgba(20, 16, 10, .85);
+  transition: transform .28s cubic-bezier(.32, .72, .28, 1);
+  will-change: transform;
 }
+.site-header.is-hidden { transform: translateY(-100%); box-shadow: none; }
+/* Kopfleiste weg -> Markenleiste rutscht nach oben */
+html.ob-hdr-hidden .shop-v28 .brandbar.is-fixed { top: 0; }
+.shop-v28 .brandbar { transition: top .28s cubic-bezier(.32, .72, .28, 1); }
 .header-spacer { display: block; width: 100%; }
 
 /* ---------- 5) Warenkorb-Knopf wie auf dem Flyer ---------- */
@@ -115,3 +123,12 @@ body.ob-scrolled .shop-v28 .brandbar {
   .filters-m:not([open]) > .filters { display: none; }
   .filters-m[open] > .filters { display: block; position: static; max-height: none; }
 }
+
+/* ---------- 7) Warenkorb-Zeilen im Flyer-Look ---------- */
+#cartDrawer .cart-line img {
+  background: var(--kraft-light); border: 1.5px solid rgba(20, 16, 10, .22);
+  border-radius: 2px; padding: 4px; mix-blend-mode: multiply;
+}
+#cartDrawer { background: var(--kraft-light); }
+#cartDrawer .cart-line h3 { font-family: var(--font-body); font-size: 15px; font-weight: 700; line-height: 1.3; }
+#cartDrawer .cart-subtotal { font-size: 17px; }
