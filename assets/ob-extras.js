@@ -150,9 +150,41 @@
     }, { passive: true });
   })();
 
-  /* ---------- 2) Dezente Reveals (v29, Punkt 7) ---------- */
-  /* Kein Cannabis-Blatt, kein Fade-Loop mehr vor dem Warenkorb (Andree, 31.10.):
-     der Drawer öffnet direkt, Animationsdauer steht in ob-v29.css (220/180 ms). */
+  /* ---------- 2) Cannabis-Blatt beim Warenkorb-Klick ----------
+     Das Motiv liegt als Snippet im Layout (snippets/ob-leaf.liquid), damit es beim
+     Seitenaufbau existiert und der Fade wirklich einblenden kann.
+     Ablauf: 90 ms ein · 380 ms Blatt · 110 ms halten · 200 ms aus. */
+  var reduceBlatt = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var blattBusy = false;
+
+  function blattOverlay() { return document.querySelector('.ob-leaf-fade'); }
+
+  function blattDannWarenkorb() {
+    if (reduceBlatt) return;          /* Bewegung aus: Drawer direkt, kein Vollflächen-Blitz */
+    if (blattBusy) return;
+    var el = blattOverlay();
+    if (!el) return;
+    blattBusy = true;
+    el.classList.remove('is-out');
+    void el.offsetWidth;              /* Reflow: Startwert steht, Transition läuft */
+    el.classList.add('is-on');
+    window.setTimeout(function () {
+      el.classList.add('is-out');
+      window.setTimeout(function () {
+        el.classList.remove('is-on');
+        el.classList.remove('is-out');
+        blattBusy = false;
+      }, 220);
+    }, 490);
+  }
+
+  document.addEventListener('click', function (ev) {
+    var trigger = ev.target.closest ? ev.target.closest('[data-cart-open], a[href$="/cart"]') : null;
+    if (!trigger) return;
+    blattDannWarenkorb();
+  }, true);
+
+  /* ---------- 2b) Dezente Reveals (v29, Punkt 7) ---------- */
 
   var reduceMQ = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
   function motionOn() { return !(reduceMQ && reduceMQ.matches); }
