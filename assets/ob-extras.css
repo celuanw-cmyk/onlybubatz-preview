@@ -188,7 +188,7 @@ html.ob-hdr-hidden .shop-v28 .brandbar.is-fixed { top: 0; }
   position: absolute; left: 34%; bottom: -18%; height: 150%;
   z-index: 0; pointer-events: none;
   transform: rotate(-14deg); transform-origin: bottom center;
-  opacity: .20; mix-blend-mode: multiply;
+  opacity: .30; mix-blend-mode: multiply;
   filter: sepia(.3) saturate(.65) contrast(.95) brightness(1.03);
   -webkit-mask-image: linear-gradient(to top, transparent 0%, rgba(0,0,0,.55) 16%, #000 46%);
   mask-image: linear-gradient(to top, transparent 0%, rgba(0,0,0,.55) 16%, #000 46%);

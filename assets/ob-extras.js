@@ -101,11 +101,10 @@
       if (y > Math.max(0, anchor - 1)) hdr.classList.add('is-pinned');
       else hdr.classList.remove('is-pinned');
 
-      /* runter = weg, hoch = wieder da */
+      /* runter = weg. Wieder sichtbar erst ganz oben — beim Hochscrollen bleibt sie weg */
       var delta = y - lastY;
-      if (y < 90) hdr.classList.remove('is-hidden');
+      if (y <= 12) hdr.classList.remove('is-hidden');
       else if (delta > 4) hdr.classList.add('is-hidden');
-      else if (delta < -4) hdr.classList.remove('is-hidden');
       lastY = y;
 
       document.documentElement.classList.toggle('ob-hdr-hidden', hdr.classList.contains('is-hidden'));
