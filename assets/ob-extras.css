@@ -131,6 +131,9 @@ html.ob-hdr-hidden .shop-v28 .brandbar.is-fixed { top: 0; }
   background: var(--kraft-light); border: 1.5px solid rgba(20, 16, 10, .22);
   border-radius: 2px; padding: 4px; mix-blend-mode: multiply;
 }
-#cartDrawer { background: var(--kraft-light); }
+/* nur die Platte rechts bekommt Papier — der Container bleibt durchsichtig,
+   sonst liegt eine deckende Fläche über dem ganzen Shop */
+#cartDrawer { background: transparent; }
+#cartDrawer .cart-drawer__panel { background: var(--kraft-light); }
 #cartDrawer .cart-line h3 { font-family: var(--font-body); font-size: 15px; font-weight: 700; line-height: 1.3; }
 #cartDrawer .cart-subtotal { font-size: 17px; }
