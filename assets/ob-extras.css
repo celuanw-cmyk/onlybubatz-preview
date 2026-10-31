@@ -27,14 +27,16 @@ body {
   z-index: 900;
   display: grid;
   place-items: center;
-  background: radial-gradient(circle at 50% 45%, rgba(11, 36, 24, .92), rgba(11, 36, 24, .97));
+  background: radial-gradient(circle at 50% 45%, rgba(11, 36, 24, .98), rgba(11, 36, 24, 1));
   opacity: 0;
   pointer-events: none;
-  transition: opacity .3s cubic-bezier(.4, 0, .2, 1);
+  transition: opacity .2s cubic-bezier(.4, 0, .2, 1);
 }
-.ob-leaf-fade.is-on { opacity: 1; }
-.ob-leaf-fade.is-out { opacity: 0; }
-.ob-leaf-fade.is-out svg { transform: scale(1.06) rotate(2deg); transition: transform .3s ease-out, opacity .3s ease-out; opacity: 0; }
+/* Einblenden: kurz und knackig (90 ms) — sonst wirkt es wie ein Verschluss */
+.ob-leaf-fade.is-on { opacity: 1; transition: opacity .09s cubic-bezier(.22, .75, .25, 1); }
+/* Ausblenden: 200 ms, gleiche Kurve wie der Container, KEIN Zusatz-Effekt am Blatt */
+.ob-leaf-fade.is-out { opacity: 0; transition: opacity .2s cubic-bezier(.4, 0, .2, 1); }
+.ob-leaf-fade.is-out svg { opacity: 0; transition: opacity .18s cubic-bezier(.4, 0, .2, 1); animation: none; }
 .ob-leaf-fade svg {
   width: clamp(190px, 26vw, 320px);
   height: auto;
@@ -45,7 +47,7 @@ body {
 }
 @keyframes ob-leaf-in {
   0%   { transform: scale(.80) rotate(-10deg); opacity: 0; }
-  60%  { transform: scale(1.03) rotate(2deg);  opacity: 1; }
+  72%  { transform: scale(1.02) rotate(1deg);  opacity: 1; }
   100% { transform: scale(1) rotate(0deg);     opacity: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
