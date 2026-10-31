@@ -20,11 +20,11 @@
 
 
 
-  <link rel="stylesheet" href="assets/base.css?v=1793483802">
+  <link rel="stylesheet" href="assets/base.css?v=1793484000">
 
-  <link rel="stylesheet" href="assets/ob-extras.css?v=1793483802">
+  <link rel="stylesheet" href="assets/ob-extras.css?v=1793484000">
 
-  <link rel="stylesheet" href="assets/ob-v29.css?v=1793483802"><style>
+  <link rel="stylesheet" href="assets/ob-v29.css?v=1793484000"><style>
 
     :root {--ob-sold-dim: 0.62;
 
@@ -72,7 +72,16 @@
 
     @media (max-width: 1099px) { .ob-leaves { display: none; } }
 
-  </style>
+
+    /* ---- Werte aus dem Theme-Editor: Deko & Hintergrund ---- */.ob-leaves img { opacity: 0.34; }
+      .ob-leaves .l1 {
+        height: 96vh;
+        left: 56%;
+        transform: translate(-50%, -100%) rotate(22deg);
+      }.ob-partners__plant {
+        opacity: 0.3;
+        transform: rotate(-14deg);
+      }</style>
 
 </head>
 
@@ -160,7 +169,7 @@
 
   <main id="MainContent" role="main" tabindex="-1">
 
-    <link rel="stylesheet" href="assets/hero-split.css?v=1793483802"><section class="ob-hero"
+    <link rel="stylesheet" href="assets/hero-split.css?v=1793484000"><section class="ob-hero"
   style="--ob-slant:13%;--ob-slant-far:30%;--ob-drift-d:30s;--ob-drift-s:1.1;"
   aria-labelledby="ob-hero-title">
 
@@ -917,44 +926,94 @@
 
 
 
-<section class="deal-band on-dark" aria-labelledby="dealTitle" data-ob-anim="rise" data-ob-speed="500" data-ob-delay="0">
-  <div class="page section--tight">
-    <div class="deal-grid">
-      <div class="deal-media"><img src="assets/img/06a9fa193122.webp"
-               srcset="assets/img/06a9fa193122.webp 500w, assets/img/06a9fa193122.webp 900w"
-               sizes="(max-width: 900px) 90vw, 44vw" width="900" height="900"
-               alt="Granny´s Weed CNC Aluminium Grinder/Pollinator, ø 60mm" loading="lazy" decoding="async"></div>
-      <div>
+<section class="ob-deal ob-deal--compact on-dark" aria-labelledby="dealTitle-deal" data-ob-anim="rise" data-ob-speed="500" data-ob-delay="0">
+  <div class="page">
+    <div class="ob-deal__inner ob-deal__inner--left" style="--ob-deal-media: 28%;">
+
+      <a class="ob-deal__media" href="product.html"><img src="assets/img/06a9fa193122.webp"
+               srcset="assets/img/06a9fa193122.webp 400w, assets/img/06a9fa193122.webp 700w"
+               sizes="(max-width: 900px) 46vw, 300px" width="700" height="700"
+               alt="Granny´s Weed CNC Aluminium Grinder/Pollinator, ø 60mm" loading="lazy" decoding="async"><span class="ob-deal__sticker" style="--ob-sticker-size: 88px; --ob-sticker-angle: -12deg;">
+            <b>&minus;25%</b><small>sparen</small></span></a>
+
+      <div class="ob-deal__copy">
         <p class="eyebrow">Deal der Woche</p>
-        <h2 id="dealTitle">Granny´s Weed CNC Aluminium Grinder/Pollinator, ø 60mm</h2>
-        <p style="color:rgba(247,236,214,.85);margin-top:10px">Granny´s Weed · Granny´s Weed</p>
-        <div class="deal-price">
-          <span class="price">14,99 €</span><span class="price--compare">19,99 €</span></div><p class="deal-save">Du sparst 5,00 €</p><button type="button" class="btn" data-add="14199774810">In den Warenkorb</button><a class="btn btn--light" href="collection.html" style="margin-left:10px">Mehr entdecken</a>
-      </div>
+        <h2 id="dealTitle-deal">Granny´s Weed CNC Aluminium Grinder/Pollinator, ø 60mm</h2><div class="ob-deal__price">
+            <span class="now">14,99 €</span><span class="was">19,99 €</span><span class="save">Du sparst 25 %</span></div><p class="ob-deal__urgent">
+            <span class="dot" aria-hidden="true"></span>Nur diese Woche - solange der Vorrat reicht
+          </p><div class="ob-deal__actions"><button type="button" class="btn ob-deal__cta" data-add="14199774810">Jetzt sichern</button><a class="ob-deal__link" href="collection.html">Alle Deals ansehen</a></div><p class="ob-deal__fine">Inkl. MwSt. - Versand in 24 h - diskret verpackt</p></div>
     </div>
   </div>
 </section>
 
+<style>
+  .ob-deal { background: var(--green-deep); color: var(--kraft-light); border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+  .ob-deal--compact { padding: clamp(18px, 2.4vw, 32px) 0; }
+  .ob-deal--normal  { padding: clamp(34px, 4.6vw, 64px) 0; }
 
+  .ob-deal__inner {
+    display: grid; grid-template-columns: minmax(0, var(--ob-deal-media, 28%)) minmax(0, 1fr);
+    gap: clamp(14px, 2.2vw, 30px); align-items: center;
+  }
+  .ob-deal__inner--right { grid-template-columns: minmax(0, 1fr) minmax(0, var(--ob-deal-media, 28%)); }
+  .ob-deal__inner--right .ob-deal__media { order: 2; }
 
+  .ob-deal__media { position: relative; display: block; text-decoration: none; }
+  .ob-deal__media img {
+    width: 100%; height: auto; aspect-ratio: 1/1; object-fit: contain;
+    background: var(--kraft-light); border: 2px solid var(--ink); border-radius: var(--radius);
+    padding: 10px;
+  }
 
+  /* Rabatt-Sticker: schraeg, laut, verkaeuferisch */
+  .ob-deal__sticker {
+    position: absolute; top: -10px; right: -10px;
+    display: grid; place-content: center; text-align: center;
+    width: var(--ob-sticker-size, 88px); height: var(--ob-sticker-size, 88px);
+    border-radius: 50%; background: var(--rust); color: #fff6ec;
+    border: 2px solid var(--ink); box-shadow: 3px 3px 0 rgba(20,16,10,.35);
+    transform: rotate(var(--ob-sticker-angle, -12deg));
+    line-height: 1;
+  }
+  .ob-deal__sticker b { font-family: var(--font-display); font-size: calc(var(--ob-sticker-size, 88px) * .3); font-weight: 400; }
+  .ob-deal__sticker small { font-size: calc(var(--ob-sticker-size, 88px) * .13); letter-spacing: .12em; text-transform: uppercase; }
 
+  .ob-deal__copy h2 {
+    margin: 4px 0 0; font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(20px, 2.8vw, 36px); line-height: 1.02; letter-spacing: .01em;
+    text-transform: uppercase; color: var(--kraft-light);
+  }
+  .ob-deal__price { display: flex; align-items: baseline; gap: 10px; margin-top: 8px; flex-wrap: wrap; }
+  .ob-deal__price .now { font-family: var(--font-display); font-size: clamp(20px, 2.2vw, 28px); color: var(--kraft-light); }
+  .ob-deal__price .was { font-size: 15px; color: rgba(247,236,214,.6); text-decoration: line-through; }
+  .ob-deal__price .save {
+    font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+    background: var(--rust); color: #fff6ec; padding: 3px 8px; border-radius: 3px;
+  }
+  .ob-deal__urgent {
+    display: flex; align-items: center; gap: 8px; margin: 8px 0 0;
+    font-size: 13px; font-weight: 600; color: var(--kraft);
+  }
+  .ob-deal__urgent .dot { width: 9px; height: 9px; border-radius: 50%; background: #b08d4a; box-shadow: 0 0 0 3px rgba(176,141,74,.25); }
+  .ob-deal__urgent.is-hot { color: #ffd9c9; }
+  .ob-deal__urgent.is-hot .dot { background: #d9724a; box-shadow: 0 0 0 3px rgba(217,114,74,.3); }
 
+  .ob-deal__actions { display: flex; align-items: center; gap: 14px; margin-top: 12px; flex-wrap: wrap; }
+  .ob-deal__cta { background: var(--rust); color: #fff6ec; border: 2px solid var(--ink); }
+  .ob-deal__cta:hover { background: #7d2a17; }
+  .ob-deal__link { font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--kraft); text-decoration: none; border-bottom: 2px solid rgba(247,236,214,.35); padding-bottom: 2px; }
+  .ob-deal__link:hover { color: var(--kraft-light); border-color: var(--kraft-light); }
+  .ob-deal__fine { margin: 10px 0 0; font-size: 11px; letter-spacing: .04em; color: rgba(247,236,214,.55); }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  @media (max-width: 720px) {
+    .ob-deal__inner, .ob-deal__inner--right { grid-template-columns: 1fr; }
+    .ob-deal__inner--right .ob-deal__media { order: 0; }
+    .ob-deal__media { max-width: 46vw; }
+    .ob-deal__sticker { width: 64px; height: 64px; top: -8px; right: -8px; }
+    .ob-deal__sticker b { font-size: 19px; }
+    .ob-deal__sticker small { font-size: 8px; }
+  }
+</style>
 
 
 
@@ -1807,11 +1866,11 @@
 
   </script>
 
-  <script src="assets/theme.js?v=1793483802" defer></script>
+  <script src="assets/theme.js?v=1793484000" defer></script>
 
-  <script src="assets/ob-extras.js?v=1793483802" defer></script>
+  <script src="assets/ob-extras.js?v=1793484000" defer></script>
 
-  <script src="assets/ob-anim.js?v=1793483802" defer></script>
+  <script src="assets/ob-anim.js?v=1793484000" defer></script>
   <div class="ob-leaf-fade" aria-hidden="true">
   <img src="assets/ob-leaf.webp" alt="" width="640" height="505" decoding="async">
 </div>
