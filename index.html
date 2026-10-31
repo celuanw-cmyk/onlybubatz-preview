@@ -8,9 +8,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/base.css?v=1793477766">
-  <link rel="stylesheet" href="assets/ob-extras.css?v=1793477766">
-  <link rel="stylesheet" href="assets/ob-v29.css?v=1793477766"><style>
+  <link rel="stylesheet" href="assets/base.css?v=1793477922">
+  <link rel="stylesheet" href="assets/ob-extras.css?v=1793477922">
+  <link rel="stylesheet" href="assets/ob-v29.css?v=1793477922"><style>
     :root {--ob-sold-dim: 0.62;
       --ob-drawer-w: min(460px, 92vw);
       --ob-card-img-bg: #f3e8cf;
@@ -85,7 +85,7 @@
 
 
   <main id="MainContent" role="main" tabindex="-1">
-    <link rel="stylesheet" href="assets/hero-split.css?v=1793477766"><section class="ob-hero"
+    <link rel="stylesheet" href="assets/hero-split.css?v=1793477922"><section class="ob-hero"
   style="--ob-slant:13%;--ob-slant-far:30%;--ob-drift-d:30s;--ob-drift-s:1.1;"
   aria-labelledby="ob-hero-title">
 
@@ -656,7 +656,12 @@
 <section class="session-flyer" aria-labelledby="sf-title-session-flyer">
   <div class="page">
     <div class="sf__inner">
-      <a class="sf__media" href="sessions.html"><img src="assets/session-flyer.jpg" width="1100" height="1558"
+      <a class="sf__media" href="sessions.html"><img src="assets/session-flyer.jpg"
+               srcset="assets/session-flyer.jpg 520w,
+                       shopify://shop_images/session-flyer.jpg 800w,
+                       shopify://shop_images/session-flyer.jpg 1100w"
+               sizes="(max-width: 860px) 88vw, 420px"
+               width="1100" height="1558"
                alt="Bubatz Sessions — Informationsabende rund um medizinisches Cannabis" loading="lazy" decoding="async"></a>
 
       <div class="sf__copy">
@@ -957,7 +962,7 @@
     window.OB_MONEY_FORMAT = "{{amount_with_comma_separator}} €";
     window.OB_CART_COUNT = 2;
   </script>
-  <script src="assets/theme.js?v=1793477766" defer></script>
-  <script src="assets/ob-extras.js?v=1793477766" defer></script>
+  <script src="assets/theme.js?v=1793477922" defer></script>
+  <script src="assets/ob-extras.js?v=1793477922" defer></script>
 </body>
 </html>
