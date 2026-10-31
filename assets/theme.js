@@ -4,7 +4,7 @@
 (function () {
   "use strict";
 
-  var CDN = window.Shopify && Shopify.routes ? Shopify.routes.root : "/";
+  var CDN = (window.Shopify && Shopify.routes && Shopify.routes.root) ? Shopify.routes.root : "";
   var AGE_KEY = "ob_age_ok_v1";
 
   /* ---------- Helpers ---------- */

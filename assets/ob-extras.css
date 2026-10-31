@@ -34,7 +34,7 @@ body {
 }
 .ob-leaf-fade.is-on { opacity: 1; }
 .ob-leaf-fade svg {
-  width: clamp(150px, 22vw, 260px);
+  width: clamp(190px, 26vw, 320px);
   height: auto;
   fill: var(--mint, #1fe9ab);
   filter: drop-shadow(0 0 26px rgba(31, 233, 171, .38));
