@@ -73,11 +73,74 @@
   }
   pinBrandbar();
 
+
+  /* ---------- 1c) Kopfleiste (Navigation) wirklich festnageln ---------- */
+  function pinHeader() {
+    var hdr = document.querySelector('.site-header');
+    if (!hdr) return;
+    var spacer = document.createElement('div');
+    spacer.className = 'header-spacer';
+    spacer.setAttribute('aria-hidden', 'true');
+    spacer.style.display = 'none';
+    spacer.style.height = '0px';
+    hdr.parentNode.insertBefore(spacer, hdr);
+
+    function docTop(el) { var y = 0; while (el) { y += el.offsetTop; el = el.offsetParent; } return y; }
+    var anchor = docTop(hdr);
+    function sync() {
+      var fixed = hdr.classList.contains('is-pinned');
+      spacer.style.display = fixed ? 'block' : 'none';
+      spacer.style.height = fixed ? Math.round(hdr.getBoundingClientRect().height) + 'px' : '0px';
+      var h = Math.round(hdr.getBoundingClientRect().height);
+      if (h > 0) root.style.setProperty('--sv-hdr', h + 'px');
+    }
+    function update() {
+      if (window.scrollY > Math.max(0, anchor - 1)) hdr.classList.add('is-pinned');
+      else hdr.classList.remove('is-pinned');
+      sync();
+    }
+    function measure() { anchor = docTop(hdr); sync(); }
+    measure(); update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', function () { measure(); update(); }, { passive: true });
+    window.addEventListener('load', function () { measure(); update(); });
+  }
+  pinHeader();
+
+  /* ---------- 1d) Doppelte Marken-/Kategorie-Leisten zusammenlegen ---------- */
+  function dedupeRows() {
+    var strip = document.querySelector('.shop-v28 .bbstrip');
+    var pills = document.querySelector('.shop-v28 .chipstrip');
+    if (!strip || !pills) return;
+    function names(root) {
+      return Array.prototype.map.call(root.querySelectorAll('a, button'),
+        function (el) { return (el.textContent || '').trim().toLowerCase(); })
+        .filter(function (t) { return t && t.indexOf('alle') !== 0 && t.length < 24; });
+    }
+    var a = names(strip), b = names(pills);
+    if (!a.length || !b.length) return;
+    var hit = b.filter(function (t) { return a.indexOf(t) > -1; }).length;
+    if (hit / b.length >= 0.7) {
+      var row = pills.closest('.chipstrip') || pills;
+      row.setAttribute('data-merged', 'true');
+      row.style.display = 'none';
+    }
+  }
+  dedupeRows();
+  window.addEventListener('load', dedupeRows);
+
+  /* ---------- 1e) Filter auf dem Handy zuklappbar ---------- */
+  (function mobileFilters() {
+    var d = document.querySelector('details.filters-m');
+    if (!d) return;
+    if (window.innerWidth < 1080) d.removeAttribute('open');
+    window.addEventListener('resize', function () {
+      if (window.innerWidth >= 1080) d.setAttribute('open', '');
+    }, { passive: true });
+  })();
+
   /* ---------- 2) Cannabis-Blatt beim Warenkorb ---------- */
-  var LEAF = '<svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">' +
-    '<g>' +
-    '<path d="M50 96c-2.6 0-4.4-1.6-4.4-4.2V52.6C38 60.5 27.9 64 19.8 64c-4.8 0-8.5-1.2-10.6-3.4 3 .4 6-.5 8.4-2.2-4.2-.5-7.4-2.3-9.2-5 2.7.5 5.3.2 7.3-.8-3.6-1.3-6-3.7-6.9-6.6 2.8.9 5.4 1.2 7.6 1-3.2-2-5-4.8-5-7.9 3.9 1.9 7.7 2.9 11.2 3.1-2.4-2.4-3.4-5.1-2.8-7.7 2.1 2.4 4.8 4.2 8 5.3-2.4-6.6-1.3-12.6 3-16.6.5 6.2 3 11.7 7 16.1 2.2-2.6 3.4-5.7 3.4-9.2 4 4.5 5.4 10 4.2 16.2 3.1-1.2 5.7-3 7.8-5.4.6 2.7-.4 5.4-2.8 7.8 3.5-.2 7.3-1.2 11.2-3.1 0 3.1-1.8 5.9-5 7.9 2.2.2 4.8-.1 7.6-1-.9 2.9-3.3 5.3-6.9 6.6 2 1 4.6 1.3 7.3.8-1.8 2.7-5 4.5-9.2 5 2.4 1.7 5.4 2.6 8.4 2.2-2.1 2.2-5.8 3.4-10.6 3.4-8.1 0-18.2-3.5-25.8-11.4v39.2c0 2.6-1.8 4.2-4.4 4.2z"/>' +
-    '</g></svg>';
+  var LEAF = '<svg viewBox="-110 -130 220 180" aria-hidden="true" focusable="false" fill="currentColor"><g transform="rotate(-78)"><path d="M0 0 L0.0 -0.0 L1.9 -6.7 L3.5 -13.5 L3.0 -20.2 L3.9 -27.0 L2.7 -33.7 L2.5 -40.5 L0.8 -47.2 L0 -55.2 L-0.8 -47.2 L-2.5 -40.5 L-2.7 -33.7 L-3.9 -27.0 L-3.0 -20.2 L-3.5 -13.5 L-1.9 -6.7 L-0.0 -0.0 Z"/></g><g transform="rotate(-54)"><path d="M0 0 L0.0 -0.0 L3.0 -10.5 L5.4 -20.9 L4.6 -31.4 L6.0 -41.8 L4.1 -52.3 L3.9 -62.7 L1.3 -73.2 L0 -81.2 L-1.3 -73.2 L-3.9 -62.7 L-4.1 -52.3 L-6.0 -41.8 L-4.6 -31.4 L-5.4 -20.9 L-3.0 -10.5 L-0.0 -0.0 Z"/></g><g transform="rotate(-28)"><path d="M0 0 L0.0 -0.0 L4.0 -14.2 L7.3 -28.3 L6.3 -42.5 L8.2 -56.6 L5.6 -70.8 L5.2 -85.0 L1.7 -99.1 L0 -107.1 L-1.7 -99.1 L-5.2 -85.0 L-5.6 -70.8 L-8.2 -56.6 L-6.3 -42.5 L-7.3 -28.3 L-4.0 -14.2 L-0.0 -0.0 Z"/></g><g transform="rotate(0)"><path d="M0 0 L0.0 -0.0 L4.8 -16.9 L8.6 -33.7 L7.5 -50.6 L9.8 -67.4 L6.6 -84.3 L6.2 -101.1 L2.1 -118.0 L0 -126.0 L-2.1 -118.0 L-6.2 -101.1 L-6.6 -84.3 L-9.8 -67.4 L-7.5 -50.6 L-8.6 -33.7 L-4.8 -16.9 L-0.0 -0.0 Z"/></g><g transform="rotate(28)"><path d="M0 0 L0.0 -0.0 L4.0 -14.2 L7.3 -28.3 L6.3 -42.5 L8.2 -56.6 L5.6 -70.8 L5.2 -85.0 L1.7 -99.1 L0 -107.1 L-1.7 -99.1 L-5.2 -85.0 L-5.6 -70.8 L-8.2 -56.6 L-6.3 -42.5 L-7.3 -28.3 L-4.0 -14.2 L-0.0 -0.0 Z"/></g><g transform="rotate(54)"><path d="M0 0 L0.0 -0.0 L3.0 -10.5 L5.4 -20.9 L4.6 -31.4 L6.0 -41.8 L4.1 -52.3 L3.9 -62.7 L1.3 -73.2 L0 -81.2 L-1.3 -73.2 L-3.9 -62.7 L-4.1 -52.3 L-6.0 -41.8 L-4.6 -31.4 L-5.4 -20.9 L-3.0 -10.5 L-0.0 -0.0 Z"/></g><g transform="rotate(78)"><path d="M0 0 L0.0 -0.0 L1.9 -6.7 L3.5 -13.5 L3.0 -20.2 L3.9 -27.0 L2.7 -33.7 L2.5 -40.5 L0.8 -47.2 L0 -55.2 L-0.8 -47.2 L-2.5 -40.5 L-2.7 -33.7 L-3.9 -27.0 L-3.0 -20.2 L-3.5 -13.5 L-1.9 -6.7 L-0.0 -0.0 Z"/></g><rect x="-4" y="-6" width="8" height="40" rx="4"/></svg>';
 
   var overlay = null;
   function getOverlay() {

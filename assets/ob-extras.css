@@ -72,3 +72,46 @@ body {
 body.ob-scrolled .shop-v28 .brandbar {
   box-shadow: 0 16px 30px -26px rgba(20, 16, 10, .7);
 }
+
+/* ---------- 4) Kopfleiste (Navigation) klebt oben ---------- */
+.site-header.is-pinned {
+  position: fixed; top: 0; left: 0; right: 0; width: 100%;
+  z-index: 95; box-shadow: 0 18px 34px -30px rgba(20, 16, 10, .85);
+}
+.header-spacer { display: block; width: 100%; }
+
+/* ---------- 5) Warenkorb-Knopf wie auf dem Flyer ---------- */
+.site-header .icon-btn[data-cart-open] {
+  position: relative; width: 54px; height: 54px; min-width: 54px; min-height: 54px; padding: 0;
+  border-radius: 50%; background: var(--green-deep); border: 2px solid var(--kraft);
+  box-shadow: 0 0 0 2px var(--ink), 0 6px 0 -2px rgba(20, 16, 10, .35);
+  color: var(--kraft-light);
+}
+.site-header .icon-btn[data-cart-open]:hover { background: var(--green); border-color: var(--kraft-light); }
+.site-header .icon-btn[data-cart-open] svg { width: 26px; height: 26px; color: var(--kraft-light); }
+.site-header .icon-btn[data-cart-open] svg [stroke] { stroke: currentColor; }
+.site-header .icon-btn[data-cart-open] .cart-count {
+  position: absolute; top: -7px; right: -7px; min-width: 23px; height: 23px; padding: 0 6px;
+  background: var(--rust); color: #fff6ec; border: 2px solid var(--kraft-light);
+  font-size: 12px;
+}
+
+/* ---------- 6) Filter auf dem Handy ausklappbar ---------- */
+.filters-m > summary { display: none; }
+@media (max-width: 1079px) {
+  .filters-m { display: block; margin: 0 0 14px; }
+  .filters-m > summary {
+    display: flex; align-items: center; gap: 10px; width: 100%;
+    min-height: 48px; padding: 12px 16px; cursor: pointer; list-style: none;
+    background: var(--kraft-2); border: 1.5px solid var(--sv-line); border-radius: 3px;
+    font: 700 13px/1 var(--font-body); letter-spacing: .12em; text-transform: uppercase; color: var(--ink);
+  }
+  .filters-m > summary::-webkit-details-marker { display: none; }
+  .filters-m > summary small {
+    font-size: 12px; font-weight: 600; letter-spacing: .02em; text-transform: none; color: #8a2a18;
+  }
+  .filters-m > summary svg { margin-left: auto; width: 18px; height: 18px; transition: transform .2s ease; }
+  .filters-m[open] > summary svg { transform: rotate(180deg); }
+  .filters-m:not([open]) > .filters { display: none; }
+  .filters-m[open] > .filters { display: block; position: static; max-height: none; }
+}
