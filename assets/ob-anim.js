@@ -1,8 +1,13 @@
-/* Bewegung — 10 Stile, je Bereich einstellbar.
-   Setzt Dauer, Weg, Verzögerung und Staffelung aus den data-Attributen.
-   Ohne JavaScript bleibt alles sichtbar: die Klasse .ob-anim-ready kommt erst hier. */
+/* Bewegung — 12 Stile, je Bereich einstellbar.
+   Zwei Dinge, die über „sichtbar oder nicht" entscheiden:
+   1. WANN gestartet wird: erst wenn ein sinnvoller Teil im Bild steht.
+      (Vorher startete ein 1300-px-Bereich bei 6 % Sichtbarkeit — die Animation
+      war vorbei, bevor der Kunde hinsah.)
+   2. WAS gestaffelt wird: nicht das eine .page-Element, sondern die echten
+      Karten einer Liste — sonst bewegt sich nur ein Klotz.
+   Ohne JavaScript bleibt alles sichtbar. */
 (function () {
-  var nodes = document.querySelectorAll('[data-ob-anim]');
+  var nodes = Array.prototype.slice.call(document.querySelectorAll('[data-ob-anim]'));
   if (!nodes.length) return;
 
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -11,12 +16,19 @@
     spring: 'cubic-bezier(.34, 1.56, .64, 1)',
     linear: 'linear'
   };
+  var vh = window.innerHeight;
+
+  function items(n) {
+    var liste = n.querySelector('.product-grid, .ob-grid, [data-anim-items], .cat-grid, .usp__inner');
+    var eltern = liste || n.querySelector('.page') || n;
+    return Array.prototype.slice.call(eltern.children);
+  }
 
   function setup(n) {
-    var speed = parseInt(n.getAttribute('data-ob-speed'), 10) || 700;
-    var dist = parseInt(n.getAttribute('data-ob-distance'), 10) || 32;
+    var speed = parseInt(n.getAttribute('data-ob-speed'), 10) || 800;
+    var dist = parseInt(n.getAttribute('data-ob-distance'), 10) || 48;
     var delay = parseInt(n.getAttribute('data-ob-delay'), 10) || 0;
-    var stagger = parseInt(n.getAttribute('data-ob-stagger'), 10) || 70;
+    var stagger = parseInt(n.getAttribute('data-ob-stagger'), 10) || 90;
     var ease = CURVES[n.getAttribute('data-ob-ease')] || CURVES.smooth;
 
     n.style.setProperty('--ob-dur', (speed / 1000) + 's');
@@ -25,69 +37,94 @@
     n.style.setProperty('--ob-stagger', stagger + 'ms');
     n.style.setProperty('--ob-ease', ease);
 
-    // Kinder für die Staffelung numerieren
     if (n.getAttribute('data-ob-anim') === 'stagger') {
-      Array.prototype.forEach.call(n.children, function (c, i) {
+      items(n).forEach(function (c, i) {
+        c.classList.add('ob-stagger-item');
         c.style.setProperty('--i', i);
       });
     }
     n.classList.add('ob-anim-ready');
   }
 
-  if (reduce || !('IntersectionObserver' in window)) {
-    Array.prototype.forEach.call(nodes, function (n) { n.classList.add('is-in'); });
+  if (reduce) {
+    nodes.forEach(function (n) { n.classList.add('is-in'); });
     return;
   }
 
-  Array.prototype.forEach.call(nodes, setup);
+  nodes.forEach(setup);
 
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) {
-        e.target.classList.add('is-in');
-        io.unobserve(e.target);
-      }
-    });
-  }, { rootMargin: '0px 0px -6% 0px', threshold: 0.01 });
+  /* Startlinie: kleine Bereiche, sobald sie zu 80 % im Bild stehen;
+     hohe Bereiche (höher als der Bildschirm), sobald ihr oberer Rand
+     die Bildmitte erreicht hat — dann sieht der Kunde schon die Hälfte. */
+  function startLinie(n) {
+    var h = n.offsetHeight || 0;
+    var faktor = h > vh * 0.9 ? 0.52 : 0.80;
+    return vh * faktor;
+  }
 
-  var offen = [];
-  Array.prototype.forEach.call(nodes, function (n) {
-    // was beim Laden schon im Bild steht, sofort zeigen (kein Aufblitzen)
-    var r = n.getBoundingClientRect();
-    if (r.top < window.innerHeight * 0.92) {
-      setTimeout(function () { n.classList.add('is-in'); }, 60);
-      return;
+  /* Für Staffelung: die Karten selbst sind die Beobachter — nur so sieht der
+     Kunde die Bewegung. Der Bereich als Ganzes wird sofort freigegeben. */
+  var karten = [];
+  nodes.forEach(function (n) {
+    if (n.getAttribute('data-ob-anim') === 'stagger') {
+      n.classList.add('is-in');
+      items(n).forEach(function (c, i) {
+        if (!c.classList.contains('ob-stagger-item')) {
+          c.classList.add('ob-stagger-item');
+          c.style.setProperty('--i', i);
+        }
+        karten.push(c);
+      });
     }
-    io.observe(n);
-    offen.push(n);
   });
 
-  /* Sicherheitsnetz: manche Bereiche meldet der Beobachter nie — etwa wenn ein Kind
-     auf Null geklippt ist. Darum zusätzlich beim Scrollen prüfen. */
-  var tick = false;
+  var offen = nodes.filter(function (n) { return n.getAttribute('data-ob-anim') !== 'stagger'; });
+
   function pruefen() {
-    tick = false;
-    offen = offen.filter(function (n) {
-      if (n.classList.contains('is-in')) return false;
+    var rest = [];
+    var batch = 0;
+    for (var i = 0; i < offen.length; i++) {
+      var n = offen[i];
+      if (n.classList.contains('is-in')) continue;
       var r = n.getBoundingClientRect();
-      if (r.top < window.innerHeight * 0.94 && r.bottom > 0) {
+      if (r.bottom > 0 && r.top < startLinie(n)) {
         n.classList.add('is-in');
-        io.unobserve(n);
-        return false;
+      } else {
+        rest.push(n);
       }
-      return true;
-    });
+    }
+    offen = rest;
+
+    var kartenRest = [];
+    for (var j = 0; j < karten.length; j++) {
+      var c = karten[j];
+      if (c.classList.contains('is-in')) continue;
+      var cr = c.getBoundingClientRect();
+      // Karte gilt als „dran", sobald sie zu ~12 % im Bild steht
+      if (cr.bottom > 0 && cr.top < vh * 0.94) {
+        c.style.setProperty('--ob-delay', ((batch++ % 6) * (parseInt(c.parentElement.style.getPropertyValue('--ob-stagger'), 10) || 90) / 1000) + 's');
+        c.classList.add('is-in');
+      } else {
+        kartenRest.push(c);
+      }
+    }
+    karten = kartenRest;
+    if (!karten.length) { /* fertig, bleibt trotzdem am Scrollen horchen bis offen leer */ }
     if (!offen.length) {
       window.removeEventListener('scroll', anstossen);
       window.removeEventListener('resize', anstossen);
     }
   }
+
+  var tick = false;
   function anstossen() {
     if (tick) return;
     tick = true;
-    requestAnimationFrame(pruefen);
+    requestAnimationFrame(function () { tick = false; pruefen(); });
   }
+
   window.addEventListener('scroll', anstossen, { passive: true });
-  window.addEventListener('resize', anstossen);
-  anstossen();
+  window.addEventListener('resize', function () { vh = window.innerHeight; anstossen(); });
+  // Start: was schon im Bild steht, wird kurz nach dem Laden gezeigt (kein Aufblitzen)
+  setTimeout(pruefen, 80);
 })();
